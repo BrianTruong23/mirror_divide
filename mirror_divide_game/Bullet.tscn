@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://cpb1juabtyd0t"]
+
+[ext_resource type="Texture2D" uid="uid://din5pm0xwbfm2" path="res://assets/Traps/Spiked Ball/Spiked Ball.png" id="1_5cacb"]
+[ext_resource type="Script" path="res://Bullet.gd" id="1_qeihv"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_a4ote"]
+radius = 5.09902
+
+[node name="Bullet" type="RigidBody2D"]
+script = ExtResource("1_qeihv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_a4ote")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-9.53674e-07, 9.53674e-07)
+scale = Vector2(0.392857, 0.392857)
+texture = ExtResource("1_5cacb")
