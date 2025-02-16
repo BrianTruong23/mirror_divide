@@ -1,7 +1,30 @@
-[gd_scene load_steps=4 format=3 uid="uid://c5clromjmgu7k"]
+[gd_scene load_steps=6 format=3 uid="uid://c5clromjmgu7k"]
 
 [ext_resource type="Script" path="res://Player.gd" id="1_i21aj"]
 [ext_resource type="Texture2D" uid="uid://we2lf56epipx" path="res://assets/Main Characters/Pink Man/Fall (32x32).png" id="1_vh16e"]
+[ext_resource type="Texture2D" uid="uid://0tarhgrm24lb" path="res://assets/Main Characters/Pink Man/Jump (32x32).png" id="2_dy1lw"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3gd0w"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_dy1lw")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_dy1lw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_vh16e")
+}],
+"loop": true,
+"name": &"run",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eerp1"]
 size = Vector2(53, 56.25)
@@ -9,10 +32,11 @@ size = Vector2(53, 56.25)
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_i21aj")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(14, 18)
-scale = Vector2(1.9375, 1.9375)
-texture = ExtResource("1_vh16e")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(14, 17)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_3gd0w")
+animation = &"idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(14.5, 19.875)
