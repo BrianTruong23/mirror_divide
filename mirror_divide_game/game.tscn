@@ -1,18 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://dilgrgn4xrt2m"]
+[gd_scene load_steps=5 format=3 uid="uid://dilgrgn4xrt2m"]
 
-[ext_resource type="PackedScene" uid="uid://osg7dk77rybd" path="res://frog.tscn" id="1_xislg"]
-[ext_resource type="Script" path="res://frog.gd" id="2_34mc6"]
 [ext_resource type="PackedScene" uid="uid://c5clromjmgu7k" path="res://Player.tscn" id="3_d0l3y"]
 [ext_resource type="PackedScene" uid="uid://cr0fd3esxoj37" path="res://Enemy.tscn" id="4_x7f01"]
+[ext_resource type="Texture2D" uid="uid://b1s0mvek3nqnp" path="res://assetss/platform_black.png" id="5_q3onh"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_0s0eq"]
 distance = -323.0
 
 [node name="Game" type="Node2D"]
-
-[node name="frog" parent="." instance=ExtResource("1_xislg")]
-position = Vector2(3, 122)
-script = ExtResource("2_34mc6")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
@@ -25,3 +20,33 @@ position = Vector2(179, 126)
 
 [node name="Enemy" parent="." instance=ExtResource("4_x7f01")]
 position = Vector2(363, 166)
+
+[node name="PlatformBlack" type="Sprite2D" parent="."]
+position = Vector2(92.625, 550.625)
+scale = Vector2(0.145898, 0.145898)
+texture = ExtResource("5_q3onh")
+
+[node name="PlatformBlack2" type="Sprite2D" parent="."]
+position = Vector2(276, 552)
+scale = Vector2(0.145898, 0.145898)
+texture = ExtResource("5_q3onh")
+
+[node name="PlatformBlack3" type="Sprite2D" parent="."]
+position = Vector2(459, 552)
+scale = Vector2(0.145898, 0.145898)
+texture = ExtResource("5_q3onh")
+
+[node name="PlatformBlack4" type="Sprite2D" parent="."]
+position = Vector2(639.375, 552.375)
+scale = Vector2(0.145898, 0.145898)
+texture = ExtResource("5_q3onh")
+
+[node name="PlatformBlack5" type="Sprite2D" parent="."]
+position = Vector2(822.75, 553.75)
+scale = Vector2(0.145898, 0.145898)
+texture = ExtResource("5_q3onh")
+
+[node name="PlatformBlack6" type="Sprite2D" parent="."]
+position = Vector2(1005.75, 553.75)
+scale = Vector2(0.145898, 0.145898)
+texture = ExtResource("5_q3onh")
