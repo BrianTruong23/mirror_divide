@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://cr0fd3esxoj37"]
+
+[ext_resource type="Script" path="res://Enemy.gd" id="1_r03p0"]
+[ext_resource type="Texture2D" uid="uid://cvs0fhpu85l6h" path="res://assets/Main Characters/Mask Dude/Fall (32x32).png" id="1_y5rfj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xqp6i"]
+size = Vector2(55.5, 58)
+
+[node name="Enemy" type="CharacterBody2D"]
+script = ExtResource("1_r03p0")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(13.5, 13.5)
+scale = Vector2(1.84375, 1.84375)
+texture = ExtResource("1_y5rfj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(17.25, 15)
+shape = SubResource("RectangleShape2D_xqp6i")
