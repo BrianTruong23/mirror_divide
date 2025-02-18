@@ -42,16 +42,16 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("player_shoot"):
 		player_shoot()
 
+
 func player_shoot():
+	if not bullet_scene:
+		print("Bullet scene is not assigned!")
+		return
+
 	var bullet = bullet_scene.instantiate()
-	bullet.position = position  # Start at player's position
-
-	# Calculate direction towards the cursor
-	var mouse_position = get_global_mouse_position()
-	var shoot_direction = (mouse_position - position).normalized()
-
-	# Set bullet velocity
-	bullet.set_linear_velocity(shoot_direction * BULLET_SPEED)
+	bullet.position = position + Vector2(0, 12)  # Start at player's position
+	
+	bullet.bullet_direction = (position - get_global_mouse_position()).normalized()
 
 	# Add the bullet to the scene
 	get_parent().add_child(bullet)
