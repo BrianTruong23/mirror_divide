@@ -1,9 +1,15 @@
-extends RigidBody2D
+extends Area2D
 
-func _ready():
-	gravity_scale = 0  # Ensure bullet doesn't fall down
+@export var BULLET_LIFETIME = 3.0  # Bullet lifespan in seconds
 
-func _physics_process(delta):
-	# If you need the bullet to destroy itself after a while
-	if position.length() > 5000:  # Example limit
+var bullet_direction 
+
+var speed = 800
+	
+func _process(delta):
+	position -= bullet_direction * speed * delta
+
+	# Check if the bullet is off-screen.
+	var viewport_rect = get_viewport().get_visible_rect()
+	if not viewport_rect.has_point(global_position):
 		queue_free()
