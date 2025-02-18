@@ -1,5 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://dilgrgn4xrt2m"]
+[gd_scene load_steps=6 format=3 uid="uid://dilgrgn4xrt2m"]
 
+[ext_resource type="PackedScene" uid="uid://c04dathkllkwg" path="res://gun.tscn" id="2_fe3mn"]
 [ext_resource type="PackedScene" uid="uid://c5clromjmgu7k" path="res://Player.tscn" id="3_d0l3y"]
 [ext_resource type="PackedScene" uid="uid://cr0fd3esxoj37" path="res://Enemy.tscn" id="4_x7f01"]
 [ext_resource type="Texture2D" uid="uid://b1s0mvek3nqnp" path="res://assetss/platform_black.png" id="5_q3onh"]
@@ -17,6 +18,9 @@ shape = SubResource("WorldBoundaryShape2D_0s0eq")
 
 [node name="Player" parent="." instance=ExtResource("3_d0l3y")]
 position = Vector2(179, 126)
+
+[node name="Area2D" parent="Player" instance=ExtResource("2_fe3mn")]
+position = Vector2(35, 6)
 
 [node name="Enemy" parent="." instance=ExtResource("4_x7f01")]
 position = Vector2(363, 166)
