@@ -1,7 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://dilgrgn4xrt2m"]
+[gd_scene load_steps=10 format=3 uid="uid://dilgrgn4xrt2m"]
 
+[ext_resource type="PackedScene" uid="uid://e3xjoir8f4lx" path="res://Player_2.tscn" id="1_qlj28"]
+[ext_resource type="Script" path="res://Player_2.gd" id="2_eap3b"]
 [ext_resource type="PackedScene" uid="uid://c04dathkllkwg" path="res://gun.tscn" id="2_fe3mn"]
+[ext_resource type="PackedScene" uid="uid://dvmkr6u6s18m" path="res://gun_2.tscn" id="3_5en7w"]
 [ext_resource type="PackedScene" uid="uid://c5clromjmgu7k" path="res://Player.tscn" id="3_d0l3y"]
+[ext_resource type="Script" path="res://gun_2.gd" id="4_tbff7"]
 [ext_resource type="PackedScene" uid="uid://cr0fd3esxoj37" path="res://Enemy.tscn" id="4_x7f01"]
 [ext_resource type="Texture2D" uid="uid://b1s0mvek3nqnp" path="res://assetss/platform_black.png" id="5_q3onh"]
 
@@ -9,6 +13,14 @@
 distance = -323.0
 
 [node name="Game" type="Node2D"]
+
+[node name="Player_2" parent="." instance=ExtResource("1_qlj28")]
+position = Vector2(524, 102)
+script = ExtResource("2_eap3b")
+
+[node name="Area2D" parent="Player_2" instance=ExtResource("3_5en7w")]
+position = Vector2(33, 58)
+script = ExtResource("4_tbff7")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
