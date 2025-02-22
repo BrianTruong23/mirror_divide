@@ -1,14 +1,14 @@
 [gd_scene load_steps=6 format=3 uid="uid://c5clromjmgu7k"]
 
 [ext_resource type="Script" path="res://Player.gd" id="1_i21aj"]
-[ext_resource type="Texture2D" uid="uid://de4s82kps816n" path="res://assetss/player_default.png" id="2_0sxeb"]
-[ext_resource type="Texture2D" uid="uid://cmgmds1dbdnff" path="res://assetss/player_default_animation.png" id="3_fplqv"]
+[ext_resource type="Texture2D" uid="uid://bu2l707dqe5ed" path="res://assetss/player_default crop.png" id="2_yqg6k"]
+[ext_resource type="PackedScene" uid="uid://c04dathkllkwg" path="res://gun.tscn" id="3_mpc6w"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_3gd0w"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_0sxeb")
+"texture": ExtResource("2_yqg6k")
 }],
 "loop": true,
 "name": &"idle",
@@ -16,10 +16,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_fplqv")
-}, {
-"duration": 1.0,
-"texture": ExtResource("2_0sxeb")
+"texture": ExtResource("2_yqg6k")
 }],
 "loop": true,
 "name": &"run",
@@ -27,7 +24,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eerp1"]
-size = Vector2(32, 70.25)
+size = Vector2(27, 69)
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_i21aj")
@@ -36,8 +33,16 @@ script = ExtResource("1_i21aj")
 position = Vector2(22.1875, 24.8125)
 scale = Vector2(0.0700195, 0.0700195)
 sprite_frames = SubResource("SpriteFrames_3gd0w")
-animation = &"idle"
+animation = &"run"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(21, 26.875)
+position = Vector2(25.5, 27.5)
+scale = Vector2(1.02569, 0.951982)
 shape = SubResource("RectangleShape2D_eerp1")
+
+[node name="Gun" parent="." instance=ExtResource("3_mpc6w")]
+position = Vector2(35, 14)
+scale = Vector2(1.39714, 1.39714)
+
+[node name="Muzzle" type="Marker2D" parent="Gun"]
+position = Vector2(21, -2)
