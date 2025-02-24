@@ -1,0 +1,137 @@
+[gd_scene load_steps=12 format=3 uid="uid://di6kqgwcemtjr"]
+
+[ext_resource type="Script" path="res://game.gd" id="1_wj7ef"]
+[ext_resource type="PackedScene" uid="uid://3owvf6hs2mjy" path="res://GrappleObject.tscn" id="2_5ybre"]
+[ext_resource type="PackedScene" uid="uid://c5clromjmgu7k" path="res://Player.tscn" id="2_k3d46"]
+[ext_resource type="Texture2D" uid="uid://d2hroabycxi1b" path="res://assets/b_blue_background.png" id="3_fvxsm"]
+[ext_resource type="PackedScene" uid="uid://e3xjoir8f4lx" path="res://Player_2.tscn" id="4_ha2ej"]
+[ext_resource type="Script" path="res://Player_2.gd" id="5_70vel"]
+[ext_resource type="Script" path="res://CameraController.gd" id="6_mdbbr"]
+[ext_resource type="PackedScene" uid="uid://cr0fd3esxoj37" path="res://Enemy.tscn" id="6_yehuy"]
+[ext_resource type="AudioStream" uid="uid://devabrng6t8h8" path="res://assets/zz_bgm.mp3" id="7_olmve"]
+[ext_resource type="Texture2D" uid="uid://b1s0mvek3nqnp" path="res://assetss/platform_black.png" id="7_r0i6j"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_0s0eq"]
+distance = -323.0
+
+[node name="Game" type="Node2D"]
+position = Vector2(-1, 0)
+script = ExtResource("1_wj7ef")
+
+[node name="GrappleObject" parent="." instance=ExtResource("2_5ybre")]
+position = Vector2(893, 345)
+scale = Vector2(0.561111, 0.561111)
+
+[node name="Player_2" parent="." instance=ExtResource("4_ha2ej")]
+position = Vector2(4225, 272)
+scale = Vector2(1.72249, 1.72249)
+script = ExtResource("5_70vel")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-335, 136)
+shape = SubResource("WorldBoundaryShape2D_0s0eq")
+
+[node name="Player1" parent="." instance=ExtResource("2_k3d46")]
+position = Vector2(-2295, 296)
+scale = Vector2(2.20357, 2.20357)
+
+[node name="Enemy" parent="." instance=ExtResource("6_yehuy")]
+position = Vector2(625, 211)
+scale = Vector2(1.83759, 1.83759)
+
+[node name="PlatformBlack" type="Sprite2D" parent="."]
+position = Vector2(92.625, 551.625)
+scale = Vector2(0.145898, 0.145898)
+texture = ExtResource("7_r0i6j")
+
+[node name="PlatformBlack2" type="Sprite2D" parent="."]
+position = Vector2(276, 552)
+scale = Vector2(0.145898, 0.145898)
+texture = ExtResource("7_r0i6j")
+
+[node name="PlatformBlack3" type="Sprite2D" parent="."]
+position = Vector2(459, 552)
+scale = Vector2(0.145898, 0.145898)
+texture = ExtResource("7_r0i6j")
+
+[node name="PlatformBlack4" type="Sprite2D" parent="."]
+position = Vector2(639.375, 552.375)
+scale = Vector2(0.145898, 0.145898)
+texture = ExtResource("7_r0i6j")
+
+[node name="PlatformBlack5" type="Sprite2D" parent="."]
+position = Vector2(822.75, 553.75)
+scale = Vector2(0.145898, 0.145898)
+texture = ExtResource("7_r0i6j")
+
+[node name="PlatformBlack6" type="Sprite2D" parent="."]
+position = Vector2(1005.75, 553.75)
+scale = Vector2(0.145898, 0.145898)
+texture = ExtResource("7_r0i6j")
+
+[node name="PlatformBlack7" type="Sprite2D" parent="."]
+position = Vector2(1192, 554)
+scale = Vector2(0.145898, 0.145898)
+texture = ExtResource("7_r0i6j")
+
+[node name="PlatformBlack8" type="Sprite2D" parent="."]
+position = Vector2(1378, 554)
+scale = Vector2(0.145898, 0.145898)
+texture = ExtResource("7_r0i6j")
+
+[node name="PlatformBlack9" type="Sprite2D" parent="."]
+position = Vector2(1564, 554)
+scale = Vector2(0.145898, 0.145898)
+texture = ExtResource("7_r0i6j")
+
+[node name="PlatformBlack10" type="Sprite2D" parent="."]
+position = Vector2(-93, 552)
+scale = Vector2(0.145898, 0.145898)
+texture = ExtResource("7_r0i6j")
+
+[node name="PlatformBlack11" type="Sprite2D" parent="."]
+position = Vector2(-279, 552)
+scale = Vector2(0.145898, 0.145898)
+texture = ExtResource("7_r0i6j")
+
+[node name="PlatformBlack12" type="Sprite2D" parent="."]
+position = Vector2(-465, 552)
+scale = Vector2(0.145898, 0.145898)
+texture = ExtResource("7_r0i6j")
+
+[node name="PlatformBlack13" type="Sprite2D" parent="."]
+position = Vector2(-651, 552)
+scale = Vector2(0.145898, 0.145898)
+texture = ExtResource("7_r0i6j")
+
+[node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("player1", "player2")]
+script = ExtResource("6_mdbbr")
+player1 = NodePath("../Player1")
+player2 = NodePath("../Player_2")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(-2.38419e-07, -13)
+scale = Vector2(0.646763, 0.642578)
+texture = ExtResource("3_fvxsm")
+centered = false
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_olmve")
+parameters/looping = true
+
+[node name="PlatformBlack14" type="Sprite2D" parent="."]
+position = Vector2(-839, 552)
+scale = Vector2(0.145898, 0.145898)
+texture = ExtResource("7_r0i6j")
+
+[node name="PlatformBlack15" type="Sprite2D" parent="."]
+position = Vector2(1061, 553.313)
+scale = Vector2(5.28125, 0.147949)
+texture = ExtResource("7_r0i6j")
