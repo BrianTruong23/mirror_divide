@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://di6kqgwcemtjr"]
+[gd_scene load_steps=14 format=3 uid="uid://di6kqgwcemtjr"]
 
 [ext_resource type="Script" path="res://game.gd" id="1_wj7ef"]
 [ext_resource type="PackedScene" uid="uid://3owvf6hs2mjy" path="res://GrappleObject.tscn" id="2_5ybre"]
@@ -10,9 +10,13 @@
 [ext_resource type="PackedScene" uid="uid://cr0fd3esxoj37" path="res://Enemy.tscn" id="6_yehuy"]
 [ext_resource type="AudioStream" uid="uid://devabrng6t8h8" path="res://assets/zz_bgm.mp3" id="7_olmve"]
 [ext_resource type="Texture2D" uid="uid://b1s0mvek3nqnp" path="res://assetss/platform_black.png" id="7_r0i6j"]
+[ext_resource type="PackedScene" uid="uid://bfybyncq0lihu" path="res://breakablebox.tscn" id="11_bk4ok"]
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_0s0eq"]
-distance = -323.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ajypx"]
+size = Vector2(5618.5, 215)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_148uk"]
+size = Vector2(624, 193)
 
 [node name="Game" type="Node2D"]
 position = Vector2(-1, 0)
@@ -30,81 +34,16 @@ script = ExtResource("5_70vel")
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(-335, 136)
-shape = SubResource("WorldBoundaryShape2D_0s0eq")
+position = Vector2(486.5, 576)
+shape = SubResource("RectangleShape2D_ajypx")
 
 [node name="Player1" parent="." instance=ExtResource("2_k3d46")]
-position = Vector2(-2295, 296)
+position = Vector2(-2271, 296)
 scale = Vector2(2.20357, 2.20357)
 
 [node name="Enemy" parent="." instance=ExtResource("6_yehuy")]
 position = Vector2(625, 211)
 scale = Vector2(1.83759, 1.83759)
-
-[node name="PlatformBlack" type="Sprite2D" parent="."]
-position = Vector2(92.625, 551.625)
-scale = Vector2(0.145898, 0.145898)
-texture = ExtResource("7_r0i6j")
-
-[node name="PlatformBlack2" type="Sprite2D" parent="."]
-position = Vector2(276, 552)
-scale = Vector2(0.145898, 0.145898)
-texture = ExtResource("7_r0i6j")
-
-[node name="PlatformBlack3" type="Sprite2D" parent="."]
-position = Vector2(459, 552)
-scale = Vector2(0.145898, 0.145898)
-texture = ExtResource("7_r0i6j")
-
-[node name="PlatformBlack4" type="Sprite2D" parent="."]
-position = Vector2(639.375, 552.375)
-scale = Vector2(0.145898, 0.145898)
-texture = ExtResource("7_r0i6j")
-
-[node name="PlatformBlack5" type="Sprite2D" parent="."]
-position = Vector2(822.75, 553.75)
-scale = Vector2(0.145898, 0.145898)
-texture = ExtResource("7_r0i6j")
-
-[node name="PlatformBlack6" type="Sprite2D" parent="."]
-position = Vector2(1005.75, 553.75)
-scale = Vector2(0.145898, 0.145898)
-texture = ExtResource("7_r0i6j")
-
-[node name="PlatformBlack7" type="Sprite2D" parent="."]
-position = Vector2(1192, 554)
-scale = Vector2(0.145898, 0.145898)
-texture = ExtResource("7_r0i6j")
-
-[node name="PlatformBlack8" type="Sprite2D" parent="."]
-position = Vector2(1378, 554)
-scale = Vector2(0.145898, 0.145898)
-texture = ExtResource("7_r0i6j")
-
-[node name="PlatformBlack9" type="Sprite2D" parent="."]
-position = Vector2(1564, 554)
-scale = Vector2(0.145898, 0.145898)
-texture = ExtResource("7_r0i6j")
-
-[node name="PlatformBlack10" type="Sprite2D" parent="."]
-position = Vector2(-93, 552)
-scale = Vector2(0.145898, 0.145898)
-texture = ExtResource("7_r0i6j")
-
-[node name="PlatformBlack11" type="Sprite2D" parent="."]
-position = Vector2(-279, 552)
-scale = Vector2(0.145898, 0.145898)
-texture = ExtResource("7_r0i6j")
-
-[node name="PlatformBlack12" type="Sprite2D" parent="."]
-position = Vector2(-465, 552)
-scale = Vector2(0.145898, 0.145898)
-texture = ExtResource("7_r0i6j")
-
-[node name="PlatformBlack13" type="Sprite2D" parent="."]
-position = Vector2(-651, 552)
-scale = Vector2(0.145898, 0.145898)
-texture = ExtResource("7_r0i6j")
 
 [node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("player1", "player2")]
 script = ExtResource("6_mdbbr")
@@ -126,12 +65,45 @@ centered = false
 stream = ExtResource("7_olmve")
 parameters/looping = true
 
-[node name="PlatformBlack14" type="Sprite2D" parent="."]
-position = Vector2(-839, 552)
-scale = Vector2(0.145898, 0.145898)
+[node name="PlatformBlack15" type="Sprite2D" parent="."]
+position = Vector2(489, 553.313)
+scale = Vector2(4.3875, 0.147949)
 texture = ExtResource("7_r0i6j")
 
-[node name="PlatformBlack15" type="Sprite2D" parent="."]
-position = Vector2(1061, 553.313)
-scale = Vector2(5.28125, 0.147949)
+[node name="RigidBody2D" parent="." instance=ExtResource("11_bk4ok")]
+position = Vector2(-1871, 440)
+
+[node name="RigidBody2D2" parent="." instance=ExtResource("11_bk4ok")]
+position = Vector2(-1871, 392)
+
+[node name="RigidBody2D3" parent="." instance=ExtResource("11_bk4ok")]
+position = Vector2(-1871, 346)
+
+[node name="RigidBody2D4" parent="." instance=ExtResource("11_bk4ok")]
+position = Vector2(-1871, 299)
+
+[node name="RigidBody2D5" parent="." instance=ExtResource("11_bk4ok")]
+position = Vector2(-1871, 253)
+
+[node name="RigidBody2D6" parent="." instance=ExtResource("11_bk4ok")]
+position = Vector2(-1871, 205)
+
+[node name="TileMap" type="TileMap" parent="."]
+format = 2
+
+[node name="PlatformBlack16" type="Sprite2D" parent="."]
+position = Vector2(4220, 552)
+scale = Vector2(0.4875, 0.147949)
 texture = ExtResource("7_r0i6j")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(4217, 551.5)
+shape = SubResource("RectangleShape2D_148uk")
+
+[node name="RigidBody2D7" parent="." instance=ExtResource("11_bk4ok")]
+position = Vector2(3057, 434)
+
+[node name="RigidBody2D8" parent="." instance=ExtResource("11_bk4ok")]
+position = Vector2(3057, 384)
