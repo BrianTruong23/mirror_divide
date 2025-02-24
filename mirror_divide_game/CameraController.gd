@@ -27,10 +27,12 @@ func _process(delta: float) -> void:
 	# Detect Player 1 movement
 	if Input.is_action_pressed("player_left") or Input.is_action_pressed("player_right") or Input.is_action_pressed("player_up") or Input.is_action_pressed("player_down"):
 		switch_target(player1)
+		zoom = zoom_normal
 
 	# Detect Player 2 movement
 	elif Input.is_action_pressed("player_left_2") or Input.is_action_pressed("player_right_2") or Input.is_action_pressed("player_up_2") or Input.is_action_pressed("player_down_2"):
 		switch_target(player2)
+		zoom = zoom_normal
 
 	# Smoothly move the camera towards the current target
 	if current_target:
