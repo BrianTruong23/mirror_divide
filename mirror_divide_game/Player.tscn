@@ -23,8 +23,9 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_eerp1"]
-size = Vector2(27, 69)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ewq8j"]
+radius = 9.74953
+height = 71.4299
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_i21aj")
@@ -36,9 +37,9 @@ sprite_frames = SubResource("SpriteFrames_3gd0w")
 animation = &"run"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(25.5, 27.5)
+position = Vector2(29, 28)
 scale = Vector2(1.02569, 0.951982)
-shape = SubResource("RectangleShape2D_eerp1")
+shape = SubResource("CapsuleShape2D_ewq8j")
 
 [node name="Gun" parent="." instance=ExtResource("3_mpc6w")]
 position = Vector2(35, 14)
