@@ -9,12 +9,12 @@ const GRAVITY = 1000.0
 
 var grabbed_object: Node = null  # Store grabbed object reference
 
-func _ready() -> void:
-	# Ensure GrabArea exists before using it
-	if has_node("GrabArea"):
-		grab_area = $GrabArea
-	else:
-		print("Error: GrabArea node is missing from Player 2!")
+#func _ready() -> void:
+	## Ensure GrabArea exists before using it
+	#if has_node("GrabArea"):
+		#grab_area = $GrabArea
+	#else:
+		#print("Error: GrabArea node is missing from Player 2!")
 
 func _physics_process(delta: float) -> void:
 	# Apply gravity if not on the floor
@@ -46,34 +46,34 @@ func _physics_process(delta: float) -> void:
 			sprite.play("idle")  # Default idle animation
 
 	# Handle grabbing objects
-	if Input.is_action_just_pressed("player_grab_2"):
-		attempt_grab()
-
-	if Input.is_action_just_released("player_grab_2"):
-		release_grab()
+	#if Input.is_action_just_pressed("player_grab_2"):
+		#attempt_grab()
+#
+	#if Input.is_action_just_released("player_grab_2"):
+		#release_grab()
 
 	move_and_slide()
-
-func attempt_grab():
-	if grab_area == null:
-		print("Error: GrabArea is not assigned!")
-		return
-
-	# Detect objects inside the grab area
-	for body in grab_area.get_overlapping_bodies():
-		if body.has_method("grabbed"):  # Check if the object can be grabbed
-			grabbed_object = body
-			body.grabbed(self)  # Call object's grabbed function
-			body.reparent(self)  # Attach the object to Player 2
-			body.position = Vector2(10, -10)  # Adjust position near player
-			print("Grabbed:", body.name)
-			break  # Stop after grabbing the first valid object
-
-func release_grab():
-	if grabbed_object:
-		grabbed_object.reparent(get_parent())  # Detach from the player
-		grabbed_object.released()  # Call release function on the object
-		grabbed_object = null  # Clear grabbed reference
-
-	# Revert animation to idle
-	sprite.play("idle")
+#
+#func attempt_grab():
+	#if grab_area == null:
+		#print("Error: GrabArea is not assigned!")
+		#return
+#
+	## Detect objects inside the grab area
+	#for body in grab_area.get_overlapping_bodies():
+		#if body.has_method("grabbed"):  # Check if the object can be grabbed
+			#grabbed_object = body
+			#body.grabbed(self)  # Call object's grabbed function
+			#body.reparent(self)  # Attach the object to Player 2
+			#body.position = Vector2(10, -10)  # Adjust position near player
+			#print("Grabbed:", body.name)
+			#break  # Stop after grabbing the first valid object
+#
+#func release_grab():
+	#if grabbed_object:
+		#grabbed_object.reparent(get_parent())  # Detach from the player
+		#grabbed_object.released()  # Call release function on the object
+		#grabbed_object = null  # Clear grabbed reference
+#
+	## Revert animation to idle
+	#sprite.play("idle")

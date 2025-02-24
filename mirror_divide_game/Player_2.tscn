@@ -1,6 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://e3xjoir8f4lx"]
+[gd_scene load_steps=6 format=3 uid="uid://e3xjoir8f4lx"]
 
-[ext_resource type="Texture2D" uid="uid://bt2g2lca4uuxu" path="res://assetss/player_blue crop.png" id="1_q7t3c"]
+[ext_resource type="Texture2D" uid="uid://bt2g2lca4uuxu" path="res://assets/player_blue crop.png" id="1_q7t3c"]
 [ext_resource type="PackedScene" uid="uid://dvmkr6u6s18m" path="res://gun_2.tscn" id="2_yf6tk"]
 [ext_resource type="Script" path="res://gun_2.gd" id="3_5a28l"]
 
@@ -26,9 +26,6 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6wyya"]
 size = Vector2(30.6231, 78.2823)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ijrfe"]
-size = Vector2(42.6882, 15.6836)
-
 [node name="CharacterBody2D" type="CharacterBody2D"]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -43,14 +40,9 @@ scale = Vector2(1.01801, -1.14018)
 shape = SubResource("RectangleShape2D_6wyya")
 
 [node name="Area2D" parent="." instance=ExtResource("2_yf6tk")]
-position = Vector2(52, 43)
+position = Vector2(52, 41)
 scale = Vector2(3.04, 3.04)
 script = ExtResource("3_5a28l")
 
-[node name="GrabArea" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="GrabArea"]
-position = Vector2(38.7122, 40.1769)
-rotation = 3.14159
-scale = Vector2(0.642434, -1.93538)
-shape = SubResource("RectangleShape2D_ijrfe")
+[connection signal="area_entered" from="Area2D" to="Area2D" method="_on_area_entered"]
+[connection signal="area_exited" from="Area2D" to="Area2D" method="_on_area_exited"]

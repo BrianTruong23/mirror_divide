@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dilgrgn4xrt2m"]
+[gd_scene load_steps=13 format=3 uid="uid://dilgrgn4xrt2m"]
 
 [ext_resource type="Script" path="res://game.gd" id="1_eusrx"]
 [ext_resource type="PackedScene" uid="uid://e3xjoir8f4lx" path="res://Player_2.tscn" id="1_qlj28"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" path="res://CameraController.gd" id="6_2p6b3"]
 [ext_resource type="Texture2D" uid="uid://d2hroabycxi1b" path="res://assets/b_blue_background.png" id="8_exqew"]
 [ext_resource type="AudioStream" uid="uid://devabrng6t8h8" path="res://assets/zz_bgm.mp3" id="9_fcrqh"]
+[ext_resource type="PackedScene" uid="uid://b64xw6gneyvao" path="res://Box.tscn" id="9_y2l5s"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_0s0eq"]
 distance = -323.0
@@ -109,6 +110,9 @@ texture = ExtResource("5_q3onh")
 script = ExtResource("6_2p6b3")
 player1 = NodePath("../Player")
 player2 = NodePath("../Player_2")
+
+[node name="Area2D" parent="." instance=ExtResource("9_y2l5s")]
+position = Vector2(933, 226)
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
