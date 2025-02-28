@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://c5clromjmgu7k" path="res://Player.tscn" id="3_d0l3y"]
 [ext_resource type="PackedScene" uid="uid://3owvf6hs2mjy" path="res://GrappleObject.tscn" id="4_b0c1g"]
 [ext_resource type="PackedScene" uid="uid://cr0fd3esxoj37" path="res://Enemy.tscn" id="4_x7f01"]
-[ext_resource type="Texture2D" uid="uid://b1s0mvek3nqnp" path="res://assets/platform_black.png" id="5_q3onh"]
+[ext_resource type="Texture2D" uid="uid://b1s0mvek3nqnp" path="res://assetss/platform_black.png" id="5_q3onh"]
 [ext_resource type="Script" path="res://CameraController.gd" id="6_2p6b3"]
 [ext_resource type="Texture2D" uid="uid://d2hroabycxi1b" path="res://assets/b_blue_background.png" id="8_exqew"]
 [ext_resource type="AudioStream" uid="uid://devabrng6t8h8" path="res://assets/zz_bgm.mp3" id="9_fcrqh"]
@@ -111,7 +111,7 @@ script = ExtResource("6_2p6b3")
 player1 = NodePath("../Player")
 player2 = NodePath("../Player_2")
 
-[node name="Area2D" parent="." instance=ExtResource("9_y2l5s")]
+[node name="Area2D" parent="." groups=["grabbable"] instance=ExtResource("9_y2l5s")]
 position = Vector2(933, 226)
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]

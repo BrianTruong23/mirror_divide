@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://dvmkr6u6s18m"]
 
-[ext_resource type="Texture2D" uid="uid://cfc00trfqqiu2" path="res://assets/gun_blue_2.png" id="1_eypdc"]
-[ext_resource type="Texture2D" uid="uid://gh2g1ctcj6as" path="res://assets/hand_grabbed.png" id="2_4ogrc"]
-[ext_resource type="Texture2D" uid="uid://cgdtbb5umld1o" path="res://assets/hand_released.png" id="3_gqru1"]
+[ext_resource type="Texture2D" uid="uid://cfc00trfqqiu2" path="res://assetss/gun_blue_2.png" id="1_eypdc"]
+[ext_resource type="Texture2D" uid="uid://gh2g1ctcj6as" path="res://assetss/hand_grabbed.png" id="2_4ogrc"]
+[ext_resource type="Texture2D" uid="uid://cgdtbb5umld1o" path="res://assetss/hand_released.png" id="3_gqru1"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_spgc4"]
 animations = [{

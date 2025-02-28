@@ -18,7 +18,8 @@ func _process(delta: float) -> void:
 
 
 func move_grabbed_object(grabbed_object:Area2D):
-	grabbed_object.global_position = lerp(grabbed_object.global_position, global_position + grab_offset, 1)  # Instant snap
+	if grabbed_object.is_in_group("grabbable"):
+		grabbed_object.global_position = lerp(grabbed_object.global_position, global_position + grab_offset, 1)  # Instant snap
 
 
 func check_current_collisions() -> void:
