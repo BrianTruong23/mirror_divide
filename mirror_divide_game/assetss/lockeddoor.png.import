@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d2hroabycxi1b"
-path="res://.godot/imported/b_blue_background.png-40015742024fd13fd9806daaadbc49a5.ctex"
+uid="uid://b3vnvs1reyg4r"
+path="res://.godot/imported/lockeddoor.png-84d27fb1727e7177eabbc96eb0de1fcf.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assetss/b_blue_background.png"
-dest_files=["res://.godot/imported/b_blue_background.png-40015742024fd13fd9806daaadbc49a5.ctex"]
+source_file="res://assetss/lockeddoor.png"
+dest_files=["res://.godot/imported/lockeddoor.png-84d27fb1727e7177eabbc96eb0de1fcf.ctex"]
 
 [params]
 
