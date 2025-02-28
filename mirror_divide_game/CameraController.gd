@@ -24,15 +24,9 @@ func _process(delta: float) -> void:
 	if player1 == null or player2 == null:
 		return  # Prevent errors if players are not assigned
 
-	# Detect Player 1 movement
-	if Input.is_action_pressed("player_left") or Input.is_action_pressed("player_right") or Input.is_action_pressed("player_up") or Input.is_action_pressed("player_down"):
-		switch_target(player1)
-		zoom = zoom_normal
-
-	# Detect Player 2 movement
-	elif Input.is_action_pressed("player_left_2") or Input.is_action_pressed("player_right_2") or Input.is_action_pressed("player_up_2") or Input.is_action_pressed("player_down_2"):
-		switch_target(player2)
-		zoom = zoom_normal
+	# Switch camera view when "camera_switch" key is pressed
+	if Input.is_action_just_pressed("camera_switch"):
+		toggle_target()
 
 	# Smoothly move the camera towards the current target
 	if current_target:
@@ -41,7 +35,10 @@ func _process(delta: float) -> void:
 	# Smooth zoom transition
 	zoom = zoom.lerp(zoom_in if zoom != zoom_normal else zoom_normal, delta * zoom_speed)
 
-func switch_target(new_target: CharacterBody2D):
-	if current_target != new_target:
-		current_target = new_target
-		zoom = zoom_in  # Apply zoom-in effect
+func toggle_target():
+	if current_target == player1:
+		current_target = player2
+	else:
+		current_target = player1
+	
+	zoom = zoom_in  # Apply zoom-in effect temporarily
