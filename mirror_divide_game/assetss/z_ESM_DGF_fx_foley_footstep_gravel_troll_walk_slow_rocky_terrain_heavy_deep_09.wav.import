@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://b50fydw6vrahf"
-path="res://.godot/imported/z_ESM_DGF_fx_foley_footstep_gravel_troll_walk_slow_rocky_terrain_heavy_deep_09.wav-f63ee87596e2708c445b83293e51c1a4.sample"
+path="res://.godot/imported/z_ESM_DGF_fx_foley_footstep_gravel_troll_walk_slow_rocky_terrain_heavy_deep_09.wav-bf68a2a98104f464a3b5db154b5c79ae.sample"
 
 [deps]
 
-source_file="res://assets/z_ESM_DGF_fx_foley_footstep_gravel_troll_walk_slow_rocky_terrain_heavy_deep_09.wav"
-dest_files=["res://.godot/imported/z_ESM_DGF_fx_foley_footstep_gravel_troll_walk_slow_rocky_terrain_heavy_deep_09.wav-f63ee87596e2708c445b83293e51c1a4.sample"]
+source_file="res://assetss/z_ESM_DGF_fx_foley_footstep_gravel_troll_walk_slow_rocky_terrain_heavy_deep_09.wav"
+dest_files=["res://.godot/imported/z_ESM_DGF_fx_foley_footstep_gravel_troll_walk_slow_rocky_terrain_heavy_deep_09.wav-bf68a2a98104f464a3b5db154b5c79ae.sample"]
 
 [params]
 

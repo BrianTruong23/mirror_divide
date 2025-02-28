@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d2hroabycxi1b"
-path="res://.godot/imported/b_blue_background.png-40015742024fd13fd9806daaadbc49a5.ctex"
+uid="uid://bapnol5ev6m4l"
+path="res://.godot/imported/lever0.png-070ded658de3d397553693feae605c85.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assetss/b_blue_background.png"
-dest_files=["res://.godot/imported/b_blue_background.png-40015742024fd13fd9806daaadbc49a5.ctex"]
+source_file="res://assetss/lever0.png"
+dest_files=["res://.godot/imported/lever0.png-070ded658de3d397553693feae605c85.ctex"]
 
 [params]
 
