@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://b64xw6gneyvao"]
+
+[ext_resource type="Texture2D" uid="uid://lwbwuf0ej2sg" path="res://assetss/coin_orange.png" id="1_eg47g"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nn4ja"]
+size = Vector2(65.5, 64)
+
+[node name="Area2D" type="Area2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(2, -3)
+scale = Vector2(0.0974485, 0.114925)
+texture = ExtResource("1_eg47g")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 2)
+shape = SubResource("RectangleShape2D_nn4ja")
