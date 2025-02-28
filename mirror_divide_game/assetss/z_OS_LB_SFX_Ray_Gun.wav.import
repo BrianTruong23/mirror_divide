@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://uf52dlnqhyl8"
-path="res://.godot/imported/z_OS_LB_SFX_Ray_Gun.wav-8a7f78ba3faf6043a01f1a6fc8234121.sample"
+path="res://.godot/imported/z_OS_LB_SFX_Ray_Gun.wav-9bce8c2d2183fe9a772b118b021ffbfd.sample"
 
 [deps]
 
-source_file="res://assets/z_OS_LB_SFX_Ray_Gun.wav"
-dest_files=["res://.godot/imported/z_OS_LB_SFX_Ray_Gun.wav-8a7f78ba3faf6043a01f1a6fc8234121.sample"]
+source_file="res://assetss/z_OS_LB_SFX_Ray_Gun.wav"
+dest_files=["res://.godot/imported/z_OS_LB_SFX_Ray_Gun.wav-9bce8c2d2183fe9a772b118b021ffbfd.sample"]
 
 [params]
 
