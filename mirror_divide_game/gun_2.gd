@@ -5,10 +5,11 @@ var is_grabbing: bool = false
 var grab_offset: Vector2 = Vector2.ZERO  # Offset to maintain relative position
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 
-var min_x = global_position.x - 100
-var max_x = global_position.x + 100
-var min_y = global_position.y - 100
-var max_y = global_position.y + 100
+const DISTANCE = 150
+var min_x = global_position.x - DISTANCE
+var max_x = global_position.x + DISTANCE
+var min_y = global_position.y - DISTANCE
+var max_y = global_position.y + DISTANCE
 
 
 func _process(delta: float) -> void:
@@ -18,6 +19,7 @@ func _process(delta: float) -> void:
 	target_position.y = clamp(target_position.y, min_y, max_y)
 
 	position = lerp(position, target_position, 0.6)
+	
 
 	# Move the grabbed object with the hand
 	if is_grabbing and grabbed_object:
@@ -27,6 +29,13 @@ func _process(delta: float) -> void:
 		check_current_collisions()
 
 
+
+func not_move_when_collide_with_walls(area: Area2D):
+	if area.is_in_group("walls"):
+		return true 
+	
+	return false 
+		
 	
 func move_grabbed_object(grabbed_object:Area2D):
 	if grabbed_object.is_in_group("grabbable"):
