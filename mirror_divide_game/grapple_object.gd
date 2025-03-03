@@ -1,4 +1,4 @@
-extends Area2D
+extends CharacterBody2D
 
 var is_grabbed: bool = false
 var pull_speed: float = 600.0  # Speed at which object moves toward the player
