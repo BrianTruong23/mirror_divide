@@ -1,10 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://dilgrgn4xrt2m"]
+[gd_scene load_steps=12 format=3 uid="uid://dilgrgn4xrt2m"]
 
 [ext_resource type="Script" path="res://game.gd" id="1_eusrx"]
 [ext_resource type="PackedScene" uid="uid://e3xjoir8f4lx" path="res://Player_2.tscn" id="1_qlj28"]
 [ext_resource type="Script" path="res://Player_2.gd" id="2_eap3b"]
 [ext_resource type="PackedScene" uid="uid://c5clromjmgu7k" path="res://Player.tscn" id="3_d0l3y"]
-[ext_resource type="PackedScene" uid="uid://3owvf6hs2mjy" path="res://GrappleObject.tscn" id="4_b0c1g"]
 [ext_resource type="PackedScene" uid="uid://cr0fd3esxoj37" path="res://Enemy.tscn" id="4_x7f01"]
 [ext_resource type="Script" path="res://CameraController.gd" id="6_2p6b3"]
 [ext_resource type="Texture2D" uid="uid://d2hroabycxi1b" path="res://assetss/b_blue_background.png" id="8_exqew"]
@@ -18,16 +17,12 @@ distance = -323.0
 [node name="Game" type="Node2D"]
 script = ExtResource("1_eusrx")
 
-[node name="GrappleObject" parent="." groups=["grabbable"] instance=ExtResource("4_b0c1g")]
-position = Vector2(893, 345)
-scale = Vector2(0.561111, 0.561111)
-
 [node name="Player_2" parent="." instance=ExtResource("1_qlj28")]
 position = Vector2(1203, 113)
 scale = Vector2(1.72249, 1.72249)
 script = ExtResource("2_eap3b")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="StaticBody2D" type="StaticBody2D" parent="." groups=["grabbable"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(57, 134)
@@ -54,11 +49,9 @@ position = Vector2(933, 226)
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_scale = Vector2(0, 0)
 
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
-
-position = Vector2(-100, -46)
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer" groups=["grabbable"]]
+position = Vector2(-97, -82)
 scale = Vector2(0.949777, 0.741211)
-
 texture = ExtResource("8_exqew")
 centered = false
 
@@ -97,7 +90,7 @@ position = Vector2(410, 508)
 position = Vector2(59, 500)
 
 [node name="Walls11" parent="." groups=["walls"] instance=ExtResource("11_yr2gw")]
-position = Vector2(1187, 526)
+position = Vector2(1174, 527)
 
 [node name="Walls13" parent="." groups=["walls"] instance=ExtResource("11_yr2gw")]
 position = Vector2(1293, 526)
