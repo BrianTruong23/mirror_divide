@@ -39,10 +39,11 @@ position = Vector2(68.4126, 58.3719)
 scale = Vector2(1.01801, -1.14018)
 shape = SubResource("RectangleShape2D_6wyya")
 
-[node name="Area2D" parent="." instance=ExtResource("2_yf6tk")]
+[node name="Area2D" parent="." node_paths=PackedStringArray("player") instance=ExtResource("2_yf6tk")]
 position = Vector2(52, 41)
 scale = Vector2(3.04, 3.04)
 script = ExtResource("3_5a28l")
+player = NodePath("..")
 
 [connection signal="area_entered" from="Area2D" to="Area2D" method="_on_area_entered"]
 [connection signal="area_exited" from="Area2D" to="Area2D" method="_on_area_exited"]
