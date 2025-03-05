@@ -41,4 +41,4 @@ func toggle_target():
 	else:
 		current_target = player1
 	
-	zoom = zoom_in  # Apply zoom-in effect temporarily
+	#zoom = zoom_in  # Apply zoom-in effect temporarily
