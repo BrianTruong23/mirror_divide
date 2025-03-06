@@ -1,25 +1,25 @@
-[gd_scene load_steps=18 format=3 uid="uid://d3wglp2hfhnjx"]
+[gd_scene load_steps=20 format=3 uid="uid://d3wglp2hfhnjx"]
 
 [ext_resource type="Script" path="res://tutorial.gd" id="1_ovobt"]
 [ext_resource type="Texture2D" uid="uid://b1s0mvek3nqnp" path="res://assetss/platform_black.png" id="1_sfbse"]
 [ext_resource type="PackedScene" uid="uid://e3xjoir8f4lx" path="res://Player_2.tscn" id="2_lmgqd"]
 [ext_resource type="Script" path="res://Player_2.gd" id="3_qsg8l"]
-[ext_resource type="Texture2D" uid="uid://85ogyo4wtfhe" path="res://assetss/platform_blue.png" id="3_snnd2"]
 [ext_resource type="Texture2D" uid="uid://pro7mk8qh63c" path="res://assetss/platform_default.png" id="6_fflxg"]
 [ext_resource type="PackedScene" uid="uid://c5clromjmgu7k" path="res://Player.tscn" id="7_rascw"]
 [ext_resource type="Texture2D" uid="uid://d2hroabycxi1b" path="res://assetss/b_blue_background.png" id="9_nkr0w"]
 [ext_resource type="Script" path="res://camera_2d.gd" id="10_uxkm1"]
+[ext_resource type="Script" path="res://lever.gd" id="11_8fuil"]
 [ext_resource type="PackedScene" uid="uid://b5yt3hx1d755d" path="res://door.tscn" id="11_f8qhb"]
 [ext_resource type="PackedScene" uid="uid://b5vgwybaq7m8y" path="res://lever.tscn" id="11_iljyf"]
+[ext_resource type="Script" path="res://door.gd" id="12_csgek"]
 [ext_resource type="PackedScene" uid="uid://d1mnmdi7etqdl" path="res://lever_2.tscn" id="12_i8h3d"]
 [ext_resource type="PackedScene" uid="uid://cr0fd3esxoj37" path="res://Enemy.tscn" id="13_1ugd1"]
+[ext_resource type="Script" path="res://lever_2.gd" id="13_xje0g"]
 [ext_resource type="PackedScene" uid="uid://3owvf6hs2mjy" path="res://GrappleObject.tscn" id="14_twgi5"]
+[ext_resource type="PackedScene" uid="uid://c0vq62cpu4hfd" path="res://platform.tscn" id="17_hcyoj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cr3bn"]
 size = Vector2(977.5, 211.484)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_3mal8"]
-size = Vector2(320.562, 105.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a8gtm"]
 size = Vector2(74, 45.25)
@@ -45,24 +45,13 @@ shape = SubResource("RectangleShape2D_cr3bn")
 [node name="Area2D3" type="CharacterBody2D" parent="."]
 
 [node name="Sprite2D" type="Sprite2D" parent="Area2D3"]
-position = Vector2(1416, 269.5)
+position = Vector2(1416, 290)
 scale = Vector2(0.775977, 0.186719)
 texture = ExtResource("1_sfbse")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D3"]
-position = Vector2(1416, 268.258)
+position = Vector2(1409, 275)
 shape = SubResource("RectangleShape2D_cr3bn")
-
-[node name="Area2D2" type="CharacterBody2D" parent="."]
-
-[node name="Sprite2D" type="Sprite2D" parent="Area2D2"]
-position = Vector2(739, 388)
-scale = Vector2(0.246387, 0.0819336)
-texture = ExtResource("3_snnd2")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
-position = Vector2(743, 385)
-shape = SubResource("RectangleShape2D_3mal8")
 
 [node name="platform1" type="CharacterBody2D" parent="."]
 
@@ -106,16 +95,24 @@ player1 = NodePath("../Player")
 player2 = NodePath("../Player2")
 
 [node name="lever" parent="." instance=ExtResource("11_iljyf")]
-position = Vector2(414, -180)
+position = Vector2(557, -44)
+script = ExtResource("11_8fuil")
 
-[node name="Node2D" parent="." instance=ExtResource("11_f8qhb")]
-position = Vector2(-325, -134)
+[node name="Door" parent="." instance=ExtResource("11_f8qhb")]
+position = Vector2(-264, -124)
+script = ExtResource("12_csgek")
 
 [node name="lever2" parent="." instance=ExtResource("12_i8h3d")]
-position = Vector2(1023, -89)
+position = Vector2(1283, -28)
+script = ExtResource("13_xje0g")
 
 [node name="Enemy" parent="." instance=ExtResource("13_1ugd1")]
 position = Vector2(696, 83)
 
-[node name="GrappleObject" parent="." groups=["grabbable"] instance=ExtResource("14_twgi5")]
+[node name="GrappleObject" parent="." groups=["grabbable", "rock"] instance=ExtResource("14_twgi5")]
 position = Vector2(1121, -119)
+
+[node name="platform" parent="." instance=ExtResource("17_hcyoj")]
+position = Vector2(756, 435)
+
+[connection signal="lever_activated" from="lever2" to="Door" method="_on_lever_2_lever_activated"]

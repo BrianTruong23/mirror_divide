@@ -40,10 +40,11 @@ func _input(event: InputEvent) -> void:
 		animated_sprite.play('release')
 
 func release_grabbed_object(grabbed_object) -> void:
-	grabbed_object.freeze = false  # Unfreeze physics simulation
-	grabbed_object.gravity_scale = 1.0
-	grabbed_object.sleeping = false
-	grabbed_object = null  # Release reference
+	if grabbed_object:
+		grabbed_object.freeze = false  # Unfreeze physics simulation
+		grabbed_object.gravity_scale = 1.0
+		grabbed_object.sleeping = false
+		grabbed_object = null  # Release reference
 	
 func _on_area_entered(area: Area2D) -> void:
 	if not grabbed_object:

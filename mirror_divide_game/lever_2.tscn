@@ -1,10 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://d1mnmdi7etqdl"]
+[gd_scene load_steps=6 format=3 uid="uid://d1mnmdi7etqdl"]
 
 [ext_resource type="Texture2D" uid="uid://bapnol5ev6m4l" path="res://assetss/lever0.png" id="1_l50ua"]
 [ext_resource type="Texture2D" uid="uid://cfwcmslujxkme" path="res://assetss/lever1.png" id="2_6l8ep"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_niyap"]
-size = Vector2(63, 40)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_0yh00"]
 animations = [{
@@ -25,14 +22,26 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_niyap"]
+size = Vector2(43.75, 17)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ys2gg"]
+size = Vector2(43.5, 17.5)
+
 [node name="lever2" type="CharacterBody2D"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(261.5, 58)
-shape = SubResource("RectangleShape2D_niyap")
+[node name="Area2D" type="Area2D" parent="."]
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(260, 58)
-scale = Vector2(0.0544922, 0.0451172)
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Area2D"]
+position = Vector2(-0.999996, -6)
+scale = Vector2(0.0553711, 0.0452149)
 sprite_frames = SubResource("SpriteFrames_0yh00")
 animation = &"close"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0.125, -3)
+shape = SubResource("RectangleShape2D_niyap")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.25, -2.75)
+shape = SubResource("RectangleShape2D_ys2gg")
