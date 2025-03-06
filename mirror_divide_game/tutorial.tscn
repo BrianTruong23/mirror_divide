@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://d3wglp2hfhnjx"]
+[gd_scene load_steps=21 format=3 uid="uid://d3wglp2hfhnjx"]
 
 [ext_resource type="Script" path="res://tutorial.gd" id="1_ovobt"]
 [ext_resource type="Texture2D" uid="uid://b1s0mvek3nqnp" path="res://assetss/platform_black.png" id="1_sfbse"]
@@ -17,6 +17,7 @@
 [ext_resource type="Script" path="res://lever_2.gd" id="13_xje0g"]
 [ext_resource type="PackedScene" uid="uid://3owvf6hs2mjy" path="res://GrappleObject.tscn" id="14_twgi5"]
 [ext_resource type="PackedScene" uid="uid://c0vq62cpu4hfd" path="res://platform.tscn" id="17_hcyoj"]
+[ext_resource type="Script" path="res://platform.gd" id="18_85kwd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cr3bn"]
 size = Vector2(977.5, 211.484)
@@ -114,5 +115,7 @@ position = Vector2(1121, -119)
 
 [node name="platform" parent="." instance=ExtResource("17_hcyoj")]
 position = Vector2(756, 435)
+script = ExtResource("18_85kwd")
 
+[connection signal="platform_raised" from="lever" to="platform" method="_on_lever_platform_raised"]
 [connection signal="lever_activated" from="lever2" to="Door" method="_on_lever_2_lever_activated"]
