@@ -9,12 +9,6 @@ const GRAVITY = 1000.0
 
 var grabbed_object: Node = null  # Store grabbed object reference
 
-#func _ready() -> void:
-	## Ensure GrabArea exists before using it
-	#if has_node("GrabArea"):
-		#grab_area = $GrabArea
-	#else:
-		#print("Error: GrabArea node is missing from Player 2!")
 
 func _physics_process(delta: float) -> void:
 	# Apply gravity if not on the floor
