@@ -85,8 +85,8 @@ position = Vector2(-216, 53)
 motion_scale = Vector2(0, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer" groups=["grabbable"]]
-position = Vector2(2766, -1508)
-scale = Vector2(1.21875, 1.06641)
+position = Vector2(-709, -479)
+scale = Vector2(1.63393, 1.10645)
 texture = ExtResource("9_nkr0w")
 centered = false
 

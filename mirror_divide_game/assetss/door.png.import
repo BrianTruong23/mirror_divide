@@ -2,26 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-<<<<<<<< HEAD:mirror_divide_game/assetss/door.png.import
-uid="uid://dg6w6b0xgpv6c"
+uid="uid://c4cokplul0fb7"
 path="res://.godot/imported/door.png-3b85f9777d9b63a3293e4c1fdb27f13c.ctex"
-========
-uid="uid://bapnol5ev6m4l"
-path="res://.godot/imported/lever0.png-070ded658de3d397553693feae605c85.ctex"
->>>>>>>> 283b9a4ea2dac7d4968d104f3b61eb0185295562:mirror_divide_game/assetss/lever0.png.import
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-<<<<<<<< HEAD:mirror_divide_game/assetss/door.png.import
 source_file="res://assetss/door.png"
 dest_files=["res://.godot/imported/door.png-3b85f9777d9b63a3293e4c1fdb27f13c.ctex"]
-========
-source_file="res://assetss/lever0.png"
-dest_files=["res://.godot/imported/lever0.png-070ded658de3d397553693feae605c85.ctex"]
->>>>>>>> 283b9a4ea2dac7d4968d104f3b61eb0185295562:mirror_divide_game/assetss/lever0.png.import
 
 [params]
 

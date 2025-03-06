@@ -2,26 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-<<<<<<<< HEAD:mirror_divide_game/assetss/lever1.png.import
-uid="uid://cfwcmslujxkme"
+uid="uid://nx0jjj7asvnm"
 path="res://.godot/imported/lever1.png-4c950f696d8ea41f3fc416a659472d53.ctex"
-========
-uid="uid://ukepqrd3pyrt"
-path="res://.godot/imported/button0.png-e08442bc824e95a219b3e1b1ee24ce13.ctex"
->>>>>>>> 283b9a4ea2dac7d4968d104f3b61eb0185295562:mirror_divide_game/assetss/button0.png.import
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-<<<<<<<< HEAD:mirror_divide_game/assetss/lever1.png.import
 source_file="res://assetss/lever1.png"
 dest_files=["res://.godot/imported/lever1.png-4c950f696d8ea41f3fc416a659472d53.ctex"]
-========
-source_file="res://assetss/button0.png"
-dest_files=["res://.godot/imported/button0.png-e08442bc824e95a219b3e1b1ee24ce13.ctex"]
->>>>>>>> 283b9a4ea2dac7d4968d104f3b61eb0185295562:mirror_divide_game/assetss/button0.png.import
 
 [params]
 
