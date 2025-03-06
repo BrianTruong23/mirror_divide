@@ -15,3 +15,5 @@ texture = ExtResource("1_t61xg")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1.5, 12.75)
 shape = SubResource("RectangleShape2D_iptaf")
+
+[node name="Camera2D" type="Camera2D" parent="."]
