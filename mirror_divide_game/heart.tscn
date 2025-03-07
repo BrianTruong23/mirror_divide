@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://oqr5yrw0b0kp"]
+
+[ext_resource type="Texture2D" uid="uid://fdha7mhcemsq" path="res://assetss/heart.png" id="1_ptymq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2v1fe"]
+size = Vector2(76, 73.5)
+
+[node name="heart" type="Area2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(4, -0.875)
+scale = Vector2(0.582031, 0.564453)
+texture = ExtResource("1_ptymq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 10)
+shape = SubResource("RectangleShape2D_2v1fe")

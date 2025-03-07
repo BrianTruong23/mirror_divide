@@ -16,6 +16,10 @@ var direction_change_timer: Timer
 var sprite: AnimatedSprite2D
 var is_erratic := false
 
+signal health_deducted
+
+var can_take_damage = true  
+
 func _ready():
 	add_to_group("enemies")
 	rng.randomize()
@@ -66,6 +70,20 @@ func setup_timer(timer_name: String, callback_method: String, min_time: float, m
 			direction_change_timer = new_timer
 			direction_change_timer.timeout.connect(_on_direction_change_timer_timeout)
 
+func _on_area_2d_body_entered(body: CharacterBody2D) -> void:
+	#print("What is going on?")
+	print(body, can_take_damage)
+	print(body.is_in_group("player"))
+	if body.is_in_group("player") and can_take_damage:  # Check if the collided object is an enemy
+		print("Player hit an enemy! Emitting health_deducted signal.")
+		emit_signal("health_deducted")  # Emit health deduction event
+		can_take_damage = false 
+		$Timer.start()
+		
+
+func _on_timer_timeout() -> void:
+	can_take_damage = true # Replace with function body.
+		
 func _physics_process(delta):
 	# Apply gravity
 	if not is_on_floor():
@@ -175,6 +193,7 @@ func _on_direction_change_timer_timeout():
 	var max_time = 0.8 if is_erratic else 1.5
 	direction_change_timer.wait_time = rng.randf_range(min_time, max_time)
 	direction_change_timer.start()
+	
 
 func die():
 	queue_free()

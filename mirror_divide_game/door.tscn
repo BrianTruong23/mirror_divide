@@ -28,13 +28,14 @@ size = Vector2(133.625, 192.75)
 [node name="Node2D" type="CharacterBody2D"]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(437, 225)
+position = Vector2(2, -13)
 scale = Vector2(0.309704, 0.278568)
 sprite_frames = SubResource("SpriteFrames_u1iui")
 animation = &"close"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(431.188, 223.625)
+position = Vector2(-6, -3)
 shape = SubResource("RectangleShape2D_d4lnw")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(-2, 0)

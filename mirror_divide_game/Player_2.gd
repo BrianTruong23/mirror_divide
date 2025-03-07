@@ -4,7 +4,7 @@ const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 const GRAVITY = 1000.0
 
-@onready var sprite = $AnimatedSprite2D  # Reference to sprite
+@onready var sprite = $Area2D2/AnimatedSprite2D # Reference to sprite
 @onready var grab_area: Area2D = null  # Reference to grab hitbox (Area2D)
 
 var grabbed_object: Node = null  # Store grabbed object reference
