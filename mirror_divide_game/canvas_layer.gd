@@ -2,6 +2,8 @@ extends CanvasLayer
 
 var heart_initial_pos = 200
 
+signal restart
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	for child in get_children():
@@ -21,5 +23,10 @@ func _on_enemy_health_deducted() -> void:
 #		Get last children and make it disappear 
 		var last_child = children[children.size() - 1]
 		last_child.queue_free()
+		
+		print(children.size())
+		
+		if children.size() == 1:
+			print("Restart! Enemy killed the player")
+			emit_signal("restart")
 	
-	pass

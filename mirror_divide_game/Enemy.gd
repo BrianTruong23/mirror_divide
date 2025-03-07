@@ -72,8 +72,7 @@ func setup_timer(timer_name: String, callback_method: String, min_time: float, m
 
 func _on_area_2d_body_entered(body: CharacterBody2D) -> void:
 	#print("What is going on?")
-	print(body, can_take_damage)
-	print(body.is_in_group("player"))
+
 	if body.is_in_group("player") and can_take_damage:  # Check if the collided object is an enemy
 		print("Player hit an enemy! Emitting health_deducted signal.")
 		emit_signal("health_deducted")  # Emit health deduction event
