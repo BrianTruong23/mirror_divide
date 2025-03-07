@@ -1,0 +1,17 @@
+[gd_scene load_steps=6 format=3 uid="uid://djnb4eaytfydm"]
+
+[ext_resource type="Script" path="res://MobSpawner.gd" id="1_h0a7k"]
+[ext_resource type="PackedScene" uid="uid://cr0fd3esxoj37" path="res://Enemy.tscn" id="2_daq4j"]
+[ext_resource type="PackedScene" uid="uid://c665fu6x6v6fx" path="res://Enemy2.tscn" id="3_ha2w8"]
+[ext_resource type="PackedScene" uid="uid://c21vfjtb4jbf0" path="res://Enemy3.tscn" id="4_4iap8"]
+[ext_resource type="Texture2D" uid="uid://c4co5123h5mm8" path="res://assetss/coin_blue.png" id="5_78rb2"]
+
+[node name="MobSpawner" type="Node2D"]
+script = ExtResource("1_h0a7k")
+mob_type_a = ExtResource("2_daq4j")
+mob_type_b = ExtResource("3_ha2w8")
+mob_type_c = ExtResource("4_4iap8")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.1, -0.04)
+texture = ExtResource("5_78rb2")
