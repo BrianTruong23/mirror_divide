@@ -9,6 +9,17 @@ const BULLET_SPEED = 500.0
 
 @onready var sprite = $AnimatedSprite2D  # Reference to player sprite
 
+var can_transition = true  # Flag to prevent multiple transitions
+
+var levels = [
+	"res://tutorial.tscn",
+	"res://level_1.tscn",
+	"res://level_2.tscn",
+	"res://level_3.tscn"
+]
+
+var current_level_index = 0
+
 func _physics_process(delta: float) -> void:
 	# Apply gravity
 	if not is_on_floor():
@@ -26,22 +37,44 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_pressed("player_right"):
 		direction.x = 1
 
-	# Apply movement speed
+	# Apply movement speed (NO EXTRA DELTA MULTIPLICATION)
 	velocity.x = direction.x * SPEED
 
 	# Handle animations
 	if direction.x != 0:  # If moving, play run animation
 		sprite.play("run")
-		# **REMOVE flipping effect to keep the player facing right**
-		# sprite.flip_h = direction.x < 0   <-- Remove or comment this out
 	else:
 		sprite.play("idle")  # Default to idle when not moving
 
+	# Move and check for collisions
 	move_and_slide()
+	
+	for i in range(get_slide_collision_count()):
+		var collision = get_slide_collision(i)
+		var collider = collision.get_collider()
+		if collider and collider.name == "Player":
+			print("Collision with Player detected!")
+			transition_to_next_level()
 
 	# Handle shooting
 	if Input.is_action_just_pressed("player_shoot"):
 		player_shoot()
+
+func transition_to_next_level():
+	if not can_transition:  # ✅ Prevent repeated calls within short duration
+		return
+		
+	can_transition = false  # 🚫 Disable further transitions temporarily
+		
+	if current_level_index < levels.size() - 1:
+		current_level_index += 1  # Move to the next level
+		print("Switching to:", levels[current_level_index])  # Debugging log
+		TransitionManager.next_scene_path = levels[current_level_index]
+		TransitionManager.play_fade()
+
+		# ✅ Re-enable transition after 3 seconds (adjust as needed)
+		await get_tree().create_timer(10.0).timeout
+		can_transition = true  # ✅ Allow new transitions
 
 func player_shoot():
 	if not bullet_scene:

@@ -10,8 +10,8 @@
 [ext_resource type="PackedScene" uid="uid://cr0fd3esxoj37" path="res://Enemy.tscn" id="6_yehuy"]
 [ext_resource type="AudioStream" uid="uid://devabrng6t8h8" path="res://assetss/zz_bgm.mp3" id="7_olmve"]
 [ext_resource type="Texture2D" uid="uid://b1s0mvek3nqnp" path="res://assetss/platform_black.png" id="7_r0i6j"]
-[ext_resource type="PackedScene" path="res://breakablebox.tscn" id="11_bk4ok"]
-[ext_resource type="PackedScene" path="res://button.tscn" id="12_cfej2"]
+[ext_resource type="PackedScene" uid="uid://bfybyncq0lihu" path="res://breakablebox.tscn" id="11_bk4ok"]
+[ext_resource type="PackedScene" uid="uid://cayyrnj8sf6we" path="res://button.tscn" id="12_cfej2"]
 [ext_resource type="PackedScene" uid="uid://pok45guq4is7" path="res://movingplatform.tscn" id="13_bjrpw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ajypx"]
