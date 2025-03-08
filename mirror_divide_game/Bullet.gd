@@ -20,3 +20,4 @@ func _on_body_entered(body):
 	if body.is_in_group("enemies"):  # If bullet hits a mob
 		body.call("die")  # Call mob's die function
 		queue_free()  # Remove bullet
+		

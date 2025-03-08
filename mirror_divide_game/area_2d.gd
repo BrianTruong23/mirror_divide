@@ -6,7 +6,7 @@ var grab_offset: Vector2 = Vector2.ZERO  # Offset to maintain relative position
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 
 @export var player: CharacterBody2D  # Reference to Player2
-@export var max_distance: float = 230 # Max distance gun can move from Player2
+@export var max_distance: float = 500 # Max distance gun can move from Player2
 
 func _process(delta: float) -> void:
 	

@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://d3wglp2hfhnjx"]
+[gd_scene load_steps=24 format=3 uid="uid://d3wglp2hfhnjx"]
 
 [ext_resource type="Script" path="res://tutorial.gd" id="1_ovobt"]
 [ext_resource type="Texture2D" uid="uid://b1s0mvek3nqnp" path="res://assetss/platform_black.png" id="1_sfbse"]
@@ -20,6 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://c0vq62cpu4hfd" path="res://platform.tscn" id="17_hcyoj"]
 [ext_resource type="Script" path="res://platform.gd" id="18_85kwd"]
 [ext_resource type="PackedScene" uid="uid://oqr5yrw0b0kp" path="res://heart.tscn" id="19_2yqq5"]
+[ext_resource type="PackedScene" uid="uid://dijucyr1vobi3" path="res://instructions.tscn" id="21_yt2wf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cr3bn"]
 size = Vector2(977.5, 211.484)
@@ -93,17 +94,6 @@ shape = SubResource("RectangleShape2D_a8gtm")
 [node name="Player" parent="." groups=["player"] instance=ExtResource("7_rascw")]
 position = Vector2(-216, 53)
 
-[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
-
-[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_scale = Vector2(0, 0)
-
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
-position = Vector2(-743, -360)
-scale = Vector2(1.63393, 1.10645)
-texture = ExtResource("9_nkr0w")
-centered = false
-
 [node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("player1", "player2")]
 script = ExtResource("10_uxkm1")
 player1 = NodePath("../Player")
@@ -114,7 +104,7 @@ position = Vector2(557, -44)
 script = ExtResource("11_8fuil")
 
 [node name="Door" parent="." instance=ExtResource("11_f8qhb")]
-position = Vector2(200, 108)
+position = Vector2(229, 109)
 script = ExtResource("12_csgek")
 
 [node name="lever2" parent="." instance=ExtResource("12_i8h3d")]
@@ -144,8 +134,64 @@ theme_override_font_sizes/font_size = 53
 text = "Restart Game"
 horizontal_alignment = 1
 
+[node name="InstructionCanvasLayer" parent="." instance=ExtResource("21_yt2wf")]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(-724, -60)
+scale = Vector2(1.63393, 1.10645)
+texture = ExtResource("9_nkr0w")
+centered = false
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="instruction1" type="Label" parent="Control"]
+layout_mode = 0
+offset_right = 184.0
+offset_bottom = 23.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Use v to change camera"
+
+[node name="instruction2" type="Label" parent="Control"]
+layout_mode = 0
+offset_right = 462.0
+offset_bottom = 23.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Use right click to grab object and move it on top of the lever"
+
+[node name="instruction3" type="Label" parent="Control"]
+layout_mode = 0
+offset_right = 272.0
+offset_bottom = 23.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Use v to go back to the first player! "
+
+[node name="instruction4" type="Label" parent="Control"]
+layout_mode = 0
+offset_right = 122.0
+offset_bottom = 23.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Shoot the lever!"
+
+[node name="instruction5" type="Label" parent="Control"]
+layout_mode = 0
+offset_right = 240.0
+offset_bottom = 23.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Shoot the enemy! Come into contact with each other!"
+
 [connection signal="restart" from="CanvasLayer" to="." method="_on_canvas_layer_restart"]
+[connection signal="platform_raised" from="lever" to="." method="_on_lever_platform_raised"]
 [connection signal="platform_raised" from="lever" to="platform" method="_on_lever_platform_raised"]
+[connection signal="lever_activated" from="lever2" to="." method="_on_lever_2_lever_activated"]
 [connection signal="lever_activated" from="lever2" to="Door" method="_on_lever_2_lever_activated"]
 [connection signal="health_deducted" from="Enemy" to="CanvasLayer" method="_on_enemy_health_deducted"]
 [connection signal="timeout" from="Enemy/Timer" to="Enemy" method="_on_timer_timeout"]
