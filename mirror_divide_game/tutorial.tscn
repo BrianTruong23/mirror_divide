@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://d3wglp2hfhnjx"]
+[gd_scene load_steps=28 format=3 uid="uid://d3wglp2hfhnjx"]
 
 [ext_resource type="Script" path="res://tutorial.gd" id="1_ovobt"]
 [ext_resource type="Texture2D" uid="uid://b1s0mvek3nqnp" path="res://assetss/platform_black.png" id="1_sfbse"]
@@ -18,51 +18,71 @@
 [ext_resource type="PackedScene" uid="uid://3owvf6hs2mjy" path="res://GrappleObject.tscn" id="14_twgi5"]
 [ext_resource type="PackedScene" uid="uid://c0vq62cpu4hfd" path="res://platform.tscn" id="17_hcyoj"]
 [ext_resource type="Script" path="res://platform.gd" id="18_85kwd"]
+[ext_resource type="Texture2D" uid="uid://c7ixbjcsb3lbd" path="res://assetss/instruction_wasd.png" id="19_ta1ef"]
+[ext_resource type="Texture2D" uid="uid://dy4w2t3ea3ua0" path="res://assetss/instruction_stone.png" id="19_u61j7"]
+[ext_resource type="Texture2D" uid="uid://dib58yxep72mx" path="res://assetss/instruction_left_click.png" id="20_k60ue"]
+[ext_resource type="Texture2D" uid="uid://dl64mdreq8l8l" path="res://assetss/instruction_arrowkeys.png" id="21_dao8k"]
+[ext_resource type="Texture2D" uid="uid://buwodjanjql7t" path="res://assetss/instruction_v.png" id="22_b33fb"]
+[ext_resource type="Texture2D" uid="uid://dhkimrstgjma4" path="res://assetss/instruction_right_click.png" id="22_rr3dj"]
+[ext_resource type="AudioStream" uid="uid://devabrng6t8h8" path="res://assetss/zz_bgm.mp3" id="23_1ulf3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cr3bn"]
-size = Vector2(977.5, 211.484)
+size = Vector2(977.5, 211.742)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a8gtm"]
-size = Vector2(74, 45.25)
+size = Vector2(76, 46)
 
 [node name="tutorial" type="Node2D"]
 script = ExtResource("1_ovobt")
 
+[node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("player1", "player2")]
+position = Vector2(-489, 1275)
+script = ExtResource("10_uxkm1")
+player1 = NodePath("../Player1")
+player2 = NodePath("../Player2")
+
+[node name="Player1" parent="." instance=ExtResource("7_rascw")]
+position = Vector2(-374, 78)
+
 [node name="Player2" parent="." instance=ExtResource("2_lmgqd")]
-position = Vector2(1604, -18)
+position = Vector2(1793, 32)
 script = ExtResource("3_qsg8l")
 
-[node name="Area2D" type="CharacterBody2D" parent="."]
+[node name="player_platform1" type="CharacterBody2D" parent="."]
 
-[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
-position = Vector2(95, 265.5)
-scale = Vector2(0.764063, 0.160156)
+[node name="aaaaa" type="Sprite2D" parent="player_platform1"]
+position = Vector2(90, 270)
+scale = Vector2(0.765, 0.165)
 texture = ExtResource("1_sfbse")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(91, 271)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="player_platform1"]
+position = Vector2(91, 270)
 shape = SubResource("RectangleShape2D_cr3bn")
 
-[node name="Area2D3" type="CharacterBody2D" parent="."]
+[node name="player_platform2" type="CharacterBody2D" parent="."]
 
-[node name="Sprite2D" type="Sprite2D" parent="Area2D3"]
-position = Vector2(1416, 290)
-scale = Vector2(0.775977, 0.186719)
+[node name="Sprite2D" type="Sprite2D" parent="player_platform2"]
+position = Vector2(1410, 270)
+scale = Vector2(0.765, 0.165)
 texture = ExtResource("1_sfbse")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D3"]
-position = Vector2(1409, 275)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="player_platform2"]
+position = Vector2(1409, 270)
 shape = SubResource("RectangleShape2D_cr3bn")
+
+[node name="player_platform3" parent="." instance=ExtResource("17_hcyoj")]
+position = Vector2(750, 433)
+script = ExtResource("18_85kwd")
 
 [node name="platform1" type="CharacterBody2D" parent="."]
 
 [node name="Sprite2D" type="Sprite2D" parent="platform1"]
 position = Vector2(559, -68)
-scale = Vector2(0.034375, 0.0230469)
+scale = Vector2(0.05, 0.035)
 texture = ExtResource("6_fflxg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="platform1"]
-position = Vector2(559, -71)
+position = Vector2(559, -68.4063)
 shape = SubResource("RectangleShape2D_a8gtm")
 
 [node name="platform2" type="CharacterBody2D" parent="."]
@@ -73,11 +93,8 @@ scale = Vector2(0.0593749, 0.0359375)
 texture = ExtResource("6_fflxg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="platform2"]
-position = Vector2(1284, 4)
+position = Vector2(1284, 2)
 shape = SubResource("RectangleShape2D_a8gtm")
-
-[node name="Player" parent="." instance=ExtResource("7_rascw")]
-position = Vector2(-216, 53)
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
@@ -85,27 +102,22 @@ position = Vector2(-216, 53)
 motion_scale = Vector2(0, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer" groups=["grabbable"]]
-position = Vector2(-709, -479)
-scale = Vector2(1.63393, 1.10645)
+position = Vector2(0, -2)
+scale = Vector2(0.643415, 0.632812)
 texture = ExtResource("9_nkr0w")
 centered = false
-
-[node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("player1", "player2")]
-script = ExtResource("10_uxkm1")
-player1 = NodePath("../Player")
-player2 = NodePath("../Player2")
 
 [node name="lever" parent="." instance=ExtResource("11_iljyf")]
 position = Vector2(557, -44)
 script = ExtResource("11_8fuil")
 
-[node name="Door" parent="." instance=ExtResource("11_f8qhb")]
-position = Vector2(-264, -124)
-script = ExtResource("12_csgek")
-
 [node name="lever2" parent="." instance=ExtResource("12_i8h3d")]
 position = Vector2(1283, -28)
 script = ExtResource("13_xje0g")
+
+[node name="Door" parent="." instance=ExtResource("11_f8qhb")]
+position = Vector2(-264, -124)
+script = ExtResource("12_csgek")
 
 [node name="Enemy" parent="." instance=ExtResource("13_1ugd1")]
 position = Vector2(696, 83)
@@ -113,9 +125,58 @@ position = Vector2(696, 83)
 [node name="GrappleObject" parent="." groups=["grabbable", "rock"] instance=ExtResource("14_twgi5")]
 position = Vector2(1121, -119)
 
-[node name="platform" parent="." instance=ExtResource("17_hcyoj")]
-position = Vector2(756, 435)
-script = ExtResource("18_85kwd")
+[node name="InstructionStone" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.505882)
+z_index = -2
+position = Vector2(-564, -54)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("19_u61j7")
 
-[connection signal="platform_raised" from="lever" to="platform" method="_on_lever_platform_raised"]
+[node name="InstructionWasd" type="Sprite2D" parent="."]
+self_modulate = Color(1, 1, 1, 0.745098)
+z_index = -1
+position = Vector2(-628, -77)
+scale = Vector2(0.07, 0.07)
+texture = ExtResource("19_ta1ef")
+
+[node name="InstructionLeftClick" type="Sprite2D" parent="."]
+self_modulate = Color(1, 1, 1, 0.745098)
+z_index = -1
+position = Vector2(-540, -102)
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("20_k60ue")
+
+[node name="InstructionV" type="Sprite2D" parent="."]
+self_modulate = Color(1, 1, 1, 0.745098)
+z_index = -1
+position = Vector2(-494, -46)
+scale = Vector2(0.07, 0.07)
+texture = ExtResource("22_b33fb")
+
+[node name="InstructionStone2" type="Sprite2D" parent="."]
+self_modulate = Color(1, 1, 1, 0.505882)
+z_index = -2
+position = Vector2(2100, -77)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("19_u61j7")
+
+[node name="InstructionArrowkeys" type="Sprite2D" parent="."]
+self_modulate = Color(1, 1, 1, 0.745098)
+z_index = -1
+position = Vector2(2050, -82)
+scale = Vector2(0.07, 0.07)
+texture = ExtResource("21_dao8k")
+
+[node name="InstructionRightClick" type="Sprite2D" parent="."]
+self_modulate = Color(1, 1, 1, 0.745098)
+z_index = -1
+position = Vector2(2155, -59)
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("22_rr3dj")
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("23_1ulf3")
+parameters/looping = true
+
+[connection signal="platform_raised" from="lever" to="player_platform3" method="_on_lever_platform_raised"]
 [connection signal="lever_activated" from="lever2" to="Door" method="_on_lever_2_lever_activated"]

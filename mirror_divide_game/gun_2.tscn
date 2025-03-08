@@ -22,8 +22,8 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_2rh0e"]
-size = Vector2(27.0785, 10.8108)
+[sub_resource type="CircleShape2D" id="CircleShape2D_4i7ax"]
+radius = 1.0
 
 [node name="Hand" type="Area2D"]
 
@@ -35,8 +35,7 @@ animation = &"release"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-5, -1)
-scale = Vector2(0.665782, 1.48633)
-shape = SubResource("RectangleShape2D_2rh0e")
+shape = SubResource("CircleShape2D_4i7ax")
 
 [node name="GrappleLine" type="Node2D" parent="."]
 

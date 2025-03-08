@@ -23,25 +23,26 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_6wyya"]
-size = Vector2(30.6231, 78.2823)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5cfot"]
+radius = 3.75
+height = 24.5
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(71, 58)
-scale = Vector2(0.0914062, 0.0855469)
+scale = Vector2(0.1, 0.095)
 sprite_frames = SubResource("SpriteFrames_b3qne")
 animation = &"run"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(68.4126, 58.3719)
-scale = Vector2(1.01801, -1.14018)
-shape = SubResource("RectangleShape2D_6wyya")
+position = Vector2(71, 61)
+scale = Vector2(4, 4)
+shape = SubResource("CapsuleShape2D_5cfot")
 
 [node name="Area2D" parent="." node_paths=PackedStringArray("player") instance=ExtResource("2_yf6tk")]
 position = Vector2(52, 41)
-scale = Vector2(3.04, 3.04)
+scale = Vector2(4, 4)
 script = ExtResource("3_5a28l")
 player = NodePath("..")
 
