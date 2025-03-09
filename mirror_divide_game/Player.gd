@@ -19,6 +19,8 @@ var levels = [
 ]
 
 var current_level_index = 0
+func _ready():
+	add_to_group("player")
 
 func _physics_process(delta: float) -> void:
 	# Apply gravity

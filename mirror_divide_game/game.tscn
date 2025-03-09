@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dilgrgn4xrt2m"]
+[gd_scene load_steps=14 format=3 uid="uid://dilgrgn4xrt2m"]
 
 [ext_resource type="Script" path="res://game.gd" id="1_eusrx"]
 [ext_resource type="PackedScene" uid="uid://e3xjoir8f4lx" path="res://Player_2.tscn" id="1_qlj28"]
@@ -10,9 +10,11 @@
 [ext_resource type="AudioStream" uid="uid://devabrng6t8h8" path="res://assetss/zz_bgm.mp3" id="9_fcrqh"]
 [ext_resource type="PackedScene" uid="uid://b64xw6gneyvao" path="res://Box.tscn" id="9_y2l5s"]
 [ext_resource type="PackedScene" uid="uid://cwe3ouvhivvyk" path="res://Walls.tscn" id="11_yr2gw"]
+[ext_resource type="PackedScene" uid="uid://bkjbpkaw008q6" path="res://breakablebox.tscn" id="11_ywjel"]
+[ext_resource type="PackedScene" uid="uid://cjo6ma5gi0bn0" path="res://spike.tscn" id="12_ebhyr"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_0s0eq"]
-distance = -323.0
+distance = -394.0
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_eusrx")
@@ -103,3 +105,9 @@ position = Vector2(1526, 524)
 
 [node name="Walls12" parent="." groups=["walls"] instance=ExtResource("11_yr2gw")]
 position = Vector2(1078, 528)
+
+[node name="RigidBody2D" parent="." instance=ExtResource("11_ywjel")]
+position = Vector2(427, 224)
+
+[node name="spike" parent="." instance=ExtResource("12_ebhyr")]
+position = Vector2(373, 439)
