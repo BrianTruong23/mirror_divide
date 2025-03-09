@@ -10,7 +10,7 @@ const BULLET_SPEED = 500.0
 @onready var sprite = $AnimatedSprite2D  # Reference to player sprite
 
 var can_transition = true  # Flag to prevent multiple transitions
-
+var has_key = false  # Tracks key possession
 var levels = [
 	"res://tutorial.tscn",
 	"res://level_1.tscn",
