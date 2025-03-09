@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://cd8h68g8jvi4f"]
+[gd_scene load_steps=22 format=3 uid="uid://cd8h68g8jvi4f"]
 
 [ext_resource type="Script" path="res://game.gd" id="1_wj7ef"]
 [ext_resource type="PackedScene" uid="uid://3owvf6hs2mjy" path="res://GrappleObject.tscn" id="2_5ybre"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://b1s0mvek3nqnp" path="res://assetss/platform_black.png" id="7_r0i6j"]
 [ext_resource type="Script" path="res://player_2.gd" id="7_viugy"]
 [ext_resource type="Texture2D" uid="uid://bd71u8551svu5" path="res://assetss/spike.png" id="8_brlts"]
+[ext_resource type="AudioStream" uid="uid://qab4yse0qpj" path="res://assetss/game music.mp3" id="10_sg663"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y11b8"]
 size = Vector2(946.5, 198)
@@ -255,3 +256,7 @@ shape = SubResource("RectangleShape2D_4pv0w")
 
 [node name="GrappleObject" parent="." instance=ExtResource("2_5ybre")]
 position = Vector2(1403, -27)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_sg663")
+autoplay = true
