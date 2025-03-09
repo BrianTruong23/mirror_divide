@@ -24,7 +24,7 @@
 [ext_resource type="Texture2D" uid="uid://dl64mdreq8l8l" path="res://assetss/instruction_arrowkeys.png" id="21_dao8k"]
 [ext_resource type="Texture2D" uid="uid://buwodjanjql7t" path="res://assetss/instruction_v.png" id="22_b33fb"]
 [ext_resource type="Texture2D" uid="uid://dhkimrstgjma4" path="res://assetss/instruction_right_click.png" id="22_rr3dj"]
-[ext_resource type="AudioStream" uid="uid://devabrng6t8h8" path="res://assetss/zz_bgm.mp3" id="23_1ulf3"]
+[ext_resource type="AudioStream" uid="uid://qab4yse0qpj" path="res://assetss/game music.mp3" id="25_pnhmr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cr3bn"]
 size = Vector2(977.5, 211.742)
@@ -175,7 +175,7 @@ scale = Vector2(0.05, 0.05)
 texture = ExtResource("22_rr3dj")
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("23_1ulf3")
+stream = ExtResource("25_pnhmr")
 parameters/looping = true
 
 [connection signal="platform_raised" from="lever" to="player_platform3" method="_on_lever_platform_raised"]
