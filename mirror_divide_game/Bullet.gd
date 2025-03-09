@@ -17,6 +17,6 @@ func _process(delta: float) -> void:
 		queue_free()
 
 func _on_body_entered(body):
-	if body.is_in_group("enemies"):  # If bullet hits a mob
-		body.call("die")  # Call mob's die function
-		queue_free()  # Remove bullet
+	if body.is_in_group("enemies"):  # If bullet hits an enemy
+		body.call("take_damage")  # Call enemy's take_damage() function
+		queue_free()  # Destroy the bullet on impact

@@ -4,7 +4,7 @@ extends CharacterBody2D
 @export var speed_variation := 50.0
 @export var jump_strength := -400.0
 @export var jump_variation := 200.0
-@export var max_health: int = 1  # Default health, override in Inspector
+@export var max_health: int = 2  # Default health, override in Inspector
 
 const GRAVITY = 1000.0
 

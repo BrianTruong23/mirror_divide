@@ -1,0 +1,40 @@
+[gd_scene load_steps=5 format=3 uid="uid://c665fu6x6v6fx"]
+
+[ext_resource type="Script" path="res://Enemy2.gd" id="1_s3gu4"]
+[ext_resource type="Texture2D" uid="uid://n15obu7l8bne" path="res://assetss/mob_one_default.png" id="2_u60gs"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_d4w8b"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_u60gs")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_u60gs")
+}],
+"loop": true,
+"name": &"run",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xqp6i"]
+size = Vector2(47, 47)
+
+[node name="Enemy2" type="CharacterBody2D"]
+scale = Vector2(1.6, 1.72)
+script = ExtResource("1_s3gu4")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(18, -3)
+scale = Vector2(0.047, 0.047)
+sprite_frames = SubResource("SpriteFrames_d4w8b")
+animation = &"run"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(19.5, -3.5)
+shape = SubResource("RectangleShape2D_xqp6i")
