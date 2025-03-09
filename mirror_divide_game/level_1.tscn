@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://cd8h68g8jvi4f"]
+[gd_scene load_steps=31 format=3 uid="uid://cd8h68g8jvi4f"]
 
 [ext_resource type="Script" path="res://game.gd" id="1_wj7ef"]
 [ext_resource type="PackedScene" uid="uid://3owvf6hs2mjy" path="res://GrappleObject.tscn" id="2_5ybre"]
@@ -14,9 +14,10 @@
 [ext_resource type="Texture2D" uid="uid://lkj5dxxmpcy7" path="res://icon.svg" id="12_2ghls"]
 [ext_resource type="PackedScene" uid="uid://cjo6ma5gi0bn0" path="res://spike.tscn" id="13_nlodf"]
 [ext_resource type="Texture2D" uid="uid://d2hroabycxi1b" path="res://assetss/b_blue_background.png" id="14_fgol0"]
+[ext_resource type="PackedScene" uid="uid://cayyrnj8sf6we" path="res://button.tscn" id="15_8oxr5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y11b8"]
-size = Vector2(946.5, 198)
+size = Vector2(423.25, 198)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_keant"]
 size = Vector2(1631.22, 204.435)
@@ -70,7 +71,7 @@ player1 = NodePath("../Player")
 player2 = NodePath("../Player2")
 
 [node name="Player" parent="." instance=ExtResource("2_k3d46")]
-position = Vector2(-3757, 621)
+position = Vector2(-3760, 776)
 script = ExtResource("4_3liy4")
 
 [node name="player_platform1" type="CharacterBody2D" parent="."]
@@ -379,3 +380,21 @@ position = Vector2(0, -2)
 scale = Vector2(0.643415, 0.632812)
 texture = ExtResource("14_fgol0")
 centered = false
+
+[node name="player_platform15" type="CharacterBody2D" parent="."]
+position = Vector2(1127.47, -68)
+scale = Vector2(0.3, 0.3)
+
+[node name="aaaaa" type="Sprite2D" parent="player_platform15"]
+position = Vector2(-13998.2, 2332.27)
+scale = Vector2(0.333333, 0.165)
+texture = ExtResource("7_r0i6j")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="player_platform15"]
+position = Vector2(-13996.5, 2333.33)
+shape = SubResource("RectangleShape2D_y11b8")
+
+[node name="button" parent="." instance=ExtResource("15_8oxr5")]
+position = Vector2(-3072, 688)
+rotation = 3.14159
+scale = Vector2(0.36, 0.44)
