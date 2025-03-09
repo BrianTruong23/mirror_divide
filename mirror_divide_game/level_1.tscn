@@ -27,7 +27,7 @@ size = Vector2(151.75, 313)
 size = Vector2(1248.5, 152)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r3i71"]
-size = Vector2(238.25, 151)
+size = Vector2(278.125, 151)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4ngbr"]
 size = Vector2(249, 146)
@@ -73,7 +73,7 @@ player1 = NodePath("../Player")
 player2 = NodePath("../Player2")
 
 [node name="Player" parent="." instance=ExtResource("2_k3d46")]
-position = Vector2(-3721, 592)
+position = Vector2(-3757, 621)
 script = ExtResource("4_3liy4")
 
 [node name="player_platform1" type="CharacterBody2D" parent="."]
@@ -132,12 +132,12 @@ shape = SubResource("RectangleShape2D_macdn")
 position = Vector2(1141, -68)
 
 [node name="aaaaa" type="Sprite2D" parent="player_platform5"]
-position = Vector2(-2438, 372)
-scale = Vector2(0.185562, 0.123564)
+position = Vector2(-2417.38, 372)
+scale = Vector2(0.217781, 0.123564)
 texture = ExtResource("7_r0i6j")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="player_platform5"]
-position = Vector2(-2444, 372)
+position = Vector2(-2424.06, 372)
 shape = SubResource("RectangleShape2D_r3i71")
 
 [node name="player_platform6" type="CharacterBody2D" parent="."]
