@@ -7,7 +7,7 @@ extends Node2D
 signal door_unlocked  # Define the signal
 
 # The correct combination
-var correct_code = [3, 2, 2]  # Change this to your desired combo
+var correct_code = [2, 2, 3]  # Change this to your desired combo
 
 # Current entered combination
 var entered_code = [0, 0, 0]
