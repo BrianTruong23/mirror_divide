@@ -12,5 +12,6 @@ func break_box():
 		# Spawn the key at the box's position
 		var key = key_scene.instantiate()
 		key.position = position
+		key.name = "Level1Key"
 		get_parent().add_child(key)
 		queue_free()  # Remove the box
