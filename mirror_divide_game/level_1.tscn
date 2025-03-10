@@ -22,16 +22,16 @@
 [ext_resource type="PackedScene" uid="uid://cvaja5frkdyyy" path="res://key_canvas_layer.tscn" id="20_kq4ef"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y11b8"]
-size = Vector2(943.25, 198)
+size = Vector2(943.25, 148)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_keant"]
-size = Vector2(1631.22, 204.435)
+size = Vector2(2543.61, 204.435)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1kxhc"]
-size = Vector2(151.75, 313)
+size = Vector2(151.75, 288.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_macdn"]
-size = Vector2(1248.5, 152)
+size = Vector2(1048.62, 120)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r3i71"]
 size = Vector2(278.125, 158.419)
@@ -43,19 +43,19 @@ size = Vector2(249, 146)
 size = Vector2(342.25, 73.4375)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_awh4r"]
-size = Vector2(1260, 203.419)
+size = Vector2(563, 203.419)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ob62y"]
+size = Vector2(80, 29)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yfdtp"]
-size = Vector2(132.5, 151.25)
+size = Vector2(122.25, 151.25)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p64yi"]
-size = Vector2(132.5, 157)
+size = Vector2(128.25, 359.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lwr67"]
-size = Vector2(72.125, 146)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_3u063"]
-size = Vector2(78.75, 59.75)
+size = Vector2(72.125, 295)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_23ult"]
 animations = [{
@@ -94,64 +94,64 @@ script = ExtResource("4_3liy4")
 position = Vector2(1141, -68)
 
 [node name="aaaaa" type="Sprite2D" parent="player_platform1"]
-position = Vector2(-31.93, 342.825)
-scale = Vector2(0.765, 0.165)
+position = Vector2(-47, 311)
+scale = Vector2(0.760937, 0.11875)
 texture = ExtResource("7_r0i6j")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="player_platform1"]
-position = Vector2(-31.6252, 341)
+position = Vector2(-28, 316)
 shape = SubResource("RectangleShape2D_y11b8")
 
 [node name="Player2" parent="." instance=ExtResource("4_ha2ej")]
-position = Vector2(1232.37, -15)
+position = Vector2(1378, 45)
 script = ExtResource("7_viugy")
 
 [node name="player_platform2" type="CharacterBody2D" parent="."]
 position = Vector2(1141, -68)
 
 [node name="aaaaa" type="Sprite2D" parent="player_platform2"]
-position = Vector2(-4316, 1058)
-scale = Vector2(1.28406, 0.165)
+position = Vector2(-3866.4, 1058)
+scale = Vector2(1.98656, 0.165)
 texture = ExtResource("7_r0i6j")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="player_platform2"]
-position = Vector2(-4319, 1056)
+position = Vector2(-3862.8, 1056)
 shape = SubResource("RectangleShape2D_keant")
 
 [node name="player_platform3" type="CharacterBody2D" parent="."]
 position = Vector2(1141, -68)
 
 [node name="aaaaa" type="Sprite2D" parent="player_platform3"]
-position = Vector2(-575.93, 272.825)
-scale = Vector2(0.120781, 0.257539)
+position = Vector2(-580, 248.412)
+scale = Vector2(0.120781, 0.227207)
 texture = ExtResource("7_r0i6j")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="player_platform3"]
-position = Vector2(-573.63, 268)
+position = Vector2(-577, 248.25)
 shape = SubResource("RectangleShape2D_1kxhc")
 
 [node name="player_platform4" type="CharacterBody2D" parent="."]
 position = Vector2(1141, -68)
 
 [node name="aaaaa" type="Sprite2D" parent="player_platform4"]
-position = Vector2(-1290.93, 352.825)
-scale = Vector2(1.00667, 0.123564)
+position = Vector2(-1173.33, 333.872)
+scale = Vector2(0.822921, 0.09395)
 texture = ExtResource("7_r0i6j")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="player_platform4"]
-position = Vector2(-1272.63, 345)
+position = Vector2(-1172.69, 329)
 shape = SubResource("RectangleShape2D_macdn")
 
 [node name="player_platform5" type="CharacterBody2D" parent="."]
 position = Vector2(1141, -68)
 
 [node name="aaaaa" type="Sprite2D" parent="player_platform5"]
-position = Vector2(-1992.62, 366.906)
+position = Vector2(-1970, 373)
 scale = Vector2(0.217781, 0.123564)
 texture = ExtResource("7_r0i6j")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="player_platform5"]
-position = Vector2(-1997, 361.79)
+position = Vector2(-1974, 369)
 shape = SubResource("RectangleShape2D_r3i71")
 
 [node name="player_platform6" type="CharacterBody2D" parent="."]
@@ -182,80 +182,80 @@ shape = SubResource("RectangleShape2D_tes8d")
 position = Vector2(1141, -68)
 
 [node name="aaaaa" type="Sprite2D" parent="player_platform8"]
-position = Vector2(-3684, 612)
-scale = Vector2(0.988625, 0.15511)
+position = Vector2(-4035.86, 612)
+scale = Vector2(0.438844, 0.15511)
 texture = ExtResource("7_r0i6j")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="player_platform8"]
-position = Vector2(-3686, 606.29)
+position = Vector2(-4034.5, 606.29)
 shape = SubResource("RectangleShape2D_awh4r")
+
+[node name="player_platform8" type="CharacterBody2D" parent="player_platform8"]
+position = Vector2(1141, -68)
+
+[node name="aaaaa" type="Sprite2D" parent="player_platform8/player_platform8"]
+position = Vector2(-4529, 671)
+scale = Vector2(0.438844, 0.15511)
+texture = ExtResource("7_r0i6j")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="player_platform8/player_platform8"]
+position = Vector2(-4527, 672)
+shape = SubResource("RectangleShape2D_awh4r")
+
+[node name="player_platform11" type="CharacterBody2D" parent="."]
+position = Vector2(2282, -136)
+
+[node name="aaaaa" type="Sprite2D" parent="player_platform11"]
+position = Vector2(-4855, 850)
+scale = Vector2(0.0646485, 0.0250633)
+texture = ExtResource("7_r0i6j")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="player_platform11"]
+position = Vector2(-4855, 850.5)
+shape = SubResource("RectangleShape2D_ob62y")
 
 [node name="player_platform9" type="CharacterBody2D" parent="."]
 position = Vector2(1141, -68)
 
 [node name="aaaaa" type="Sprite2D" parent="player_platform9"]
-position = Vector2(-4196.64, 171.081)
-scale = Vector2(0.102344, 0.123564)
+position = Vector2(-4253.25, 199)
+scale = Vector2(0.098047, 0.123564)
 texture = ExtResource("7_r0i6j")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="player_platform9"]
-position = Vector2(-4190.64, 172.081)
+position = Vector2(-4253.13, 198)
 shape = SubResource("RectangleShape2D_yfdtp")
 
 [node name="player_platform10" type="CharacterBody2D" parent="."]
 position = Vector2(1141, -68)
 
 [node name="aaaaa" type="Sprite2D" parent="player_platform10"]
-position = Vector2(-4201.64, 425.081)
-scale = Vector2(0.10525, 0.123564)
+position = Vector2(-4254.68, 528.46)
+scale = Vector2(0.0995001, 0.275845)
 texture = ExtResource("7_r0i6j")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="player_platform10"]
-position = Vector2(-4202.64, 420.081)
+position = Vector2(-4255.13, 529.25)
 shape = SubResource("RectangleShape2D_p64yi")
-
-[node name="player_platform11" type="CharacterBody2D" parent="."]
-position = Vector2(1141, -68)
-
-[node name="aaaaa" type="Sprite2D" parent="player_platform11"]
-position = Vector2(-4084, 969.4)
-scale = Vector2(0.0616793, 0.113125)
-texture = ExtResource("7_r0i6j")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="player_platform11"]
-position = Vector2(-4083.06, 971)
-shape = SubResource("RectangleShape2D_lwr67")
 
 [node name="player_platform12" type="CharacterBody2D" parent="."]
 position = Vector2(1141, -68)
 
 [node name="aaaaa" type="Sprite2D" parent="player_platform12"]
-position = Vector2(-5101, 935)
-scale = Vector2(0.0616793, 0.113125)
+position = Vector2(-5101, 1013.3)
+scale = Vector2(0.0616793, 0.235469)
 texture = ExtResource("7_r0i6j")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="player_platform12"]
-position = Vector2(-5101, 935)
+position = Vector2(-5101, 1009.5)
 shape = SubResource("RectangleShape2D_lwr67")
-
-[node name="player_platform13" type="CharacterBody2D" parent="."]
-position = Vector2(1141, -68)
-
-[node name="aaaaa" type="Sprite2D" parent="player_platform13"]
-position = Vector2(-3699, 937)
-scale = Vector2(0.0634667, 0.0495214)
-texture = ExtResource("7_r0i6j")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="player_platform13"]
-position = Vector2(-3697.38, 939.125)
-shape = SubResource("RectangleShape2D_3u063")
 
 [node name="lock" type="CharacterBody2D" parent="."]
 position = Vector2(1141, -68)
 script = ExtResource("8_2e7uw")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="lock"]
-position = Vector2(-3694, 846)
+position = Vector2(-3201, 899)
 scale = Vector2(0.092053, 0.0900811)
 sprite_frames = SubResource("SpriteFrames_23ult")
 animation = &"lock"
@@ -263,15 +263,15 @@ animation = &"lock"
 [node name="Area2D" type="Area2D" parent="lock"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="lock/Area2D"]
-position = Vector2(-3693, 849)
+position = Vector2(-3201, 899)
 shape = SubResource("RectangleShape2D_svgwy")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="lock"]
-position = Vector2(-3697, 850)
+position = Vector2(-3202, 897)
 shape = SubResource("RectangleShape2D_lt1ng")
 
 [node name="KeyBox" parent="." instance=ExtResource("2_5ybre")]
-position = Vector2(664, -190)
+position = Vector2(1016, -151)
 script = ExtResource("10_ce1r7")
 health = 1
 
@@ -280,7 +280,7 @@ stream = ExtResource("10_sg663")
 autoplay = true
 
 [node name="RigidBody2D" parent="." instance=ExtResource("11_iv8ya")]
-position = Vector2(-2566.64, 125.081)
+position = Vector2(-2569, 331)
 mass = 0.001
 gravity_scale = 0.0
 sleeping = true
@@ -288,7 +288,7 @@ lock_rotation = true
 freeze = true
 
 [node name="RigidBody2D2" parent="." instance=ExtResource("11_iv8ya")]
-position = Vector2(-2566.64, 172.081)
+position = Vector2(-2569, 389)
 mass = 0.001
 gravity_scale = 0.0
 sleeping = true
@@ -296,7 +296,7 @@ lock_rotation = true
 freeze = true
 
 [node name="RigidBody2D3" parent="." instance=ExtResource("11_iv8ya")]
-position = Vector2(-2566.64, 217.081)
+position = Vector2(-2568, 444)
 mass = 0.001
 gravity_scale = 0.0
 sleeping = true
@@ -304,7 +304,7 @@ lock_rotation = true
 freeze = true
 
 [node name="RigidBody2D4" parent="." instance=ExtResource("11_iv8ya")]
-position = Vector2(-2566.64, 265.081)
+position = Vector2(-2570, 500)
 mass = 0.001
 gravity_scale = 0.0
 sleeping = true
@@ -312,7 +312,7 @@ lock_rotation = true
 freeze = true
 
 [node name="RigidBody2D5" parent="." instance=ExtResource("11_iv8ya")]
-position = Vector2(-2566.64, 314.081)
+position = Vector2(-2570, 555)
 mass = 0.001
 gravity_scale = 0.0
 sleeping = true
@@ -320,7 +320,7 @@ lock_rotation = true
 freeze = true
 
 [node name="RigidBody2D6" parent="." instance=ExtResource("11_iv8ya")]
-position = Vector2(-2566.64, 359.081)
+position = Vector2(-2571, 611)
 mass = 0.001
 gravity_scale = 0.0
 sleeping = true
@@ -328,7 +328,7 @@ lock_rotation = true
 freeze = true
 
 [node name="RigidBody2D7" parent="." instance=ExtResource("11_iv8ya")]
-position = Vector2(-2566.64, 409.081)
+position = Vector2(-2571, 668)
 mass = 0.001
 gravity_scale = 0.0
 sleeping = true
@@ -336,7 +336,7 @@ lock_rotation = true
 freeze = true
 
 [node name="RigidBody2D8" parent="." instance=ExtResource("11_iv8ya")]
-position = Vector2(-2566.64, 76.081)
+position = Vector2(-2570, 274)
 mass = 0.001
 gravity_scale = 0.0
 sleeping = true
@@ -391,7 +391,7 @@ position = Vector2(-426, 647)
 motion_scale = Vector2(0, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer" groups=["grabbable"]]
-position = Vector2(0, -2)
+position = Vector2(3, 2)
 scale = Vector2(0.643415, 0.632812)
 texture = ExtResource("14_fgol0")
 centered = false
@@ -401,24 +401,25 @@ position = Vector2(1127.47, -68)
 scale = Vector2(0.3, 0.3)
 
 [node name="aaaaa" type="Sprite2D" parent="player_platform15"]
-position = Vector2(-14098.2, 2460)
+position = Vector2(-14131.6, 2463.33)
 scale = Vector2(0.333333, 0.165)
 texture = ExtResource("7_r0i6j")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="player_platform15"]
-position = Vector2(-14099.2, 2464.79)
+position = Vector2(-14128.2, 2470)
 shape = SubResource("RectangleShape2D_nn47c")
 
 [node name="button" parent="." instance=ExtResource("15_8oxr5")]
-position = Vector2(-3103, 724)
+position = Vector2(-3112, 731)
 rotation = 3.14159
 scale = Vector2(0.36, 0.44)
 
 [node name="ComboLock" parent="." instance=ExtResource("9_a0oln")]
-position = Vector2(1192, -18)
+position = Vector2(1178, -127)
+scale = Vector2(2.2, 2)
 
 [node name="Node2D" parent="." instance=ExtResource("18_pmvw8")]
-position = Vector2(-3363, 526)
+position = Vector2(-3245, 590)
 script = ExtResource("19_gv3hp")
 
 [node name="CanvasLayerKey" parent="." instance=ExtResource("20_kq4ef")]
