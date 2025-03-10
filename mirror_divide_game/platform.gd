@@ -11,7 +11,7 @@ func _on_lever_platform_raised() -> void:
 	tween.tween_property(platform_camera, "zoom", Vector2(1, 1), 2.0).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 	
 	# Move the platform smoothly
-	tween.tween_property(self, "position", position + Vector2(0, -210), 2.0).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	tween.tween_property(self, "position", position + Vector2(0, 500), 2.0).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 
 	await tween.finished  # Wait for movement to complete
 

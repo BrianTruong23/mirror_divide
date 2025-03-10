@@ -16,6 +16,9 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("1_srxvs")
+}, {
+"duration": 1.0,
 "texture": ExtResource("2_a8xna")
 }, {
 "duration": 1.0,
@@ -23,7 +26,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"open",
-"speed": 1.0
+"speed": 2.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d4lnw"]
@@ -35,7 +38,7 @@ size = Vector2(141, 170)
 position = Vector2(421.5, 202.5)
 scale = Vector2(0.138281, 0.153906)
 sprite_frames = SubResource("SpriteFrames_u1iui")
-animation = &"close"
+animation = &"open"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(421.5, 216)

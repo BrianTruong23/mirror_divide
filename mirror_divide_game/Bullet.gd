@@ -1,7 +1,7 @@
 extends Area2D
 
 @export var speed: float = 500.0
-@export var max_distance: float = 600.0  # Max distance before disappearing
+@export var max_distance: float = 300.0  # Max distance before disappearing
 var bullet_direction = Vector2.ZERO
 var start_position: Vector2
 

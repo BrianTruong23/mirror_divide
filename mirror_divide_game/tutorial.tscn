@@ -71,7 +71,7 @@ position = Vector2(1409, 270)
 shape = SubResource("RectangleShape2D_cr3bn")
 
 [node name="player_platform3" parent="." instance=ExtResource("17_hcyoj")]
-position = Vector2(750, 433)
+position = Vector2(750, -300)
 script = ExtResource("18_85kwd")
 
 [node name="platform1" type="CharacterBody2D" parent="."]
@@ -120,7 +120,7 @@ position = Vector2(-264, -124)
 script = ExtResource("12_csgek")
 
 [node name="Enemy" parent="." instance=ExtResource("13_1ugd1")]
-position = Vector2(696, 83)
+position = Vector2(-94, -66)
 
 [node name="GrappleObject" parent="." groups=["grabbable", "rock"] instance=ExtResource("14_twgi5")]
 position = Vector2(1121, -119)
