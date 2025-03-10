@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://bkjbpkaw008q6"]
 
 [ext_resource type="Script" path="res://breakablebox.gd" id="1_7qdbn"]
-[ext_resource type="Texture2D" uid="uid://pro7mk8qh63c" path="res://assetss/platform_default.png" id="1_nx4m0"]
+[ext_resource type="Texture2D" uid="uid://c5alhu43r01t4" path="res://assetss/rock2.PNG" id="2_re5m3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rhc6b"]
 size = Vector2(48, 48)
@@ -16,9 +16,10 @@ script = ExtResource("1_7qdbn")
 shape = SubResource("RectangleShape2D_rhc6b")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.17664, 0.280433, 1, 1)
 position = Vector2(-1.19209e-06, 1.19209e-06)
 scale = Vector2(0.0375, 0.0375)
-texture = ExtResource("1_nx4m0")
+texture = ExtResource("2_re5m3")
 
 [node name="Area2D" type="Area2D" parent="."]
 
