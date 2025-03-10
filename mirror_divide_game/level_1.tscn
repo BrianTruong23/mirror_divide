@@ -255,7 +255,7 @@ position = Vector2(1141, -68)
 script = ExtResource("8_2e7uw")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="lock"]
-position = Vector2(-3696, 853)
+position = Vector2(-3694, 846)
 scale = Vector2(0.092053, 0.0900811)
 sprite_frames = SubResource("SpriteFrames_23ult")
 animation = &"lock"
@@ -263,15 +263,15 @@ animation = &"lock"
 [node name="Area2D" type="Area2D" parent="lock"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="lock/Area2D"]
-position = Vector2(-3694, 849)
+position = Vector2(-3693, 849)
 shape = SubResource("RectangleShape2D_svgwy")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="lock"]
-position = Vector2(-3699, 851)
+position = Vector2(-3697, 850)
 shape = SubResource("RectangleShape2D_lt1ng")
 
 [node name="KeyBox" parent="." instance=ExtResource("2_5ybre")]
-position = Vector2(992, -307)
+position = Vector2(664, -190)
 script = ExtResource("10_ce1r7")
 health = 1
 
@@ -423,5 +423,15 @@ script = ExtResource("19_gv3hp")
 
 [node name="CanvasLayerKey" parent="." instance=ExtResource("20_kq4ef")]
 
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="EndGameLabel" type="Label" parent="CanvasLayer"]
+offset_right = 355.0
+offset_bottom = 55.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+text = "Completed Level 1"
+
+[connection signal="end_game" from="lock" to="." method="_on_lock_end_game"]
 [connection signal="body_entered" from="lock/Area2D" to="lock" method="_on_area_2d_body_entered"]
 [connection signal="door_unlocked" from="ComboLock" to="Node2D" method="_on_combo_lock_door_unlocked"]
