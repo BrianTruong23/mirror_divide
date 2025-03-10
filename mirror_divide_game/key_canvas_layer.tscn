@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://cvaja5frkdyyy"]
+
+[ext_resource type="Texture2D" uid="uid://7ek4ncl2g7uh" path="res://assetss/key_background.png" id="1_pqnyh"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(46, 65)
+scale = Vector2(0.0710937, 0.0695848)
+texture = ExtResource("1_pqnyh")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 115.0
+offset_top = 27.0
+offset_right = 305.0
+offset_bottom = 69.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "Key Acquired"
