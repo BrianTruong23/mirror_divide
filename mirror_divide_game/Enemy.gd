@@ -4,9 +4,13 @@ extends CharacterBody2D
 @export var speed_variation := 50.0
 @export var jump_strength := -400.0
 @export var jump_variation := 200.0
+@export var small_damage := 5  # 20 hits to kill (100 / 5)
+@export var medium_damage := 10  # 10 hits to kill (100 / 10)
+@export var large_damage := 20  # 5 hits to kill (100 / 20)
 
 const GRAVITY = 1000.0
 
+var attack_damage: int  # This will be set based on size
 var direction := Vector2.ZERO
 var current_speed := 0.0
 var rng = RandomNumberGenerator.new()
@@ -19,6 +23,7 @@ var is_erratic := false
 func _ready():
 	add_to_group("enemies")
 	rng.randomize()
+	determine_damage()
 	
 	# Set up sprite reference
 	sprite = $AnimatedSprite2D if has_node("AnimatedSprite2D") else null
@@ -178,3 +183,17 @@ func _on_direction_change_timer_timeout():
 
 func die():
 	queue_free()
+
+func determine_damage():
+	# Determine attack strength based on scale
+	if scale.x <= 0.75:  # Small enemy
+		attack_damage = small_damage
+	elif scale.x <= 1.25:  # Medium enemy
+		attack_damage = medium_damage
+	else:  # Large enemy
+		attack_damage = large_damage
+
+func _on_damage_area_body_shape_entered(body_rid: RID, body: Node2D, body_shape_index: int, local_shape_index: int) -> void:
+	if body.is_in_group("player"):
+		print("Dealing", attack_damage, "damage to", body.name)
+		body.take_damage(attack_damage)

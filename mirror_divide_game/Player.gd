@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 @export var bullet_scene := preload("res://Bullet.tscn")  # Path to bullet scene
+@export var max_health := 100
 
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
@@ -9,6 +10,7 @@ const BULLET_SPEED = 500.0
 
 @onready var sprite = $AnimatedSprite2D  # Reference to player sprite
 
+var health: int
 var can_transition = true  # Flag to prevent multiple transitions
 var has_key = false  # Tracks key possession
 var levels = [
@@ -20,7 +22,8 @@ var levels = [
 
 var current_level_index = 0
 func _ready():
-	add_to_group("player")
+	add_to_group("player")  # Ensure player is in the correct group
+	health = max_health
 
 func _physics_process(delta: float) -> void:
 	# Apply gravity
@@ -97,3 +100,13 @@ func player_shoot():
 
 	# Add bullet to the scene
 	get_parent().add_child(bullet)
+
+func take_damage(damage: int):
+	health -= damage
+	print(name, " took ", damage, " damage! Health: ", health)
+	if health <= 0:
+		die()
+
+func die():
+	print(name, " has died!")
+	queue_free()  # Remove player from the game

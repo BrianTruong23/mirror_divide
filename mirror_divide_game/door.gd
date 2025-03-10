@@ -21,3 +21,6 @@ func open_door():
 
 func _on_lever_2_lever_activated() -> void:
 	open_door()
+
+func _on_combo_lock_door_unlocked() -> void:
+	open_door() # Replace with function body.

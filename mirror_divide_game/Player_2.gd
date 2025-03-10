@@ -3,12 +3,13 @@ extends CharacterBody2D
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 const GRAVITY = 1000.0
+@export var max_health := 100
 
 @onready var sprite = $AnimatedSprite2D  # Reference to sprite
 @onready var grab_area: Area2D = $GrabArea  # Make sure grab_area exists in scene
 
 var grabbed_object: Node = null  # Store grabbed object reference
-
+var health: int
 var can_transition = true  # Flag to prevent multiple transitions
 
 var levels = [
@@ -21,6 +22,7 @@ var levels = [
 var current_level_index = 0
 func _ready():
 	add_to_group("player")
+	health = max_health  # Start at full health
 
 func _physics_process(delta: float) -> void:
 	# Apply gravity if not on the floor
@@ -67,3 +69,13 @@ func transition_to_next_level():
 		# ✅ Re-enable transition after 3 seconds (adjust as needed)
 		await get_tree().create_timer(10.0).timeout
 		can_transition = true  # ✅ Allow new transitions
+
+func take_damage(damage: int):
+	health -= damage
+	print(name, " took ", damage, " damage! Health: ", health)
+	if health <= 0:
+		die()
+
+func die():
+	print(name, " has died!")
+	queue_free()  # Remove player from the game

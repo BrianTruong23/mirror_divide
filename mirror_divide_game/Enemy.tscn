@@ -35,6 +35,14 @@ scale = Vector2(0.047, 0.047)
 sprite_frames = SubResource("SpriteFrames_d4w8b")
 animation = &"run"
 
+[node name="DamageArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DamageArea"]
+position = Vector2(17, -3)
+shape = SubResource("CapsuleShape2D_4s46h")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(17, -3)
 shape = SubResource("CapsuleShape2D_4s46h")
+
+[connection signal="body_shape_entered" from="DamageArea" to="." method="_on_damage_area_body_shape_entered"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://cd8h68g8jvi4f"]
+[gd_scene load_steps=34 format=3 uid="uid://cd8h68g8jvi4f"]
 
 [ext_resource type="Script" path="res://game.gd" id="1_wj7ef"]
 [ext_resource type="PackedScene" uid="uid://3owvf6hs2mjy" path="res://GrappleObject.tscn" id="2_5ybre"]
@@ -8,14 +8,17 @@
 [ext_resource type="PackedScene" uid="uid://e3xjoir8f4lx" path="res://Player_2.tscn" id="4_ha2ej"]
 [ext_resource type="Texture2D" uid="uid://b1s0mvek3nqnp" path="res://assetss/platform_black.png" id="7_r0i6j"]
 [ext_resource type="Script" path="res://player_2.gd" id="7_viugy"]
-[ext_resource type="Texture2D" uid="uid://b3vnvs1reyg4r" path="res://assetss/lockeddoor.png" id="8_a3x18"]
+[ext_resource type="Texture2D" uid="uid://d1phgqbgk4qla" path="res://assetss/lockeddoor.png" id="8_a3x18"]
+[ext_resource type="PackedScene" uid="uid://c3wc2ox21lbkh" path="res://combo_lock.tscn" id="9_a0oln"]
 [ext_resource type="Script" path="res://key_grabbable_box.gd" id="10_ce1r7"]
 [ext_resource type="AudioStream" uid="uid://qab4yse0qpj" path="res://assetss/game music.mp3" id="10_sg663"]
-[ext_resource type="PackedScene" uid="uid://bkjbpkaw008q6" path="res://breakablebox.tscn" id="11_iv8ya"]
+[ext_resource type="PackedScene" uid="uid://bfybyncq0lihu" path="res://breakablebox.tscn" id="11_iv8ya"]
 [ext_resource type="Texture2D" uid="uid://lkj5dxxmpcy7" path="res://icon.svg" id="12_2ghls"]
-[ext_resource type="PackedScene" uid="uid://cjo6ma5gi0bn0" path="res://spike.tscn" id="13_nlodf"]
+[ext_resource type="PackedScene" path="res://spike.tscn" id="13_nlodf"]
 [ext_resource type="Texture2D" uid="uid://d2hroabycxi1b" path="res://assetss/b_blue_background.png" id="14_fgol0"]
 [ext_resource type="PackedScene" uid="uid://cayyrnj8sf6we" path="res://button.tscn" id="15_8oxr5"]
+[ext_resource type="PackedScene" uid="uid://b5yt3hx1d755d" path="res://door.tscn" id="18_pmvw8"]
+[ext_resource type="Script" path="res://door.gd" id="19_gv3hp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y11b8"]
 size = Vector2(952, 198)
@@ -49,9 +52,6 @@ size = Vector2(132.5, 157)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lwr67"]
 size = Vector2(72.125, 146)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_52ypq"]
-size = Vector2(110.625, 114.25)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3u063"]
 size = Vector2(78.75, 59.75)
@@ -210,18 +210,6 @@ texture = ExtResource("7_r0i6j")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="player_platform11"]
 position = Vector2(-4083.06, 971)
 shape = SubResource("RectangleShape2D_lwr67")
-
-[node name="player_platform12" type="CharacterBody2D" parent="."]
-position = Vector2(1141, -68)
-
-[node name="aaaaa" type="Sprite2D" parent="player_platform12"]
-position = Vector2(-4086, 822)
-scale = Vector2(0.0874785, 0.094557)
-texture = ExtResource("8_a3x18")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="player_platform12"]
-position = Vector2(-4085.31, 821.875)
-shape = SubResource("RectangleShape2D_52ypq")
 
 [node name="player_platform13" type="CharacterBody2D" parent="."]
 position = Vector2(1141, -68)
@@ -401,3 +389,12 @@ shape = SubResource("RectangleShape2D_y11b8")
 position = Vector2(-3072, 688)
 rotation = 3.14159
 scale = Vector2(0.36, 0.44)
+
+[node name="ComboLock" parent="." instance=ExtResource("9_a0oln")]
+position = Vector2(1192, -18)
+
+[node name="Node2D" parent="." instance=ExtResource("18_pmvw8")]
+position = Vector2(-3363, 526)
+script = ExtResource("19_gv3hp")
+
+[connection signal="door_unlocked" from="ComboLock" to="Node2D" method="_on_combo_lock_door_unlocked"]
