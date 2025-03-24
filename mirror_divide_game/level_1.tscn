@@ -22,7 +22,7 @@
 [ext_resource type="PackedScene" uid="uid://cvaja5frkdyyy" path="res://key_canvas_layer.tscn" id="20_kq4ef"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y11b8"]
-size = Vector2(943.25, 148)
+size = Vector2(943.25, 1132)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_keant"]
 size = Vector2(2543.61, 204.435)
@@ -31,7 +31,7 @@ size = Vector2(2543.61, 204.435)
 size = Vector2(151.75, 288.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_macdn"]
-size = Vector2(1048.62, 120)
+size = Vector2(1048.62, 990)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r3i71"]
 size = Vector2(278.125, 158.419)
@@ -43,7 +43,7 @@ size = Vector2(249, 146)
 size = Vector2(342.25, 73.4375)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_awh4r"]
-size = Vector2(563, 203.419)
+size = Vector2(563, 282.42)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ob62y"]
 size = Vector2(80, 29)
@@ -99,7 +99,7 @@ scale = Vector2(0.760937, 0.11875)
 texture = ExtResource("7_r0i6j")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="player_platform1"]
-position = Vector2(-28, 316)
+position = Vector2(-28, 808)
 shape = SubResource("RectangleShape2D_y11b8")
 
 [node name="Player2" parent="." instance=ExtResource("4_ha2ej")]
@@ -139,7 +139,7 @@ scale = Vector2(0.822921, 0.09395)
 texture = ExtResource("7_r0i6j")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="player_platform4"]
-position = Vector2(-1172.69, 329)
+position = Vector2(-1172.69, 764)
 shape = SubResource("RectangleShape2D_macdn")
 
 [node name="player_platform5" type="CharacterBody2D" parent="."]
@@ -187,7 +187,7 @@ scale = Vector2(0.438844, 0.15511)
 texture = ExtResource("7_r0i6j")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="player_platform8"]
-position = Vector2(-4034.5, 606.29)
+position = Vector2(-4034.5, 645.79)
 shape = SubResource("RectangleShape2D_awh4r")
 
 [node name="player_platform8" type="CharacterBody2D" parent="player_platform8"]
@@ -199,7 +199,7 @@ scale = Vector2(0.438844, 0.15511)
 texture = ExtResource("7_r0i6j")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="player_platform8/player_platform8"]
-position = Vector2(-4527, 672)
+position = Vector2(-4523, 712)
 shape = SubResource("RectangleShape2D_awh4r")
 
 [node name="player_platform11" type="CharacterBody2D" parent="."]
