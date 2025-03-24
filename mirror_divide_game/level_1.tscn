@@ -282,7 +282,6 @@ autoplay = true
 [node name="RigidBody2D" parent="." instance=ExtResource("11_iv8ya")]
 position = Vector2(-2569, 331)
 mass = 0.001
-gravity_scale = 0.0
 sleeping = true
 lock_rotation = true
 freeze = true
@@ -290,7 +289,6 @@ freeze = true
 [node name="RigidBody2D2" parent="." instance=ExtResource("11_iv8ya")]
 position = Vector2(-2569, 389)
 mass = 0.001
-gravity_scale = 0.0
 sleeping = true
 lock_rotation = true
 freeze = true
@@ -298,7 +296,6 @@ freeze = true
 [node name="RigidBody2D3" parent="." instance=ExtResource("11_iv8ya")]
 position = Vector2(-2568, 444)
 mass = 0.001
-gravity_scale = 0.0
 sleeping = true
 lock_rotation = true
 freeze = true
@@ -306,7 +303,6 @@ freeze = true
 [node name="RigidBody2D4" parent="." instance=ExtResource("11_iv8ya")]
 position = Vector2(-2570, 500)
 mass = 0.001
-gravity_scale = 0.0
 sleeping = true
 lock_rotation = true
 freeze = true
@@ -314,7 +310,6 @@ freeze = true
 [node name="RigidBody2D5" parent="." instance=ExtResource("11_iv8ya")]
 position = Vector2(-2570, 555)
 mass = 0.001
-gravity_scale = 0.0
 sleeping = true
 lock_rotation = true
 freeze = true
@@ -322,7 +317,6 @@ freeze = true
 [node name="RigidBody2D6" parent="." instance=ExtResource("11_iv8ya")]
 position = Vector2(-2571, 611)
 mass = 0.001
-gravity_scale = 0.0
 sleeping = true
 lock_rotation = true
 freeze = true
@@ -330,7 +324,6 @@ freeze = true
 [node name="RigidBody2D7" parent="." instance=ExtResource("11_iv8ya")]
 position = Vector2(-2571, 668)
 mass = 0.001
-gravity_scale = 0.0
 sleeping = true
 lock_rotation = true
 freeze = true
@@ -338,7 +331,6 @@ freeze = true
 [node name="RigidBody2D8" parent="." instance=ExtResource("11_iv8ya")]
 position = Vector2(-2570, 274)
 mass = 0.001
-gravity_scale = 0.0
 sleeping = true
 lock_rotation = true
 freeze = true
