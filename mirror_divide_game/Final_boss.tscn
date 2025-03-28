@@ -1,0 +1,41 @@
+[gd_scene load_steps=6 format=3 uid="uid://cau0seuevehqu"]
+
+[ext_resource type="Script" path="res://Final_boss.gd" id="1_g7vrn"]
+[ext_resource type="Texture2D" uid="uid://n15obu7l8bne" path="res://assetss/mob_one_default.png" id="1_upk7i"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_spgkx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_upk7i")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aqc0b"]
+size = Vector2(467.5, 418.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ylpsi"]
+size = Vector2(449, 430)
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+script = ExtResource("1_g7vrn")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(27.1249, 28)
+scale = Vector2(0.443555, 0.394922)
+sprite_frames = SubResource("SpriteFrames_spgkx")
+
+[node name="DamageArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DamageArea"]
+position = Vector2(13, 13)
+shape = SubResource("RectangleShape2D_aqc0b")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 17)
+shape = SubResource("RectangleShape2D_ylpsi")
+
+[connection signal="area_entered" from="DamageArea" to="." method="_on_damage_area_area_entered"]
