@@ -7,9 +7,11 @@ extends CharacterBody2D
 @export var small_damage := 5  # 20 hits to kill (100 / 5)
 @export var medium_damage := 10  # 10 hits to kill (100 / 10)
 @export var large_damage := 20  # 5 hits to kill (100 / 20)
+@export var max_health := 100
 
 const GRAVITY = 1000.0
 
+var current_health := max_health
 var attack_damage: int  # This will be set based on size
 var direction := Vector2.ZERO
 var current_speed := 0.0
@@ -185,13 +187,30 @@ func die():
 	queue_free()
 
 func determine_damage():
-	# Determine attack strength based on scale
-	if scale.x <= 0.75:  # Small enemy
+	if scale.x <= 0.75:
 		attack_damage = small_damage
-	elif scale.x <= 1.25:  # Medium enemy
+		max_health = 50
+	elif scale.x <= 1.25:
 		attack_damage = medium_damage
-	else:  # Large enemy
+		max_health = 100
+	else:
 		attack_damage = large_damage
+		max_health = 150
+	
+	current_health = max_health
+
+func flash_blue():
+	if sprite:
+		sprite.modulate = Color(0.6, 0.7, 1.0, 0.9)
+		await get_tree().create_timer(0.1).timeout
+		sprite.modulate = Color(1, 1, 1)  # Reset to normal
+
+func take_damage(amount: int):
+	current_health -= amount
+	if sprite:
+		flash_blue()
+	if current_health <= 0:
+		die()
 
 func _on_damage_area_body_shape_entered(body_rid: RID, body: Node2D, body_shape_index: int, local_shape_index: int) -> void:
 	if body.is_in_group("player"):
