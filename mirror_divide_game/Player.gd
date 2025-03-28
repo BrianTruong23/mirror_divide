@@ -3,6 +3,12 @@ extends CharacterBody2D
 @export var bullet_scene := preload("res://Bullet.tscn")  # Path to bullet scene
 @export var max_health := 100
 
+# Heart
+@onready var heart_container: HBoxContainer = $HeartUI/HBoxContainer
+@export var heart_value := 20  # Each heart represents 20 health
+@export var full_heart_texture: Texture
+@export var empty_heart_texture: Texture
+
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 const GRAVITY = 1000.0
@@ -24,6 +30,8 @@ var current_level_index = 0
 func _ready():
 	add_to_group("player")  # Ensure player is in the correct group
 	health = max_health
+	full_heart_texture = load("res://assetss/heart_full.png")
+	empty_heart_texture = load("res://assetss/heart.png")
 
 func _physics_process(delta: float) -> void:
 	# Apply gravity
@@ -101,9 +109,19 @@ func player_shoot():
 	# Add bullet to the scene
 	get_parent().add_child(bullet)
 
+func update_hearts():
+	var hearts_to_show = ceil(float(health) / heart_value)
+	for i in range(heart_container.get_child_count()):
+		var heart = heart_container.get_child(i)
+		if i < hearts_to_show:
+			heart.texture = full_heart_texture
+		else:
+			heart.texture = empty_heart_texture
+
 func take_damage(damage: int):
 	health -= damage
 	print(name, " took ", damage, " damage! Health: ", health)
+	update_hearts()
 	if health <= 0:
 		die()
 
