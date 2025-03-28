@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cxonuqdk7sqs8"]
+[gd_scene load_steps=13 format=3 uid="uid://cxonuqdk7sqs8"]
 
 [ext_resource type="Script" path="res://final_level.gd" id="1_tdatf"]
 [ext_resource type="PackedScene" uid="uid://c5clromjmgu7k" path="res://Player.tscn" id="3_3810w"]
@@ -6,11 +6,18 @@
 [ext_resource type="Texture2D" uid="uid://b1s0mvek3nqnp" path="res://assetss/platform_black.png" id="5_3jgxh"]
 [ext_resource type="PackedScene" uid="uid://ulkn81fayhxx" path="res://Researcher.tscn" id="7_w6uul"]
 [ext_resource type="Script" path="res://researcher.gd" id="8_fo760"]
+[ext_resource type="PackedScene" uid="uid://cau0seuevehqu" path="res://Final_boss.tscn" id="9_mdl0j"]
 [ext_resource type="AudioStream" uid="uid://qab4yse0qpj" path="res://assetss/game music.mp3" id="12_rvkfs"]
 [ext_resource type="Texture2D" uid="uid://cgkefvl75fqut" path="res://assetss/b_orange_background.png" id="12_yubpi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_keant"]
-size = Vector2(1904.01, 204.435)
+size = Vector2(2479, 204.435)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m3db5"]
+size = Vector2(443.375, 46)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8r1f1"]
+size = Vector2(193.5, 288)
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_tdatf")
@@ -25,13 +32,37 @@ script = ExtResource("4_t1cj6")
 position = Vector2(1141, -68)
 
 [node name="aaaaa" type="Sprite2D" parent="player_platform2"]
-position = Vector2(-3541.5, 1058)
-scale = Vector2(1.47891, 0.165)
+position = Vector2(-3239.5, 1058)
+scale = Vector2(1.95078, 0.165)
 texture = ExtResource("5_3jgxh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="player_platform2"]
-position = Vector2(-3543, 1056)
+position = Vector2(-3230.5, 1056)
 shape = SubResource("RectangleShape2D_keant")
+
+[node name="player_platform3" type="CharacterBody2D" parent="."]
+position = Vector2(1141, -68)
+
+[node name="aaaaa" type="Sprite2D" parent="player_platform3"]
+position = Vector2(-1515, 831)
+scale = Vector2(0.353076, 0.0284375)
+texture = ExtResource("5_3jgxh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="player_platform3"]
+position = Vector2(-1506, 830)
+shape = SubResource("RectangleShape2D_m3db5")
+
+[node name="player_platform4" type="CharacterBody2D" parent="."]
+position = Vector2(1141, -68)
+
+[node name="aaaaa" type="Sprite2D" parent="player_platform4"]
+position = Vector2(-1888, 1027.15)
+scale = Vector2(0.158399, 0.233047)
+texture = ExtResource("5_3jgxh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="player_platform4"]
+position = Vector2(-1885.75, 1022)
+shape = SubResource("RectangleShape2D_8r1f1")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("12_rvkfs")
@@ -49,7 +80,7 @@ texture = ExtResource("12_yubpi")
 centered = false
 
 [node name="Researcher" parent="." instance=ExtResource("7_w6uul")]
-position = Vector2(-1714, 782)
+position = Vector2(-429, 553)
 script = ExtResource("8_fo760")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -61,5 +92,8 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 40
 text = "Congratulations!
 You saved the researcher!"
+
+[node name="CharacterBody2D" parent="." groups=["enemies"] instance=ExtResource("9_mdl0j")]
+position = Vector2(-1876, 94)
 
 [connection signal="final_game_ended" from="Researcher" to="." method="_on_researcher_final_game_ended"]
