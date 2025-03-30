@@ -53,6 +53,9 @@ func _physics_process(delta: float) -> void:
 	velocity.x = direction.x * SPEED
 
 	move_and_slide()
+	
+	if global_position.y > 2000:
+		die()
 
 	# Check for collision after movement
 	for i in range(get_slide_collision_count()):
@@ -97,3 +100,4 @@ func take_damage(damage: int):
 func die():
 	print(name, " has died!")
 	queue_free()  # Remove player from the game
+	get_tree().reload_current_scene()

@@ -22,8 +22,8 @@ var has_key = false  # Tracks key possession
 var levels = [
 	"res://tutorial.tscn",
 	"res://level_1.tscn",
-	"res://level_2.tscn",
-	"res://level_3.tscn"
+	"res://final_level.tscn",
+	"res://tutorial.tscn"
 ]
 
 var current_level_index = 0
@@ -34,6 +34,7 @@ func _ready():
 	empty_heart_texture = load("res://assetss/heart.png")
 
 func _physics_process(delta: float) -> void:
+	
 	# Apply gravity
 	if not is_on_floor():
 		velocity.y += GRAVITY * delta
@@ -61,6 +62,10 @@ func _physics_process(delta: float) -> void:
 
 	# Move and check for collisions
 	move_and_slide()
+	
+	# Kill if fall
+	if global_position.y > 2000:
+		die()
 	
 	for i in range(get_slide_collision_count()):
 		var collision = get_slide_collision(i)
@@ -128,3 +133,4 @@ func take_damage(damage: int):
 func die():
 	print(name, " has died!")
 	queue_free()  # Remove player from the game
+	get_tree().reload_current_scene()

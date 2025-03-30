@@ -1,6 +1,6 @@
-[gd_scene load_steps=33 format=3 uid="uid://cd8h68g8jvi4f"]
+[gd_scene load_steps=32 format=3 uid="uid://cd8h68g8jvi4f"]
 
-[ext_resource type="Script" path="res://level_1.gd" id="1_wj7ef"]
+[ext_resource type="Script" path="res://game.gd" id="1_wj7ef"]
 [ext_resource type="PackedScene" uid="uid://3owvf6hs2mjy" path="res://GrappleObject.tscn" id="2_5ybre"]
 [ext_resource type="Script" path="res://camera_2d.gd" id="2_cjxwf"]
 [ext_resource type="PackedScene" uid="uid://c5clromjmgu7k" path="res://Player.tscn" id="2_k3d46"]
@@ -15,7 +15,6 @@
 [ext_resource type="PackedScene" uid="uid://cjo6ma5gi0bn0" path="res://spike.tscn" id="13_nlodf"]
 [ext_resource type="Texture2D" uid="uid://d2hroabycxi1b" path="res://assetss/b_blue_background.png" id="14_fgol0"]
 [ext_resource type="PackedScene" uid="uid://bfnlmjsctt22s" path="res://button.tscn" id="15_8oxr5"]
-[ext_resource type="Texture2D" uid="uid://dy4w2t3ea3ua0" path="res://assetss/instruction_stone.png" id="18_dbuj7"]
 [ext_resource type="PackedScene" uid="uid://b5yt3hx1d755d" path="res://door.tscn" id="18_pmvw8"]
 [ext_resource type="Script" path="res://door.gd" id="19_gv3hp"]
 
@@ -87,7 +86,7 @@ position = Vector2(-28.6875, 808)
 shape = SubResource("RectangleShape2D_y11b8")
 
 [node name="Player2" parent="." instance=ExtResource("4_ha2ej")]
-position = Vector2(1444, 9)
+position = Vector2(1421, 2)
 script = ExtResource("7_viugy")
 
 [node name="player_platform2" type="CharacterBody2D" parent="."]
@@ -245,8 +244,7 @@ position = Vector2(-5101, 1009.5)
 shape = SubResource("RectangleShape2D_lwr67")
 
 [node name="KeyBox" parent="." instance=ExtResource("2_5ybre")]
-position = Vector2(860, -246)
-gravity_scale = 0.67
+position = Vector2(946, -67)
 script = ExtResource("10_ce1r7")
 health = 1
 
@@ -301,9 +299,6 @@ position = Vector2(-2572, 330)
 mass = 0.001
 can_sleep = false
 lock_rotation = true
-
-[node name="spike16" parent="." instance=ExtResource("13_nlodf")]
-position = Vector2(-2003, 647)
 
 [node name="spike2" parent="." instance=ExtResource("13_nlodf")]
 position = Vector2(-1895, 647)
@@ -455,22 +450,5 @@ position = Vector2(-2572, -258)
 mass = 0.001
 can_sleep = false
 lock_rotation = true
-
-[node name="Label" type="Label" parent="."]
-offset_left = 748.0
-offset_top = -54.0
-offset_right = 982.0
-offset_bottom = -5.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "This box is breakable
-with gun"
-horizontal_alignment = 1
-
-[node name="InstructionStone" type="Sprite2D" parent="."]
-modulate = Color(1, 1, 1, 0.505882)
-z_index = -2
-position = Vector2(860, -34)
-scale = Vector2(0.3, 0.3)
-texture = ExtResource("18_dbuj7")
 
 [connection signal="door_unlocked" from="ComboLock" to="Door" method="_on_combo_lock_door_unlocked"]

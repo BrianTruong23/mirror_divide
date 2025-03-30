@@ -66,24 +66,25 @@ layout_mode = 2
 text = "↓"
 
 [node name="CheckButton" type="Button" parent="."]
-offset_top = 108.0
-offset_right = 68.0
-offset_bottom = 139.0
+offset_left = -5.0
+offset_top = 109.0
+offset_right = 63.0
+offset_bottom = 140.0
 text = "Check"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(9, -15)
-scale = Vector2(0.0125, 0.0154297)
+position = Vector2(5, -16.0625)
+scale = Vector2(0.0125, 0.0170899)
 texture = ExtResource("2_0bd83")
 
 [node name="Sprite2D2" type="Sprite2D" parent="."]
-position = Vector2(33, -19)
-scale = Vector2(0.021875, 0.0233398)
+position = Vector2(27, -20.5313)
+scale = Vector2(0.021875, 0.0257324)
 texture = ExtResource("2_0bd83")
 
 [node name="Sprite2D3" type="Sprite2D" parent="."]
-position = Vector2(63, -21)
-scale = Vector2(0.0242188, 0.0288086)
+position = Vector2(53, -25.2812)
+scale = Vector2(0.0242188, 0.0308106)
 texture = ExtResource("2_0bd83")
 
 [connection signal="pressed" from="DigitContainer/Digit1/UpButton1" to="." method="_on_up_button_1_pressed"]

@@ -8,3 +8,7 @@ func _on_area_2d_body_entered(body):
 func _ready():
 	freeze = true  # Optional: Make spikes static if desired
 	gravity_scale = 0  # Optional: No falling
+	get_node("/root/Game").connect("key_acquired_signal", Callable(self, "_on_key_acquired"))
+
+func _on_key_acquired():
+	queue_free() 

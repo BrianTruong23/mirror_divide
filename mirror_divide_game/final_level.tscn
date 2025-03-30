@@ -80,7 +80,7 @@ texture = ExtResource("12_yubpi")
 centered = false
 
 [node name="Researcher" parent="." instance=ExtResource("7_w6uul")]
-position = Vector2(-429, 553)
+position = Vector2(-400, 524)
 script = ExtResource("8_fo760")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -92,6 +92,7 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 40
 text = "Congratulations!
 You saved the researcher!"
+horizontal_alignment = 1
 
 [node name="CharacterBody2D" parent="." groups=["enemies"] instance=ExtResource("9_mdl0j")]
 position = Vector2(-1876, 94)

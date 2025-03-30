@@ -22,6 +22,7 @@ TransitionManager="*res://transition.tscn"
 [display]
 
 window/stretch/mode="viewport"
+mouse_cursor/custom_image="res://assetss/mouse_cursor.png"
 
 [input]
 

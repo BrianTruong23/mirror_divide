@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://d3wglp2hfhnjx"]
+[gd_scene load_steps=29 format=3 uid="uid://d3wglp2hfhnjx"]
 
 [ext_resource type="Script" path="res://tutorial.gd" id="1_ovobt"]
 [ext_resource type="Texture2D" uid="uid://b1s0mvek3nqnp" path="res://assetss/platform_black.png" id="1_sfbse"]
@@ -25,6 +25,7 @@
 [ext_resource type="Texture2D" uid="uid://buwodjanjql7t" path="res://assetss/instruction_v.png" id="22_b33fb"]
 [ext_resource type="Texture2D" uid="uid://dhkimrstgjma4" path="res://assetss/instruction_right_click.png" id="22_rr3dj"]
 [ext_resource type="AudioStream" uid="uid://qab4yse0qpj" path="res://assetss/game music.mp3" id="25_pnhmr"]
+[ext_resource type="Texture2D" uid="uid://duwwx6quaa5w" path="res://assetss/instruction_r.png" id="26_gchdk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cr3bn"]
 size = Vector2(977.5, 211.742)
@@ -108,11 +109,11 @@ texture = ExtResource("9_nkr0w")
 centered = false
 
 [node name="lever" parent="." instance=ExtResource("11_iljyf")]
-position = Vector2(557, -44)
+position = Vector2(558, -38)
 script = ExtResource("11_8fuil")
 
 [node name="lever2" parent="." instance=ExtResource("12_i8h3d")]
-position = Vector2(1283, -28)
+position = Vector2(1286, -25)
 script = ExtResource("13_xje0g")
 
 [node name="Door" parent="." instance=ExtResource("11_f8qhb")]
@@ -132,6 +133,44 @@ position = Vector2(-564, -54)
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("19_u61j7")
 
+[node name="WASD" type="Label" parent="InstructionStone"]
+modulate = Color(0, 0, 0, 1)
+self_modulate = Color(0, 0, 0, 1)
+offset_left = -406.667
+offset_top = 16.6667
+offset_right = -8.6665
+offset_bottom = 146.667
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+text = "Move 1st body
+"
+horizontal_alignment = 1
+
+[node name="v" type="Label" parent="InstructionStone"]
+offset_left = 50.0001
+offset_top = 116.667
+offset_right = 407.0
+offset_bottom = 246.667
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+text = "Change camera view
+to 2nd body."
+horizontal_alignment = 1
+
+[node name="LC" type="Label" parent="InstructionStone"]
+offset_left = -60.0
+offset_top = -110.0
+offset_right = 338.0
+offset_bottom = 20.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+text = "Ability for 1st body
+Shoot Gun"
+horizontal_alignment = 1
+
 [node name="InstructionWasd" type="Sprite2D" parent="."]
 self_modulate = Color(1, 1, 1, 0.745098)
 z_index = -1
@@ -142,7 +181,7 @@ texture = ExtResource("19_ta1ef")
 [node name="InstructionLeftClick" type="Sprite2D" parent="."]
 self_modulate = Color(1, 1, 1, 0.745098)
 z_index = -1
-position = Vector2(-540, -102)
+position = Vector2(-552, -120)
 scale = Vector2(0.05, 0.05)
 texture = ExtResource("20_k60ue")
 
@@ -159,6 +198,40 @@ z_index = -2
 position = Vector2(2100, -77)
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("19_u61j7")
+
+[node name="AK" type="Label" parent="InstructionStone2"]
+offset_left = -363.333
+offset_top = 70.0
+offset_right = 34.6665
+offset_bottom = 200.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+text = "Move 2nd body
+"
+horizontal_alignment = 1
+
+[node name="RC" type="Label" parent="InstructionStone2"]
+offset_left = -16.6667
+offset_top = 150.0
+offset_right = 381.333
+offset_bottom = 280.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+text = "Ability for 2nd body
+Grab Hand
+"
+horizontal_alignment = 1
+
+[node name="R" type="Label" parent="InstructionStone2"]
+offset_left = -136.667
+offset_top = -200.0
+offset_right = 261.333
+offset_bottom = -70.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+text = "Reset Stage
+Hold 3 seconds"
+horizontal_alignment = 1
 
 [node name="InstructionArrowkeys" type="Sprite2D" parent="."]
 self_modulate = Color(1, 1, 1, 0.745098)
@@ -177,6 +250,13 @@ texture = ExtResource("22_rr3dj")
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("25_pnhmr")
 parameters/looping = true
+
+[node name="InstructionR" type="Sprite2D" parent="."]
+self_modulate = Color(1, 1, 1, 0.745098)
+z_index = -1
+position = Vector2(2121, -160)
+scale = Vector2(0.07, 0.07)
+texture = ExtResource("26_gchdk")
 
 [connection signal="platform_raised" from="lever" to="player_platform3" method="_on_lever_platform_raised"]
 [connection signal="lever_activated" from="lever2" to="Door" method="_on_lever_2_lever_activated"]
