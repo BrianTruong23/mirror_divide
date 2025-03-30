@@ -1,0 +1,43 @@
+[gd_scene load_steps=5 format=3 uid="uid://dvmkr6u6s18m"]
+
+[ext_resource type="Texture2D" uid="uid://gh2g1ctcj6as" path="res://assetss/hand_grabbed.png" id="2_4ogrc"]
+[ext_resource type="Texture2D" uid="uid://cgdtbb5umld1o" path="res://assetss/hand_released.png" id="3_gqru1"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_spgc4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_4ogrc")
+}],
+"loop": true,
+"name": &"grab",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_gqru1")
+}],
+"loop": true,
+"name": &"release",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4i7ax"]
+radius = 1.0
+
+[node name="Hand" type="Area2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-4, -1)
+scale = Vector2(0.0298823, 0.0298823)
+sprite_frames = SubResource("SpriteFrames_spgc4")
+animation = &"release"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-5, -1)
+shape = SubResource("CircleShape2D_4i7ax")
+
+[node name="GrappleLine" type="Node2D" parent="."]
+
+[node name="Polygon2D" type="Polygon2D" parent="GrappleLine"]
+color = Color(0, 0.333333, 1, 1)

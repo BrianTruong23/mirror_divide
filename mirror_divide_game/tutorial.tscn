@@ -1,0 +1,262 @@
+[gd_scene load_steps=29 format=3 uid="uid://d3wglp2hfhnjx"]
+
+[ext_resource type="Script" path="res://tutorial.gd" id="1_ovobt"]
+[ext_resource type="Texture2D" uid="uid://b1s0mvek3nqnp" path="res://assetss/platform_black.png" id="1_sfbse"]
+[ext_resource type="PackedScene" uid="uid://e3xjoir8f4lx" path="res://Player_2.tscn" id="2_lmgqd"]
+[ext_resource type="Script" path="res://Player_2.gd" id="3_qsg8l"]
+[ext_resource type="Texture2D" uid="uid://pro7mk8qh63c" path="res://assetss/platform_default.png" id="6_fflxg"]
+[ext_resource type="PackedScene" uid="uid://c5clromjmgu7k" path="res://Player.tscn" id="7_rascw"]
+[ext_resource type="Texture2D" uid="uid://d2hroabycxi1b" path="res://assetss/b_blue_background.png" id="9_nkr0w"]
+[ext_resource type="Script" path="res://camera_2d.gd" id="10_uxkm1"]
+[ext_resource type="Script" path="res://lever.gd" id="11_8fuil"]
+[ext_resource type="PackedScene" uid="uid://b5yt3hx1d755d" path="res://door.tscn" id="11_f8qhb"]
+[ext_resource type="PackedScene" uid="uid://b5vgwybaq7m8y" path="res://lever.tscn" id="11_iljyf"]
+[ext_resource type="Script" path="res://door.gd" id="12_csgek"]
+[ext_resource type="PackedScene" uid="uid://d1mnmdi7etqdl" path="res://lever_2.tscn" id="12_i8h3d"]
+[ext_resource type="PackedScene" uid="uid://cr0fd3esxoj37" path="res://Enemy.tscn" id="13_1ugd1"]
+[ext_resource type="Script" path="res://lever_2.gd" id="13_xje0g"]
+[ext_resource type="PackedScene" uid="uid://3owvf6hs2mjy" path="res://GrappleObject.tscn" id="14_twgi5"]
+[ext_resource type="PackedScene" uid="uid://c0vq62cpu4hfd" path="res://platform.tscn" id="17_hcyoj"]
+[ext_resource type="Script" path="res://platform.gd" id="18_85kwd"]
+[ext_resource type="Texture2D" uid="uid://c7ixbjcsb3lbd" path="res://assetss/instruction_wasd.png" id="19_ta1ef"]
+[ext_resource type="Texture2D" uid="uid://dy4w2t3ea3ua0" path="res://assetss/instruction_stone.png" id="19_u61j7"]
+[ext_resource type="Texture2D" uid="uid://dib58yxep72mx" path="res://assetss/instruction_left_click.png" id="20_k60ue"]
+[ext_resource type="Texture2D" uid="uid://dl64mdreq8l8l" path="res://assetss/instruction_arrowkeys.png" id="21_dao8k"]
+[ext_resource type="Texture2D" uid="uid://buwodjanjql7t" path="res://assetss/instruction_v.png" id="22_b33fb"]
+[ext_resource type="Texture2D" uid="uid://dhkimrstgjma4" path="res://assetss/instruction_right_click.png" id="22_rr3dj"]
+[ext_resource type="AudioStream" uid="uid://qab4yse0qpj" path="res://assetss/game music.mp3" id="25_pnhmr"]
+[ext_resource type="Texture2D" uid="uid://duwwx6quaa5w" path="res://assetss/instruction_r.png" id="26_gchdk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cr3bn"]
+size = Vector2(977.5, 211.742)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a8gtm"]
+size = Vector2(76, 46)
+
+[node name="tutorial" type="Node2D"]
+script = ExtResource("1_ovobt")
+
+[node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("player1", "player2")]
+position = Vector2(-489, 1275)
+script = ExtResource("10_uxkm1")
+player1 = NodePath("../Player1")
+player2 = NodePath("../Player2")
+
+[node name="Player1" parent="." instance=ExtResource("7_rascw")]
+position = Vector2(-374, 78)
+
+[node name="Player2" parent="." instance=ExtResource("2_lmgqd")]
+position = Vector2(1793, 32)
+script = ExtResource("3_qsg8l")
+
+[node name="player_platform1" type="CharacterBody2D" parent="."]
+
+[node name="aaaaa" type="Sprite2D" parent="player_platform1"]
+position = Vector2(90, 270)
+scale = Vector2(0.765, 0.165)
+texture = ExtResource("1_sfbse")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="player_platform1"]
+position = Vector2(91, 270)
+shape = SubResource("RectangleShape2D_cr3bn")
+
+[node name="player_platform2" type="CharacterBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="player_platform2"]
+position = Vector2(1410, 270)
+scale = Vector2(0.765, 0.165)
+texture = ExtResource("1_sfbse")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="player_platform2"]
+position = Vector2(1409, 270)
+shape = SubResource("RectangleShape2D_cr3bn")
+
+[node name="player_platform3" parent="." instance=ExtResource("17_hcyoj")]
+position = Vector2(750, -300)
+script = ExtResource("18_85kwd")
+
+[node name="platform1" type="CharacterBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="platform1"]
+position = Vector2(559, -68)
+scale = Vector2(0.05, 0.035)
+texture = ExtResource("6_fflxg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="platform1"]
+position = Vector2(559, -68.4063)
+shape = SubResource("RectangleShape2D_a8gtm")
+
+[node name="platform2" type="CharacterBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="platform2"]
+position = Vector2(1284, 2)
+scale = Vector2(0.0593749, 0.0359375)
+texture = ExtResource("6_fflxg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="platform2"]
+position = Vector2(1284, 2)
+shape = SubResource("RectangleShape2D_a8gtm")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer" groups=["grabbable"]]
+position = Vector2(0, -2)
+scale = Vector2(0.643415, 0.632812)
+texture = ExtResource("9_nkr0w")
+centered = false
+
+[node name="lever" parent="." instance=ExtResource("11_iljyf")]
+position = Vector2(558, -38)
+script = ExtResource("11_8fuil")
+
+[node name="lever2" parent="." instance=ExtResource("12_i8h3d")]
+position = Vector2(1286, -25)
+script = ExtResource("13_xje0g")
+
+[node name="Door" parent="." instance=ExtResource("11_f8qhb")]
+position = Vector2(-264, -124)
+script = ExtResource("12_csgek")
+
+[node name="Enemy" parent="." instance=ExtResource("13_1ugd1")]
+position = Vector2(-94, -66)
+
+[node name="GrappleObject" parent="." groups=["grabbable", "rock"] instance=ExtResource("14_twgi5")]
+position = Vector2(1121, -119)
+
+[node name="InstructionStone" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.505882)
+z_index = -2
+position = Vector2(-564, -54)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("19_u61j7")
+
+[node name="WASD" type="Label" parent="InstructionStone"]
+modulate = Color(0, 0, 0, 1)
+self_modulate = Color(0, 0, 0, 1)
+offset_left = -406.667
+offset_top = 16.6667
+offset_right = -8.6665
+offset_bottom = 146.667
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+text = "Move 1st body
+"
+horizontal_alignment = 1
+
+[node name="v" type="Label" parent="InstructionStone"]
+offset_left = 50.0001
+offset_top = 116.667
+offset_right = 407.0
+offset_bottom = 246.667
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+text = "Change camera view
+to 2nd body."
+horizontal_alignment = 1
+
+[node name="LC" type="Label" parent="InstructionStone"]
+offset_left = -60.0
+offset_top = -110.0
+offset_right = 338.0
+offset_bottom = 20.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+text = "Ability for 1st body
+Shoot Gun"
+horizontal_alignment = 1
+
+[node name="InstructionWasd" type="Sprite2D" parent="."]
+self_modulate = Color(1, 1, 1, 0.745098)
+z_index = -1
+position = Vector2(-628, -77)
+scale = Vector2(0.07, 0.07)
+texture = ExtResource("19_ta1ef")
+
+[node name="InstructionLeftClick" type="Sprite2D" parent="."]
+self_modulate = Color(1, 1, 1, 0.745098)
+z_index = -1
+position = Vector2(-552, -120)
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("20_k60ue")
+
+[node name="InstructionV" type="Sprite2D" parent="."]
+self_modulate = Color(1, 1, 1, 0.745098)
+z_index = -1
+position = Vector2(-494, -46)
+scale = Vector2(0.07, 0.07)
+texture = ExtResource("22_b33fb")
+
+[node name="InstructionStone2" type="Sprite2D" parent="."]
+self_modulate = Color(1, 1, 1, 0.505882)
+z_index = -2
+position = Vector2(2100, -77)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("19_u61j7")
+
+[node name="AK" type="Label" parent="InstructionStone2"]
+offset_left = -363.333
+offset_top = 70.0
+offset_right = 34.6665
+offset_bottom = 200.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+text = "Move 2nd body
+"
+horizontal_alignment = 1
+
+[node name="RC" type="Label" parent="InstructionStone2"]
+offset_left = -16.6667
+offset_top = 150.0
+offset_right = 381.333
+offset_bottom = 280.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+text = "Ability for 2nd body
+Grab Hand
+"
+horizontal_alignment = 1
+
+[node name="R" type="Label" parent="InstructionStone2"]
+offset_left = -136.667
+offset_top = -200.0
+offset_right = 261.333
+offset_bottom = -70.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+text = "Reset Stage
+Hold 3 seconds"
+horizontal_alignment = 1
+
+[node name="InstructionArrowkeys" type="Sprite2D" parent="."]
+self_modulate = Color(1, 1, 1, 0.745098)
+z_index = -1
+position = Vector2(2050, -82)
+scale = Vector2(0.07, 0.07)
+texture = ExtResource("21_dao8k")
+
+[node name="InstructionRightClick" type="Sprite2D" parent="."]
+self_modulate = Color(1, 1, 1, 0.745098)
+z_index = -1
+position = Vector2(2155, -59)
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("22_rr3dj")
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("25_pnhmr")
+parameters/looping = true
+
+[node name="InstructionR" type="Sprite2D" parent="."]
+self_modulate = Color(1, 1, 1, 0.745098)
+z_index = -1
+position = Vector2(2121, -160)
+scale = Vector2(0.07, 0.07)
+texture = ExtResource("26_gchdk")
+
+[connection signal="platform_raised" from="lever" to="player_platform3" method="_on_lever_platform_raised"]
+[connection signal="lever_activated" from="lever2" to="Door" method="_on_lever_2_lever_activated"]

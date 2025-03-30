@@ -1,0 +1,84 @@
+[gd_scene load_steps=7 format=3 uid="uid://c5clromjmgu7k"]
+
+[ext_resource type="Script" path="res://Player.gd" id="1_i21aj"]
+[ext_resource type="Texture2D" uid="uid://bu2l707dqe5ed" path="res://assetss/player_default crop.png" id="2_yqg6k"]
+[ext_resource type="PackedScene" uid="uid://c04dathkllkwg" path="res://gun.tscn" id="3_mpc6w"]
+[ext_resource type="Texture2D" uid="uid://if16jdpo4avd" path="res://assetss/heart_full.png" id="4_p327h"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3gd0w"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_yqg6k")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_yqg6k")
+}],
+"loop": true,
+"name": &"run",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ewq8j"]
+radius = 13.6493
+height = 100.842
+
+[node name="Player" type="CharacterBody2D" groups=["player"]]
+script = ExtResource("1_i21aj")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(25, 22)
+scale = Vector2(0.1, 0.1)
+sprite_frames = SubResource("SpriteFrames_3gd0w")
+animation = &"run"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(25, 27)
+scale = Vector2(1.02569, 0.951982)
+shape = SubResource("CapsuleShape2D_ewq8j")
+
+[node name="Gun" parent="." instance=ExtResource("3_mpc6w")]
+position = Vector2(35, 14)
+scale = Vector2(1.39714, 1.39714)
+
+[node name="Muzzle" type="Marker2D" parent="Gun"]
+position = Vector2(21, -2)
+
+[node name="HeartUI" type="Node2D" parent="."]
+position = Vector2(-22, -47)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HeartUI"]
+offset_left = -11.0
+offset_top = 3.0
+offset_right = 105.0
+offset_bottom = 23.0
+
+[node name="Heart1" type="TextureRect" parent="HeartUI/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("4_p327h")
+expand_mode = 2
+
+[node name="Heart2" type="TextureRect" parent="HeartUI/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("4_p327h")
+expand_mode = 2
+
+[node name="Heart3" type="TextureRect" parent="HeartUI/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("4_p327h")
+expand_mode = 2
+
+[node name="Heart4" type="TextureRect" parent="HeartUI/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("4_p327h")
+expand_mode = 2
+
+[node name="Heart5" type="TextureRect" parent="HeartUI/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("4_p327h")
+expand_mode = 2

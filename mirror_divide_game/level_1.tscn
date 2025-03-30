@@ -1,0 +1,476 @@
+[gd_scene load_steps=33 format=3 uid="uid://cd8h68g8jvi4f"]
+
+[ext_resource type="Script" path="res://level_1.gd" id="1_wj7ef"]
+[ext_resource type="PackedScene" uid="uid://3owvf6hs2mjy" path="res://GrappleObject.tscn" id="2_5ybre"]
+[ext_resource type="Script" path="res://camera_2d.gd" id="2_cjxwf"]
+[ext_resource type="PackedScene" uid="uid://c5clromjmgu7k" path="res://Player.tscn" id="2_k3d46"]
+[ext_resource type="Script" path="res://player.gd" id="4_3liy4"]
+[ext_resource type="PackedScene" uid="uid://e3xjoir8f4lx" path="res://Player_2.tscn" id="4_ha2ej"]
+[ext_resource type="Texture2D" uid="uid://b1s0mvek3nqnp" path="res://assetss/platform_black.png" id="7_r0i6j"]
+[ext_resource type="Script" path="res://player_2.gd" id="7_viugy"]
+[ext_resource type="PackedScene" uid="uid://c3wc2ox21lbkh" path="res://combo_lock.tscn" id="9_a0oln"]
+[ext_resource type="Script" path="res://key_grabbable_box.gd" id="10_ce1r7"]
+[ext_resource type="AudioStream" uid="uid://qab4yse0qpj" path="res://assetss/game music.mp3" id="10_sg663"]
+[ext_resource type="PackedScene" uid="uid://bkjbpkaw008q6" path="res://breakablebox.tscn" id="11_iv8ya"]
+[ext_resource type="PackedScene" uid="uid://cjo6ma5gi0bn0" path="res://spike.tscn" id="13_nlodf"]
+[ext_resource type="Texture2D" uid="uid://d2hroabycxi1b" path="res://assetss/b_blue_background.png" id="14_fgol0"]
+[ext_resource type="PackedScene" uid="uid://bfnlmjsctt22s" path="res://button.tscn" id="15_8oxr5"]
+[ext_resource type="Texture2D" uid="uid://dy4w2t3ea3ua0" path="res://assetss/instruction_stone.png" id="18_dbuj7"]
+[ext_resource type="PackedScene" uid="uid://b5yt3hx1d755d" path="res://door.tscn" id="18_pmvw8"]
+[ext_resource type="Script" path="res://door.gd" id="19_gv3hp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y11b8"]
+size = Vector2(944.625, 1132)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_keant"]
+size = Vector2(2543.61, 204.435)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1kxhc"]
+size = Vector2(151.75, 1271)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_macdn"]
+size = Vector2(1044, 1107)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r3i71"]
+size = Vector2(278.125, 164.209)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4ngbr"]
+size = Vector2(249, 153)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tes8d"]
+size = Vector2(342.25, 240.719)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_awh4r"]
+size = Vector2(569, 680.21)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8t1d5"]
+size = Vector2(451, 677)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ob62y"]
+size = Vector2(82, 31)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yfdtp"]
+size = Vector2(122.25, 162)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p64yi"]
+size = Vector2(128.25, 785)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lwr67"]
+size = Vector2(72.125, 295)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nn47c"]
+size = Vector2(423.335, 295.208)
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_wj7ef")
+
+[node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("player1", "player2")]
+position = Vector2(-2648.64, 443.081)
+script = ExtResource("2_cjxwf")
+player1 = NodePath("../Player")
+player2 = NodePath("../Player2")
+
+[node name="Player" parent="." instance=ExtResource("2_k3d46")]
+position = Vector2(-3875, 769)
+script = ExtResource("4_3liy4")
+
+[node name="player_platform1" type="CharacterBody2D" parent="."]
+position = Vector2(1141, -68)
+
+[node name="aaaaa" type="Sprite2D" parent="player_platform1"]
+position = Vector2(-45.4998, 318)
+scale = Vector2(0.763281, 0.11875)
+texture = ExtResource("7_r0i6j")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="player_platform1"]
+position = Vector2(-28.6875, 808)
+shape = SubResource("RectangleShape2D_y11b8")
+
+[node name="Player2" parent="." instance=ExtResource("4_ha2ej")]
+position = Vector2(1444, 9)
+script = ExtResource("7_viugy")
+
+[node name="player_platform2" type="CharacterBody2D" parent="."]
+position = Vector2(1141, -68)
+
+[node name="aaaaa" type="Sprite2D" parent="player_platform2"]
+position = Vector2(-3866.4, 1058)
+scale = Vector2(1.98656, 0.165)
+texture = ExtResource("7_r0i6j")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="player_platform2"]
+position = Vector2(-3862.8, 1056)
+shape = SubResource("RectangleShape2D_keant")
+
+[node name="player_platform3" type="CharacterBody2D" parent="."]
+position = Vector2(1141, -68)
+
+[node name="aaaaa" type="Sprite2D" parent="player_platform3"]
+position = Vector2(-577.85, 248.5)
+scale = Vector2(0.117422, 0.227344)
+texture = ExtResource("7_r0i6j")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="player_platform3"]
+position = Vector2(-577, 739.5)
+shape = SubResource("RectangleShape2D_1kxhc")
+
+[node name="player_platform4" type="CharacterBody2D" parent="."]
+position = Vector2(1141, -68)
+
+[node name="aaaaa" type="Sprite2D" parent="player_platform4"]
+position = Vector2(-1173, 331.5)
+scale = Vector2(0.81875, 0.0976562)
+texture = ExtResource("7_r0i6j")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="player_platform4"]
+position = Vector2(-1175, 822.5)
+shape = SubResource("RectangleShape2D_macdn")
+
+[node name="player_platform5" type="CharacterBody2D" parent="."]
+position = Vector2(1141, -68)
+
+[node name="aaaaa" type="Sprite2D" parent="player_platform5"]
+position = Vector2(-1974, 371.04)
+scale = Vector2(0.217188, 0.126626)
+texture = ExtResource("7_r0i6j")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="player_platform5"]
+position = Vector2(-1974, 371.895)
+shape = SubResource("RectangleShape2D_r3i71")
+
+[node name="player_platform6" type="CharacterBody2D" parent="."]
+position = Vector2(1141, -68)
+
+[node name="aaaaa" type="Sprite2D" parent="player_platform6"]
+position = Vector2(-2363.5, 273.01)
+scale = Vector2(0.194531, 0.118766)
+texture = ExtResource("7_r0i6j")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="player_platform6"]
+position = Vector2(-2364, 273.5)
+shape = SubResource("RectangleShape2D_4ngbr")
+
+[node name="player_platform7" type="CharacterBody2D" parent="."]
+position = Vector2(1141, -68)
+
+[node name="aaaaa" type="Sprite2D" parent="player_platform7"]
+position = Vector2(-2797, 140.76)
+scale = Vector2(0.267188, 0.0621253)
+texture = ExtResource("7_r0i6j")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="player_platform7"]
+position = Vector2(-2797, 220.641)
+shape = SubResource("RectangleShape2D_tes8d")
+
+[node name="player_platform13" type="CharacterBody2D" parent="."]
+position = Vector2(2282, -136)
+
+[node name="aaaaa" type="Sprite2D" parent="player_platform13"]
+position = Vector2(-4539.57, 196.635)
+scale = Vector2(0.445984, 0.157243)
+texture = ExtResource("7_r0i6j")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="player_platform13"]
+position = Vector2(-4541.5, 435.895)
+shape = SubResource("RectangleShape2D_awh4r")
+
+[node name="player_platform8" type="CharacterBody2D" parent="."]
+position = Vector2(1141, -68)
+
+[node name="aaaaa" type="Sprite2D" parent="player_platform8"]
+position = Vector2(-4029.43, 129.135)
+scale = Vector2(0.445985, 0.151774)
+texture = ExtResource("7_r0i6j")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="player_platform8"]
+position = Vector2(-3966.5, 370.5)
+shape = SubResource("RectangleShape2D_8t1d5")
+
+[node name="player_platform11" type="CharacterBody2D" parent="."]
+position = Vector2(2282, -136)
+
+[node name="aaaaa2" type="Sprite2D" parent="player_platform11"]
+position = Vector2(-4912, 437.926)
+scale = Vector2(0.0459427, 0.52801)
+texture = ExtResource("7_r0i6j")
+
+[node name="aaaaa" type="Sprite2D" parent="player_platform11"]
+position = Vector2(-4855, 850)
+scale = Vector2(0.0646485, 0.0250633)
+texture = ExtResource("7_r0i6j")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="player_platform11"]
+position = Vector2(-4855, 849.5)
+shape = SubResource("RectangleShape2D_ob62y")
+
+[node name="aaaaa3" type="Sprite2D" parent="player_platform11"]
+position = Vector2(-4795, 436.426)
+scale = Vector2(0.0459427, 0.531916)
+texture = ExtResource("7_r0i6j")
+
+[node name="player_platform9" type="CharacterBody2D" parent="."]
+position = Vector2(1141, -68)
+
+[node name="aaaaa" type="Sprite2D" parent="player_platform9"]
+position = Vector2(-4256.63, -242.04)
+scale = Vector2(0.094336, 0.126626)
+texture = ExtResource("7_r0i6j")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="player_platform9"]
+position = Vector2(-4256, -242)
+shape = SubResource("RectangleShape2D_yfdtp")
+
+[node name="player_platform10" type="CharacterBody2D" parent="."]
+position = Vector2(1141, -68)
+
+[node name="aaaaa" type="Sprite2D" parent="player_platform10"]
+position = Vector2(-4254.68, 314.5)
+scale = Vector2(0.0995001, 0.610157)
+texture = ExtResource("7_r0i6j")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="player_platform10"]
+position = Vector2(-4255.13, 316.5)
+shape = SubResource("RectangleShape2D_p64yi")
+
+[node name="player_platform12" type="CharacterBody2D" parent="."]
+position = Vector2(1141, -68)
+
+[node name="aaaaa" type="Sprite2D" parent="player_platform12"]
+position = Vector2(-5101, 1013.3)
+scale = Vector2(0.0616793, 0.235469)
+texture = ExtResource("7_r0i6j")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="player_platform12"]
+position = Vector2(-5101, 1009.5)
+shape = SubResource("RectangleShape2D_lwr67")
+
+[node name="KeyBox" parent="." instance=ExtResource("2_5ybre")]
+position = Vector2(860, -246)
+gravity_scale = 0.67
+script = ExtResource("10_ce1r7")
+health = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_sg663")
+autoplay = true
+
+[node name="RigidBody2D" parent="." instance=ExtResource("11_iv8ya")]
+position = Vector2(-2572, 379)
+mass = 0.001
+can_sleep = false
+lock_rotation = true
+
+[node name="RigidBody2D2" parent="." instance=ExtResource("11_iv8ya")]
+position = Vector2(-2572, 428)
+mass = 0.001
+can_sleep = false
+lock_rotation = true
+
+[node name="RigidBody2D3" parent="." instance=ExtResource("11_iv8ya")]
+position = Vector2(-2572, 477)
+mass = 0.001
+can_sleep = false
+lock_rotation = true
+
+[node name="RigidBody2D4" parent="." instance=ExtResource("11_iv8ya")]
+position = Vector2(-2572, 526)
+mass = 0.001
+can_sleep = false
+lock_rotation = true
+
+[node name="RigidBody2D5" parent="." instance=ExtResource("11_iv8ya")]
+position = Vector2(-2572, 575)
+mass = 0.001
+can_sleep = false
+lock_rotation = true
+
+[node name="RigidBody2D6" parent="." instance=ExtResource("11_iv8ya")]
+position = Vector2(-2572, 624)
+mass = 0.001
+can_sleep = false
+lock_rotation = true
+
+[node name="RigidBody2D7" parent="." instance=ExtResource("11_iv8ya")]
+position = Vector2(-2572, 673)
+mass = 0.001
+can_sleep = false
+lock_rotation = true
+
+[node name="RigidBody2D8" parent="." instance=ExtResource("11_iv8ya")]
+position = Vector2(-2572, 330)
+mass = 0.001
+can_sleep = false
+lock_rotation = true
+
+[node name="spike16" parent="." instance=ExtResource("13_nlodf")]
+position = Vector2(-2003, 647)
+
+[node name="spike2" parent="." instance=ExtResource("13_nlodf")]
+position = Vector2(-1895, 647)
+
+[node name="spike3" parent="." instance=ExtResource("13_nlodf")]
+position = Vector2(-1783, 647)
+
+[node name="spike4" parent="." instance=ExtResource("13_nlodf")]
+position = Vector2(-1671, 647)
+
+[node name="spike5" parent="." instance=ExtResource("13_nlodf")]
+position = Vector2(-1551, 647)
+
+[node name="spike6" parent="." instance=ExtResource("13_nlodf")]
+position = Vector2(-1447, 647)
+
+[node name="spike7" parent="." instance=ExtResource("13_nlodf")]
+position = Vector2(-1335, 647)
+
+[node name="spike8" parent="." instance=ExtResource("13_nlodf")]
+position = Vector2(-1211, 647)
+
+[node name="spike9" parent="." instance=ExtResource("13_nlodf")]
+position = Vector2(-1095, 647)
+
+[node name="spike10" parent="." instance=ExtResource("13_nlodf")]
+position = Vector2(-983, 647)
+
+[node name="spike11" parent="." instance=ExtResource("13_nlodf")]
+position = Vector2(-879, 647)
+
+[node name="spike12" parent="." instance=ExtResource("13_nlodf")]
+position = Vector2(-767, 647)
+
+[node name="spike13" parent="." instance=ExtResource("13_nlodf")]
+position = Vector2(-655, 647)
+
+[node name="spike14" parent="." instance=ExtResource("13_nlodf")]
+position = Vector2(-535, 647)
+
+[node name="spike15" parent="." instance=ExtResource("13_nlodf")]
+position = Vector2(-426, 647)
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer" groups=["grabbable"]]
+position = Vector2(3, 2)
+scale = Vector2(0.643415, 0.632812)
+texture = ExtResource("14_fgol0")
+centered = false
+
+[node name="player_platform15" type="CharacterBody2D" parent="."]
+position = Vector2(1127.47, -68)
+scale = Vector2(0.3, 0.3)
+
+[node name="aaaaa" type="Sprite2D" parent="player_platform15"]
+position = Vector2(-14136.6, 2422.8)
+scale = Vector2(0.33073, 0.228331)
+texture = ExtResource("7_r0i6j")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="player_platform15"]
+position = Vector2(-14136.6, 2424.27)
+shape = SubResource("RectangleShape2D_nn47c")
+
+[node name="button" parent="." instance=ExtResource("15_8oxr5")]
+position = Vector2(-3112, 729)
+rotation = 3.14159
+scale = Vector2(0.36, 0.44)
+
+[node name="ComboLock" parent="." instance=ExtResource("9_a0oln")]
+position = Vector2(1178, -127)
+scale = Vector2(2.5, 2)
+
+[node name="Door" parent="." instance=ExtResource("18_pmvw8")]
+position = Vector2(-3331, 585)
+script = ExtResource("19_gv3hp")
+
+[node name="RigidBody2D9" parent="." instance=ExtResource("11_iv8ya")]
+position = Vector2(-2572, 281)
+mass = 0.001
+can_sleep = false
+lock_rotation = true
+
+[node name="RigidBody2D10" parent="." instance=ExtResource("11_iv8ya")]
+position = Vector2(-2572, 232)
+mass = 0.001
+can_sleep = false
+lock_rotation = true
+
+[node name="RigidBody2D11" parent="." instance=ExtResource("11_iv8ya")]
+position = Vector2(-2572, 183)
+mass = 0.001
+can_sleep = false
+lock_rotation = true
+
+[node name="RigidBody2D12" parent="." instance=ExtResource("11_iv8ya")]
+position = Vector2(-2572, 134)
+mass = 0.001
+can_sleep = false
+lock_rotation = true
+
+[node name="RigidBody2D13" parent="." instance=ExtResource("11_iv8ya")]
+position = Vector2(-2572, 85)
+mass = 0.001
+can_sleep = false
+lock_rotation = true
+
+[node name="RigidBody2D14" parent="." instance=ExtResource("11_iv8ya")]
+position = Vector2(-2572, 36)
+mass = 0.001
+can_sleep = false
+lock_rotation = true
+
+[node name="RigidBody2D15" parent="." instance=ExtResource("11_iv8ya")]
+position = Vector2(-2572, -13)
+mass = 0.001
+can_sleep = false
+lock_rotation = true
+
+[node name="RigidBody2D16" parent="." instance=ExtResource("11_iv8ya")]
+position = Vector2(-2572, -62)
+mass = 0.001
+can_sleep = false
+lock_rotation = true
+
+[node name="RigidBody2D17" parent="." instance=ExtResource("11_iv8ya")]
+position = Vector2(-2572, -111)
+mass = 0.001
+can_sleep = false
+lock_rotation = true
+
+[node name="RigidBody2D18" parent="." instance=ExtResource("11_iv8ya")]
+position = Vector2(-2572, -160)
+mass = 0.001
+can_sleep = false
+lock_rotation = true
+
+[node name="RigidBody2D19" parent="." instance=ExtResource("11_iv8ya")]
+position = Vector2(-2572, -209)
+mass = 0.001
+can_sleep = false
+lock_rotation = true
+
+[node name="RigidBody2D20" parent="." instance=ExtResource("11_iv8ya")]
+position = Vector2(-2572, -258)
+mass = 0.001
+can_sleep = false
+lock_rotation = true
+
+[node name="Label" type="Label" parent="."]
+offset_left = 748.0
+offset_top = -54.0
+offset_right = 982.0
+offset_bottom = -5.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "This box is breakable
+with gun"
+horizontal_alignment = 1
+
+[node name="InstructionStone" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.505882)
+z_index = -2
+position = Vector2(860, -34)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("18_dbuj7")
+
+[connection signal="door_unlocked" from="ComboLock" to="Door" method="_on_combo_lock_door_unlocked"]
