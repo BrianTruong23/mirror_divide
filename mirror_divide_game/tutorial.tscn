@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://d3wglp2hfhnjx"]
+[gd_scene load_steps=30 format=3 uid="uid://d3wglp2hfhnjx"]
 
 [ext_resource type="Script" path="res://tutorial.gd" id="1_ovobt"]
 [ext_resource type="Texture2D" uid="uid://b1s0mvek3nqnp" path="res://assetss/platform_black.png" id="1_sfbse"]
@@ -32,6 +32,9 @@ size = Vector2(977.5, 211.742)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a8gtm"]
 size = Vector2(76, 46)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rhc21"]
+size = Vector2(3022, 243)
 
 [node name="tutorial" type="Node2D"]
 script = ExtResource("1_ovobt")
@@ -257,6 +260,10 @@ z_index = -1
 position = Vector2(2121, -160)
 scale = Vector2(0.07, 0.07)
 texture = ExtResource("26_gchdk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(820, -485)
+shape = SubResource("RectangleShape2D_rhc21")
 
 [connection signal="platform_raised" from="lever" to="player_platform3" method="_on_lever_platform_raised"]
 [connection signal="lever_activated" from="lever2" to="Door" method="_on_lever_2_lever_activated"]

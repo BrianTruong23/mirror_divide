@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://cd8h68g8jvi4f"]
+[gd_scene load_steps=34 format=3 uid="uid://cd8h68g8jvi4f"]
 
 [ext_resource type="Script" path="res://level_1.gd" id="1_wj7ef"]
 [ext_resource type="PackedScene" uid="uid://3owvf6hs2mjy" path="res://GrappleObject.tscn" id="2_5ybre"]
@@ -61,6 +61,9 @@ size = Vector2(72.125, 295)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nn47c"]
 size = Vector2(423.335, 295.208)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ancrf"]
+size = Vector2(6385, 565)
+
 [node name="Game" type="Node2D"]
 script = ExtResource("1_wj7ef")
 
@@ -87,7 +90,7 @@ position = Vector2(-28.6875, 808)
 shape = SubResource("RectangleShape2D_y11b8")
 
 [node name="Player2" parent="." instance=ExtResource("4_ha2ej")]
-position = Vector2(1444, 9)
+position = Vector2(1357, 9)
 script = ExtResource("7_viugy")
 
 [node name="player_platform2" type="CharacterBody2D" parent="."]
@@ -245,7 +248,7 @@ position = Vector2(-5101, 1009.5)
 shape = SubResource("RectangleShape2D_lwr67")
 
 [node name="KeyBox" parent="." instance=ExtResource("2_5ybre")]
-position = Vector2(860, -246)
+position = Vector2(863, -189)
 gravity_scale = 0.67
 script = ExtResource("10_ce1r7")
 health = 1
@@ -472,5 +475,25 @@ z_index = -2
 position = Vector2(860, -34)
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("18_dbuj7")
+metadata/_edit_lock_ = true
+
+[node name="Area2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-1014.5, -695)
+rotation = 3.14159
+shape = SubResource("RectangleShape2D_ancrf")
+
+[node name="RigidBody2D22" parent="." instance=ExtResource("11_iv8ya")]
+position = Vector2(-2572, -356)
+mass = 0.001
+can_sleep = false
+lock_rotation = true
+
+[node name="RigidBody2D21" parent="." instance=ExtResource("11_iv8ya")]
+position = Vector2(-2572, -307)
+mass = 0.001
+can_sleep = false
+lock_rotation = true
 
 [connection signal="door_unlocked" from="ComboLock" to="Door" method="_on_combo_lock_door_unlocked"]
