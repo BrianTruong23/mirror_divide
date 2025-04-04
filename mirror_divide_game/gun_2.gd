@@ -49,7 +49,7 @@ func release_grabbed_object(grabbed_object) -> void:
 func _on_area_entered(area: Area2D) -> void:
 	if not grabbed_object:
 		var parent = area.get_parent()
-		if parent is RigidBody2D:
+		if parent is RigidBody2D and parent.is_in_group("grabbable"):
 			grabbed_object = parent
 			grabbed_object.freeze = true  # Stop physics simulation while holding
 			grab_offset = grabbed_object.global_position - global_position
