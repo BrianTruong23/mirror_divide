@@ -5,6 +5,7 @@ var key_scene = preload("res://key.tscn")  # Preload the key scene
 
 func _ready():
 	add_to_group("breakable")
+	add_to_group("grabbable")
 
 func break_box():
 	health -= 1

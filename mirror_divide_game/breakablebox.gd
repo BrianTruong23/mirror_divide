@@ -1,4 +1,4 @@
-extends RigidBody2D
+extends CharacterBody2D
 
 @export var health = 1
 
