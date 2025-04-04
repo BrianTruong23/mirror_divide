@@ -74,12 +74,8 @@ player1 = NodePath("../Player")
 player2 = NodePath("../Player2")
 
 [node name="Player" parent="." instance=ExtResource("2_k3d46")]
-position = Vector2(-3724, 727)
+position = Vector2(-3688, 682)
 script = ExtResource("4_3liy4")
-max_health = 100
-heart_value = 20
-full_heart_texture = null
-empty_heart_texture = null
 
 [node name="player_platform1" type="CharacterBody2D" parent="."]
 position = Vector2(1141, -68)
@@ -96,7 +92,7 @@ position = Vector2(-28.6875, 808)
 shape = SubResource("RectangleShape2D_y11b8")
 
 [node name="Player2" parent="." instance=ExtResource("4_ha2ej")]
-position = Vector2(1336, -220)
+position = Vector2(1428, -43)
 collision_layer = 15
 collision_mask = 15
 script = ExtResource("7_viugy")
@@ -274,7 +270,7 @@ position = Vector2(-5101, 1009.5)
 shape = SubResource("RectangleShape2D_lwr67")
 
 [node name="KeyBox" parent="." groups=["grabbable"] instance=ExtResource("2_5ybre")]
-position = Vector2(846, -199)
+position = Vector2(889, -172)
 collision_layer = 2
 collision_mask = 2
 gravity_scale = 0.67
@@ -296,6 +292,8 @@ position = Vector2(-2572, 477)
 
 [node name="RigidBody2D4" parent="." instance=ExtResource("11_iv8ya")]
 position = Vector2(-2572, 526)
+collision_layer = 2
+collision_mask = 2
 
 [node name="RigidBody2D5" parent="." instance=ExtResource("11_iv8ya")]
 position = Vector2(-2572, 575)

@@ -10,25 +10,32 @@ signal key_acquired_signal
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	setting_collision_layer_level()
+	
 
-	var all_bodies = get_tree().get_nodes_in_group("physics_bodies")
+func setting_collision_layer_level():
+	await get_tree().process_frame  # Ensures this runs after the scene loads
+	var root = get_tree().current_scene
 
-	for body in all_bodies:
-		if body == null:
-			continue  # Skip if the body is null
+	for body in root.get_children():
+		if body is RigidBody2D or body is CharacterBody2D or body is StaticBody2D:
+		
+			if body == null:
+				continue  # Skip if the body is null
+				
+			if "RigidBody" in body.name:  # Check if the name contains "RigidBody"
+				body.collision_layer = 2
+				body.collision_mask = 2
 
-		if "RigidBody" in body.name:  # Check if the name contains "RigidBody"
-			body.collision_layer = 1
-			body.collision_mask = 1
+			elif "KeyBox" in body.name:
+				print(body.name)
+				body.collision_layer = 1
+				body.collision_mask = 1
 
-		elif body.name == "KeyBox":
-			body.collision_layer = 2
-			body.collision_mask = 2
-
-		else: 
-			body.collision_layer = 15  
-			body.collision_mask = 15
-
+			else: 
+				body.collision_layer = 15  
+				body.collision_mask = 15
+			
  
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -46,6 +53,7 @@ func _process(delta):
 		
 func reset_level():
 	get_tree().reload_current_scene()
+	
 	
 
 func _on_door_key_acquired() -> void:
@@ -65,7 +73,6 @@ func _on_door_key_acquired() -> void:
 
 	await get_tree().create_timer(1.0).timeout
 
-	
 
 
 func _on_lock_end_game() -> void:
