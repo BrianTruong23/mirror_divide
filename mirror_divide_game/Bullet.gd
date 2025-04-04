@@ -19,6 +19,8 @@ func _process(delta: float) -> void:
 		queue_free()
 
 func _on_body_entered(body):
+	if body.is_in_group("player"):
+		return
 	if body.has_method("take_damage"):
 		body.take_damage(25)  # Or whatever bullet damage you want
 		queue_free()  # Remove bullet
