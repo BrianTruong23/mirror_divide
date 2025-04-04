@@ -76,6 +76,10 @@ player2 = NodePath("../Player2")
 [node name="Player" parent="." instance=ExtResource("2_k3d46")]
 position = Vector2(-3724, 727)
 script = ExtResource("4_3liy4")
+max_health = 100
+heart_value = 20
+full_heart_texture = null
+empty_heart_texture = null
 
 [node name="player_platform1" type="CharacterBody2D" parent="."]
 position = Vector2(1141, -68)

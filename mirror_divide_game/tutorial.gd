@@ -18,4 +18,5 @@ func _process(delta):
 
 func reset_level():
 	get_tree().reload_current_scene()
+	GlobalHealth.reset_health() 
 	

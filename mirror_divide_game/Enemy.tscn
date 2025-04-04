@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://cr0fd3esxoj37"]
+[gd_scene load_steps=6 format=3 uid="uid://cr0fd3esxoj37"]
 
 [ext_resource type="Script" path="res://Enemy.gd" id="1_r03p0"]
 [ext_resource type="Texture2D" uid="uid://n15obu7l8bne" path="res://assetss/mob_one_default.png" id="2_0qnxt"]
@@ -23,8 +23,11 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4s46h"]
-radius = 19.0
-height = 54.0
+radius = 29.0
+height = 70.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c2fnb"]
+size = Vector2(36, 45)
 
 [node name="Enemy" type="CharacterBody2D"]
 script = ExtResource("1_r03p0")
@@ -36,13 +39,17 @@ sprite_frames = SubResource("SpriteFrames_d4w8b")
 animation = &"run"
 
 [node name="DamageArea" type="Area2D" parent="."]
+light_mask = 2
+visibility_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DamageArea"]
 position = Vector2(17, -3)
 shape = SubResource("CapsuleShape2D_4s46h")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(17, -3)
-shape = SubResource("CapsuleShape2D_4s46h")
+light_mask = 0
+visibility_layer = 0
+position = Vector2(19, -5.5)
+shape = SubResource("RectangleShape2D_c2fnb")
 
 [connection signal="body_shape_entered" from="DamageArea" to="." method="_on_damage_area_body_shape_entered"]

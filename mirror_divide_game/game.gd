@@ -21,6 +21,8 @@ func _process(delta):
 		reset_held_time += delta
 		if reset_held_time >= reset_threshold:
 			reset_level()
+			GlobalHealth.reset_health() 
+
 	else:
 		reset_held_time = 0.0
 		

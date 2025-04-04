@@ -3,34 +3,22 @@ extends CharacterBody2D
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 const GRAVITY = 1000.0
-@export var max_health := 100
 
 @onready var sprite = $AnimatedSprite2D  # Reference to sprite
 @onready var grab_area: Area2D = $GrabArea  # Make sure grab_area exists in scene
 
-# Heart
-@onready var heart_container: HBoxContainer = $HeartUI/HBoxContainer
-@export var heart_value := 20  # Each heart represents 20 health
-@export var full_heart_texture: Texture
-@export var empty_heart_texture: Texture
-
 var grabbed_object: Node = null  # Store grabbed object reference
-var health: int
 var can_transition = true  # Flag to prevent multiple transitions
 
 var levels = [
 	"res://tutorial.tscn",
 	"res://level_1.tscn",
-	"res://level_2.tscn",
-	"res://level_3.tscn"
+	"res://final_level.tscn",
 ]
 
 var current_level_index = 0
 func _ready():
 	add_to_group("player")
-	health = max_health  # Start at full health
-	full_heart_texture = load("res://assetss/heart_full.png")
-	empty_heart_texture = load("res://assetss/heart.png")
 
 func _physics_process(delta: float) -> void:
 	# Apply gravity if not on the floor
@@ -70,10 +58,11 @@ func transition_to_next_level():
 		return
 		
 	can_transition = false  # 🚫 Disable further transitions temporarily
-		
+	
 	if current_level_index < levels.size() - 1:
 		current_level_index += 1  # Move to the next level
 		print("Switching to:", levels[current_level_index])  # Debugging log
+		GlobalHealth.reset_health() 
 		TransitionManager.next_scene_path = levels[current_level_index]
 		TransitionManager.play_fade()
 
@@ -81,21 +70,15 @@ func transition_to_next_level():
 		await get_tree().create_timer(10.0).timeout
 		can_transition = true  # ✅ Allow new transitions
 
-func update_hearts():
-	var hearts_to_show = ceil(float(health) / heart_value)
-	for i in range(heart_container.get_child_count()):
-		var heart = heart_container.get_child(i)
-		if i < hearts_to_show:
-			heart.texture = full_heart_texture
-		else:
-			heart.texture = empty_heart_texture
+func flash_blue():
+	if sprite:
+		sprite.modulate = Color(0.6, 0.7, 1.0, 0.9)
+		await get_tree().create_timer(0.1).timeout
+		sprite.modulate = Color(1, 1, 1)  # Reset to normal
 
 func take_damage(damage: int):
-	health -= damage
-	print(name, " took ", damage, " damage! Health: ", health)
-	update_hearts()
-	if health <= 0:
-		die()
+	flash_blue()
+	GlobalHealth.apply_damage(damage)
 
 func die():
 	print(name, " has died!")

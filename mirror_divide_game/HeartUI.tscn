@@ -1,0 +1,34 @@
+[gd_scene load_steps=2 format=3 uid="uid://5a8upf0hycln"]
+
+[ext_resource type="Texture2D" uid="uid://if16jdpo4avd" path="res://assetss/heart_full.png" id="1_68fci"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+offset_right = 509.0
+offset_bottom = 97.0
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_68fci")
+expand_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_68fci")
+expand_mode = 2
+
+[node name="TextureRect3" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_68fci")
+expand_mode = 2
+
+[node name="TextureRect4" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_68fci")
+expand_mode = 2
+
+[node name="TextureRect5" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_68fci")
+expand_mode = 2
