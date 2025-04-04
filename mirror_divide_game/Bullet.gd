@@ -8,6 +8,8 @@ var start_position: Vector2
 func _ready():
 	add_to_group("projectiles")
 	start_position = position  # Store the initial position
+	collision_layer = 15  # Binary 00001111 (Layers 1 to 4)
+	collision_mask = 15   # Binary 00001111 (Collides with Layers 1 to 4)
 
 func _process(delta: float) -> void:
 	position += bullet_direction * speed * delta
