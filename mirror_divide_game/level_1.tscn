@@ -74,11 +74,13 @@ player1 = NodePath("../Player")
 player2 = NodePath("../Player2")
 
 [node name="Player" parent="." instance=ExtResource("2_k3d46")]
-position = Vector2(-3875, 769)
+position = Vector2(-3724, 727)
 script = ExtResource("4_3liy4")
 
 [node name="player_platform1" type="CharacterBody2D" parent="."]
 position = Vector2(1141, -68)
+collision_layer = 15
+collision_mask = 15
 
 [node name="aaaaa" type="Sprite2D" parent="player_platform1"]
 position = Vector2(-45.4998, 318)
@@ -90,11 +92,15 @@ position = Vector2(-28.6875, 808)
 shape = SubResource("RectangleShape2D_y11b8")
 
 [node name="Player2" parent="." instance=ExtResource("4_ha2ej")]
-position = Vector2(1412, -148)
+position = Vector2(1336, -220)
+collision_layer = 15
+collision_mask = 15
 script = ExtResource("7_viugy")
 
 [node name="player_platform2" type="CharacterBody2D" parent="."]
 position = Vector2(1141, -68)
+collision_layer = 15
+collision_mask = 15
 
 [node name="aaaaa" type="Sprite2D" parent="player_platform2"]
 position = Vector2(-3866.4, 1058)
@@ -107,6 +113,8 @@ shape = SubResource("RectangleShape2D_keant")
 
 [node name="player_platform3" type="CharacterBody2D" parent="."]
 position = Vector2(1141, -68)
+collision_layer = 15
+collision_mask = 15
 
 [node name="aaaaa" type="Sprite2D" parent="player_platform3"]
 position = Vector2(-577.85, 248.5)
@@ -119,6 +127,8 @@ shape = SubResource("RectangleShape2D_1kxhc")
 
 [node name="player_platform4" type="CharacterBody2D" parent="."]
 position = Vector2(1141, -68)
+collision_layer = 15
+collision_mask = 15
 
 [node name="aaaaa" type="Sprite2D" parent="player_platform4"]
 position = Vector2(-1173, 331.5)
@@ -131,6 +141,8 @@ shape = SubResource("RectangleShape2D_macdn")
 
 [node name="player_platform5" type="CharacterBody2D" parent="."]
 position = Vector2(1141, -68)
+collision_layer = 15
+collision_mask = 15
 
 [node name="aaaaa" type="Sprite2D" parent="player_platform5"]
 position = Vector2(-1974, 371.04)
@@ -143,6 +155,8 @@ shape = SubResource("RectangleShape2D_r3i71")
 
 [node name="player_platform6" type="CharacterBody2D" parent="."]
 position = Vector2(1141, -68)
+collision_layer = 15
+collision_mask = 15
 
 [node name="aaaaa" type="Sprite2D" parent="player_platform6"]
 position = Vector2(-2363.5, 273.01)
@@ -155,6 +169,8 @@ shape = SubResource("RectangleShape2D_4ngbr")
 
 [node name="player_platform7" type="CharacterBody2D" parent="."]
 position = Vector2(1141, -68)
+collision_layer = 15
+collision_mask = 15
 
 [node name="aaaaa" type="Sprite2D" parent="player_platform7"]
 position = Vector2(-2797, 140.76)
@@ -167,6 +183,8 @@ shape = SubResource("RectangleShape2D_tes8d")
 
 [node name="player_platform13" type="CharacterBody2D" parent="."]
 position = Vector2(2282, -136)
+collision_layer = 15
+collision_mask = 15
 
 [node name="aaaaa" type="Sprite2D" parent="player_platform13"]
 position = Vector2(-4539.57, 196.635)
@@ -179,6 +197,8 @@ shape = SubResource("RectangleShape2D_awh4r")
 
 [node name="player_platform8" type="CharacterBody2D" parent="."]
 position = Vector2(1141, -68)
+collision_layer = 15
+collision_mask = 15
 
 [node name="aaaaa" type="Sprite2D" parent="player_platform8"]
 position = Vector2(-4029.43, 129.135)
@@ -191,6 +211,8 @@ shape = SubResource("RectangleShape2D_8t1d5")
 
 [node name="player_platform11" type="CharacterBody2D" parent="."]
 position = Vector2(2282, -136)
+collision_layer = 15
+collision_mask = 15
 
 [node name="aaaaa2" type="Sprite2D" parent="player_platform11"]
 position = Vector2(-4912, 437.926)
@@ -248,7 +270,9 @@ position = Vector2(-5101, 1009.5)
 shape = SubResource("RectangleShape2D_lwr67")
 
 [node name="KeyBox" parent="." groups=["grabbable"] instance=ExtResource("2_5ybre")]
-position = Vector2(-3477, 311)
+position = Vector2(846, -199)
+collision_layer = 2
+collision_mask = 2
 gravity_scale = 0.67
 script = ExtResource("10_ce1r7")
 health = 1
@@ -273,7 +297,7 @@ position = Vector2(-2572, 526)
 position = Vector2(-2572, 575)
 
 [node name="RigidBody2D6" parent="." instance=ExtResource("11_iv8ya")]
-position = Vector2(-2572, 624)
+position = Vector2(-2572, 623)
 
 [node name="RigidBody2D7" parent="." instance=ExtResource("11_iv8ya")]
 position = Vector2(-2572, 673)
@@ -411,6 +435,7 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "This box is breakable
 with gun"
 horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="InstructionStone" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 1, 0.505882)
@@ -429,8 +454,10 @@ shape = SubResource("RectangleShape2D_ancrf")
 
 [node name="RigidBody2D22" parent="." instance=ExtResource("11_iv8ya")]
 position = Vector2(-2572, -356)
+lock_rotation = true
 
 [node name="RigidBody2D21" parent="." instance=ExtResource("11_iv8ya")]
 position = Vector2(-2572, -307)
+lock_rotation = true
 
 [connection signal="door_unlocked" from="ComboLock" to="Door" method="_on_combo_lock_door_unlocked"]
