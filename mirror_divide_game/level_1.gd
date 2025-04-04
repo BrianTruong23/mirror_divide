@@ -10,7 +10,25 @@ signal key_acquired_signal
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass
+
+	var all_bodies = get_tree().get_nodes_in_group("physics_bodies")
+
+	for body in all_bodies:
+		if body == null:
+			continue  # Skip if the body is null
+
+		if "RigidBody" in body.name:  # Check if the name contains "RigidBody"
+			body.collision_layer = 1
+			body.collision_mask = 1
+
+		elif body.name == "KeyBox":
+			body.collision_layer = 2
+			body.collision_mask = 2
+
+		else: 
+			body.collision_layer = 15  
+			body.collision_mask = 15
+
  
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
