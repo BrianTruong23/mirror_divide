@@ -248,7 +248,7 @@ position = Vector2(-5101, 1009.5)
 shape = SubResource("RectangleShape2D_lwr67")
 
 [node name="KeyBox" parent="." groups=["grabbable"] instance=ExtResource("2_5ybre")]
-position = Vector2(856, -204)
+position = Vector2(-3477, 311)
 gravity_scale = 0.67
 script = ExtResource("10_ce1r7")
 health = 1
@@ -304,6 +304,9 @@ position = Vector2(-1335, 647)
 
 [node name="spike8" parent="." instance=ExtResource("13_nlodf")]
 position = Vector2(-1211, 647)
+
+[node name="Camera2D" type="Camera2D" parent="spike8"]
+position = Vector2(-36.5007, -1.2146)
 
 [node name="spike9" parent="." instance=ExtResource("13_nlodf")]
 position = Vector2(-1095, 647)
