@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://cd8h68g8jvi4f"]
+[gd_scene load_steps=35 format=3 uid="uid://cd8h68g8jvi4f"]
 
 [ext_resource type="Script" path="res://level_1.gd" id="1_wj7ef"]
 [ext_resource type="PackedScene" uid="uid://3owvf6hs2mjy" path="res://GrappleObject.tscn" id="2_5ybre"]
@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://bfnlmjsctt22s" path="res://button.tscn" id="15_8oxr5"]
 [ext_resource type="Texture2D" uid="uid://dy4w2t3ea3ua0" path="res://assetss/instruction_stone.png" id="18_dbuj7"]
 [ext_resource type="PackedScene" uid="uid://b5yt3hx1d755d" path="res://door.tscn" id="18_pmvw8"]
+[ext_resource type="PackedScene" uid="uid://dpf76q5xgm176" path="res://hint.tscn" id="19_fmwdv"]
 [ext_resource type="Script" path="res://door.gd" id="19_gv3hp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y11b8"]
@@ -270,7 +271,7 @@ position = Vector2(-5101, 1009.5)
 shape = SubResource("RectangleShape2D_lwr67")
 
 [node name="KeyBox" parent="." groups=["grabbable"] instance=ExtResource("2_5ybre")]
-position = Vector2(889, -172)
+position = Vector2(870, -209)
 collision_layer = 2
 collision_mask = 2
 gravity_scale = 0.67
@@ -461,5 +462,40 @@ lock_rotation = true
 [node name="RigidBody2D21" parent="." instance=ExtResource("11_iv8ya")]
 position = Vector2(-2572, -307)
 lock_rotation = true
+
+[node name="TextureButton" parent="." instance=ExtResource("19_fmwdv")]
+offset_left = -3299.0
+offset_top = -217.0
+offset_right = -2019.0
+offset_bottom = 1063.0
+hint_text = "Drop something here"
+
+[node name="TextureButton2" parent="." instance=ExtResource("19_fmwdv")]
+offset_left = -2400.0
+offset_top = -230.0
+offset_right = -1120.0
+offset_bottom = 1050.0
+hint_text = "Body 1 should do something for you..."
+
+[node name="TextureButton3" parent="." instance=ExtResource("19_fmwdv")]
+offset_left = -1011.0
+offset_top = 29.0
+offset_right = 269.0
+offset_bottom = 1309.0
+hint_text = "You need something to make this jump"
+
+[node name="TextureButton4" parent="." instance=ExtResource("19_fmwdv")]
+offset_left = 1439.0
+offset_top = -151.0
+offset_right = 2719.0
+offset_bottom = 1129.0
+hint_text = "You can get the password from Body 1"
+
+[node name="TextureButton5" parent="." instance=ExtResource("19_fmwdv")]
+offset_left = -1403.0
+offset_top = 850.0
+offset_right = -123.0
+offset_bottom = 2130.0
+hint_text = "Make this spike disappear with something..."
 
 [connection signal="door_unlocked" from="ComboLock" to="Door" method="_on_combo_lock_door_unlocked"]

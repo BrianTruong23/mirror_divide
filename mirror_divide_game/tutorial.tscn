@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://d3wglp2hfhnjx"]
+[gd_scene load_steps=31 format=3 uid="uid://d3wglp2hfhnjx"]
 
 [ext_resource type="Script" path="res://tutorial.gd" id="1_ovobt"]
 [ext_resource type="Texture2D" uid="uid://b1s0mvek3nqnp" path="res://assetss/platform_black.png" id="1_sfbse"]
@@ -26,6 +26,7 @@
 [ext_resource type="Texture2D" uid="uid://dhkimrstgjma4" path="res://assetss/instruction_right_click.png" id="22_rr3dj"]
 [ext_resource type="AudioStream" uid="uid://qab4yse0qpj" path="res://assetss/game music.mp3" id="25_pnhmr"]
 [ext_resource type="Texture2D" uid="uid://duwwx6quaa5w" path="res://assetss/instruction_r.png" id="26_gchdk"]
+[ext_resource type="PackedScene" uid="uid://dpf76q5xgm176" path="res://hint.tscn" id="27_5f5sa"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cr3bn"]
 size = Vector2(977.5, 211.742)
@@ -198,9 +199,11 @@ texture = ExtResource("22_b33fb")
 [node name="InstructionStone2" type="Sprite2D" parent="."]
 self_modulate = Color(1, 1, 1, 0.505882)
 z_index = -2
-position = Vector2(2100, -77)
+position = Vector2(2107, -76)
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("19_u61j7")
+flip_h = true
+flip_v = true
 
 [node name="AK" type="Label" parent="InstructionStone2"]
 offset_left = -363.333
@@ -214,10 +217,10 @@ text = "Move 2nd body
 horizontal_alignment = 1
 
 [node name="RC" type="Label" parent="InstructionStone2"]
-offset_left = -16.6667
-offset_top = 150.0
-offset_right = 381.333
-offset_bottom = 280.0
+offset_left = -56.6667
+offset_top = 146.667
+offset_right = 341.333
+offset_bottom = 276.667
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 40
 text = "Ability for 2nd body
@@ -226,10 +229,10 @@ Grab Hand
 horizontal_alignment = 1
 
 [node name="R" type="Label" parent="InstructionStone2"]
-offset_left = -136.667
-offset_top = -200.0
-offset_right = 261.333
-offset_bottom = -70.0
+offset_left = -140.0
+offset_top = -180.0
+offset_right = 258.0
+offset_bottom = -50.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 40
 text = "Reset Stage
@@ -257,13 +260,79 @@ parameters/looping = true
 [node name="InstructionR" type="Sprite2D" parent="."]
 self_modulate = Color(1, 1, 1, 0.745098)
 z_index = -1
-position = Vector2(2121, -160)
+position = Vector2(2120, -150)
 scale = Vector2(0.07, 0.07)
 texture = ExtResource("26_gchdk")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(820, -485)
 shape = SubResource("RectangleShape2D_rhc21")
+
+[node name="TextureButton" parent="." instance=ExtResource("27_5f5sa")]
+offset_left = 300.0
+offset_top = -116.0
+offset_right = 1580.0
+offset_bottom = 1164.0
+hint_text = "Bullet can trigger the lever"
+
+[node name="TextureButton2" parent="." instance=ExtResource("27_5f5sa")]
+offset_left = 1453.0
+offset_top = -122.0
+offset_right = 2733.0
+offset_bottom = 1158.0
+hint_text = "Hit the lever with the box, and that box is movable with your ability"
+
+[node name="InstructionStone3" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.505882)
+z_index = -2
+position = Vector2(378, 141)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("19_u61j7")
+flip_v = true
+
+[node name="hint" type="Label" parent="InstructionStone3"]
+modulate = Color(0, 0, 0, 1)
+self_modulate = Color(0, 0, 0, 1)
+offset_left = -376.667
+offset_top = -183.333
+offset_right = 389.333
+offset_bottom = -12.3333
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+text = "^^^This is a hint button.
+Hover over it, and you will get a hint.
+If you use it too much, you are so newb.
+
+asdf"
+horizontal_alignment = 1
+max_lines_visible = 4
+
+[node name="InstructionStone4" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.505882)
+z_index = -2
+position = Vector2(1575, 154)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("19_u61j7")
+flip_h = true
+
+[node name="hint" type="Label" parent="InstructionStone4"]
+modulate = Color(0, 0, 0, 1)
+self_modulate = Color(0, 0, 0, 1)
+offset_left = -366.667
+offset_top = -223.333
+offset_right = 399.333
+offset_bottom = 5.66667
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+text = "Your main goal
+is to merge this 2nd body
+with the 1st body.
+
+asdf"
+horizontal_alignment = 1
+max_lines_visible = 4
 
 [connection signal="platform_raised" from="lever" to="player_platform3" method="_on_lever_platform_raised"]
 [connection signal="lever_activated" from="lever2" to="Door" method="_on_lever_2_lever_activated"]

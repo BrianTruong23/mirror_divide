@@ -74,7 +74,7 @@ autoplay = true
 motion_scale = Vector2(0, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer" groups=["grabbable"]]
-position = Vector2(11, 23)
+position = Vector2(-0.999999, 0)
 scale = Vector2(0.643415, 0.632812)
 texture = ExtResource("12_yubpi")
 centered = false

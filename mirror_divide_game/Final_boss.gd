@@ -7,7 +7,7 @@ extends CharacterBody2D
 @export var small_damage := 5  # 20 hits to kill (100 / 5)
 @export var medium_damage := 10  # 10 hits to kill (100 / 10)
 @export var large_damage := 20  # 5 hits to kill (100 / 20)
-@export var max_health := 100
+@export var max_health := 10000
 
 const GRAVITY = 1000.0
 
