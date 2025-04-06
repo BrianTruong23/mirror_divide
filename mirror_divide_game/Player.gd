@@ -20,6 +20,10 @@ var levels = [
 var current_level_index = 0
 func _ready():
 	add_to_group("player")  # Ensure player is in the correct group
+	
+		# Dynamically detect current level index from scene path
+	var current_scene_path = get_tree().current_scene.scene_file_path
+	current_level_index = levels.find(current_scene_path)
 
 func _physics_process(delta: float) -> void:
 	
