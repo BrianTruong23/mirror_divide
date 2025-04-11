@@ -72,21 +72,24 @@ func _physics_process(delta: float) -> void:
 		player_shoot()
 
 func transition_to_next_level():
-	if not can_transition:  # ✅ Prevent repeated calls within short duration
+	if not can_transition:
 		return
-		
-	can_transition = false  # 🚫 Disable further transitions temporarily
+
+	can_transition = false
 	GlobalHealth.reset_health() 
-	
+
 	if current_level_index < levels.size() - 1:
-		current_level_index += 1  # Move to the next level
-		print("Switching to:", levels[current_level_index])  # Debugging log
-		TransitionManager.next_scene_path = levels[current_level_index]
+		current_level_index += 1
+		var next_path = levels[current_level_index]
+		print("Switching to:", next_path)
+
+		GlobalHealth.is_final_level = current_level_index == levels.size() - 1
+
+		TransitionManager.next_scene_path = next_path
 		TransitionManager.play_fade()
 
-		# ✅ Re-enable transition after 3 seconds (adjust as needed)
 		await get_tree().create_timer(10.0).timeout
-		can_transition = true  # ✅ Allow new transitions
+		can_transition = true
 
 func player_shoot():
 	if not bullet_scene:
@@ -113,8 +116,18 @@ func flash_blue():
 		await get_tree().create_timer(0.1).timeout
 		sprite.modulate = Color(1, 1, 1)  # Reset to normal
 
+func flash_orange():
+	if sprite:
+		sprite.modulate = Color(1.0, 0.6, 0.2, 0.9)  # Orange flash
+		await get_tree().create_timer(0.1).timeout
+		sprite.modulate = Color(1, 1, 1)
+
 func take_damage(damage: int):
-	flash_blue()
+	if GlobalHealth.is_final_level:
+		flash_orange()
+	else:
+		flash_blue()
+
 	GlobalHealth.apply_damage(damage)
 
 func die():

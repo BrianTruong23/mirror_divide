@@ -58,21 +58,24 @@ func _physics_process(delta: float) -> void:
 			transition_to_next_level()
 
 func transition_to_next_level():
-	if not can_transition:  # ✅ Prevent repeated calls within short duration
+	if not can_transition:
 		return
-		
-	can_transition = false  # 🚫 Disable further transitions temporarily
-	
+
+	can_transition = false
+	GlobalHealth.reset_health() 
+
 	if current_level_index < levels.size() - 1:
-		current_level_index += 1  # Move to the next level
-		print("Switching to:", levels[current_level_index])  # Debugging log
-		GlobalHealth.reset_health() 
-		TransitionManager.next_scene_path = levels[current_level_index]
+		current_level_index += 1
+		var next_path = levels[current_level_index]
+		print("Switching to:", next_path)
+
+		GlobalHealth.is_final_level = current_level_index == levels.size() - 1
+
+		TransitionManager.next_scene_path = next_path
 		TransitionManager.play_fade()
 
-		# ✅ Re-enable transition after 3 seconds (adjust as needed)
 		await get_tree().create_timer(10.0).timeout
-		can_transition = true  # ✅ Allow new transitions
+		can_transition = true
 
 func flash_blue():
 	if sprite:

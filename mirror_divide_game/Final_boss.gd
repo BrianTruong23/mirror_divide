@@ -201,7 +201,7 @@ func determine_damage():
 
 func flash_blue():
 	if sprite:
-		sprite.modulate = Color(0.6, 0.7, 1.0, 0.9)
+		sprite.modulate = Color(1.0, 0.6, 0.2, 0.9)
 		await get_tree().create_timer(0.1).timeout
 		sprite.modulate = Color(1, 1, 1)  # Reset to normal
 
