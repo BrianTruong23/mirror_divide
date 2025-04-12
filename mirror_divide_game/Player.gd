@@ -133,4 +133,5 @@ func take_damage(damage: int):
 func die():
 	print(name, " has died!")
 	queue_free()  # Remove player from the game
+	GlobalHealth.reset_health()
 	get_tree().reload_current_scene()

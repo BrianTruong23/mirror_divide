@@ -93,7 +93,7 @@ position = Vector2(-28.6875, 808)
 shape = SubResource("RectangleShape2D_y11b8")
 
 [node name="Player2" parent="." instance=ExtResource("4_ha2ej")]
-position = Vector2(1428, -43)
+position = Vector2(1411, -29)
 collision_layer = 15
 collision_mask = 15
 script = ExtResource("7_viugy")

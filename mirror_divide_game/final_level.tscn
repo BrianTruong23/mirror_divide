@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" path="res://final_level.gd" id="1_tdatf"]
 [ext_resource type="PackedScene" uid="uid://c5clromjmgu7k" path="res://Player.tscn" id="3_3810w"]
+[ext_resource type="Texture2D" uid="uid://cb307d8s8svew" path="res://assetss/platform_orange.png" id="4_58dn2"]
 [ext_resource type="Script" path="res://player.gd" id="4_t1cj6"]
-[ext_resource type="Texture2D" uid="uid://b1s0mvek3nqnp" path="res://assetss/platform_black.png" id="5_3jgxh"]
 [ext_resource type="PackedScene" uid="uid://ulkn81fayhxx" path="res://Researcher.tscn" id="7_w6uul"]
 [ext_resource type="Script" path="res://researcher.gd" id="8_fo760"]
 [ext_resource type="PackedScene" uid="uid://cau0seuevehqu" path="res://Final_boss.tscn" id="9_mdl0j"]
@@ -38,7 +38,7 @@ position = Vector2(1141, -68)
 [node name="aaaaa" type="Sprite2D" parent="player_platform2"]
 position = Vector2(-2353.5, 1058)
 scale = Vector2(0.566406, 0.165)
-texture = ExtResource("5_3jgxh")
+texture = ExtResource("4_58dn2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="player_platform2"]
 position = Vector2(-2355, 1056)
@@ -50,7 +50,7 @@ position = Vector2(1141, -68)
 [node name="aaaaa" type="Sprite2D" parent="player_platform5"]
 position = Vector2(-3088.25, 1059)
 scale = Vector2(0.573828, 0.165)
-texture = ExtResource("5_3jgxh")
+texture = ExtResource("4_58dn2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="player_platform5"]
 position = Vector2(-3087.25, 1055.5)
@@ -62,7 +62,7 @@ position = Vector2(1141, -68)
 [node name="aaaaa" type="Sprite2D" parent="player_platform3"]
 position = Vector2(-1515, 831)
 scale = Vector2(0.353076, 0.0284375)
-texture = ExtResource("5_3jgxh")
+texture = ExtResource("4_58dn2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="player_platform3"]
 position = Vector2(-1506, 830)
@@ -74,7 +74,7 @@ position = Vector2(1141, -68)
 [node name="aaaaa" type="Sprite2D" parent="player_platform4"]
 position = Vector2(-1888, 1027.15)
 scale = Vector2(0.158399, 0.233047)
-texture = ExtResource("5_3jgxh")
+texture = ExtResource("4_58dn2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="player_platform4"]
 position = Vector2(-1885.75, 1022)
