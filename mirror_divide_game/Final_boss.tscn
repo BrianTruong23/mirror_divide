@@ -39,4 +39,4 @@ shape = SubResource("RectangleShape2D_aqc0b")
 position = Vector2(1, 17)
 shape = SubResource("RectangleShape2D_ylpsi")
 
-[connection signal="area_entered" from="DamageArea" to="." method="_on_damage_area_area_entered"]
+[connection signal="body_shape_entered" from="DamageArea" to="." method="_on_damage_area_body_shape_entered"]

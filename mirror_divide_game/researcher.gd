@@ -24,7 +24,7 @@ func _physics_process(delta: float) -> void:
 
 func _on_detection_area_body_entered(body):
 	# Check if the colliding body is another CharacterBody2D
-	if body is CharacterBody2D and body != self:
+	if body is CharacterBody2D and body != self and body.is_in_group("player"):
 		# Center the label text
 		#label_text.visible = true 
 		emit_signal("final_game_ended")

@@ -4,15 +4,13 @@ extends CharacterBody2D
 @export var speed_variation := 50.0
 @export var jump_strength := -400.0
 @export var jump_variation := 200.0
-@export var small_damage := 5  # 20 hits to kill (100 / 5)
-@export var medium_damage := 10  # 10 hits to kill (100 / 10)
-@export var large_damage := 20  # 5 hits to kill (100 / 20)
-@export var max_health := 10000
+
+#@export var max_health := 10000
 
 const GRAVITY = 1000.0
 
-var current_health := max_health
-var attack_damage: int  # This will be set based on size
+var current_health = 300
+var attack_damage =  20  # This will be set based on size
 var direction := Vector2.ZERO
 var current_speed := 0.0
 var rng = RandomNumberGenerator.new()
@@ -25,7 +23,6 @@ var is_erratic := false
 func _ready():
 	add_to_group("enemies")
 	rng.randomize()
-	determine_damage()
 	
 	# Set up sprite reference
 	sprite = $AnimatedSprite2D if has_node("AnimatedSprite2D") else null
@@ -125,10 +122,7 @@ func change_direction():
 func update_speed():
 	# Calculate a random speed
 	var speed_factor = 1.0
-	if is_erratic:
-		speed_factor = rng.randf_range(0.8, 2.0)  # Much more speed variation in erratic mode
-	else:
-		speed_factor = rng.randf_range(0.7, 1.3)
+	speed_factor = rng.randf_range(4, 6)
 	
 	current_speed = base_speed + rng.randf_range(-speed_variation, speed_variation)
 	current_speed *= speed_factor
@@ -138,10 +132,7 @@ func perform_jump():
 	var jump_power = jump_strength
 	
 	# In erratic mode, jumps can be much higher or lower
-	if is_erratic:
-		jump_power = jump_strength + rng.randf_range(-jump_variation, -jump_variation/2)
-	else:
-		jump_power = jump_strength + rng.randf_range(-jump_variation/2, jump_variation/2)
+	jump_power = jump_strength + rng.randf_range(-jump_variation/2, jump_variation/2)
 	
 	velocity.y = jump_power
 
@@ -186,18 +177,6 @@ func _on_direction_change_timer_timeout():
 func die():
 	queue_free()
 
-func determine_damage():
-	if scale.x <= 0.75:
-		attack_damage = small_damage
-		max_health = 50
-	elif scale.x <= 1.25:
-		attack_damage = medium_damage
-		max_health = 100
-	else:
-		attack_damage = large_damage
-		max_health = 150
-	
-	current_health = max_health
 
 func flash_blue():
 	if sprite:
@@ -211,6 +190,7 @@ func take_damage(amount: int):
 		flash_blue()
 	if current_health <= 0:
 		die()
+
 
 func _on_damage_area_body_shape_entered(body_rid: RID, body: Node2D, body_shape_index: int, local_shape_index: int) -> void:
 	if body.is_in_group("player"):
