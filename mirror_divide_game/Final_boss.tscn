@@ -15,10 +15,10 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aqc0b"]
-size = Vector2(467.5, 418.5)
+size = Vector2(337, 391.25)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ylpsi"]
-size = Vector2(449, 430)
+size = Vector2(318, 380)
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
 script = ExtResource("1_g7vrn")
@@ -32,11 +32,11 @@ flip_h = true
 [node name="DamageArea" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DamageArea"]
-position = Vector2(13, 13)
+position = Vector2(28.5, 35.375)
 shape = SubResource("RectangleShape2D_aqc0b")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1, 17)
+position = Vector2(30, 42)
 shape = SubResource("RectangleShape2D_ylpsi")
 
 [connection signal="body_shape_entered" from="DamageArea" to="." method="_on_damage_area_body_shape_entered"]
