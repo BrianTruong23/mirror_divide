@@ -20,7 +20,9 @@ func open_door():
 
 
 func _on_lever_2_lever_activated() -> void:
+	$DoorUnlock.play()
 	open_door()
 
 func _on_combo_lock_door_unlocked() -> void:
+	$DoorUnlock.play()
 	open_door() # Replace with function body.

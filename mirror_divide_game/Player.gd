@@ -96,6 +96,9 @@ func player_shoot():
 		print("Bullet scene is not assigned!")
 		return
 
+	$GunSound2.play()
+
+	
 	# Get the gun node and Muzzle marker
 	var gun = $Gun  # Adjust if needed
 	var muzzle = gun.get_node("Muzzle")  # Ensure the Muzzle marker exists

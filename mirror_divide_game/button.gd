@@ -18,10 +18,14 @@ func _on_detection_area_area_entered(area):
 func press_button():
 	is_pressed = true
 	animated_sprite.play("pressed")
+	$ButtonPress.play()
+
 	#activate_platform()
 	spawn_mobs()
 	await get_tree().create_timer(8.0).timeout
 	unpress_button()
+	$ButtonPress.play()
+
 	
 func unpress_button():
 	is_pressed = false

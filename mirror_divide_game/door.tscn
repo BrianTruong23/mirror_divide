@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://b5yt3hx1d755d"]
+[gd_scene load_steps=7 format=3 uid="uid://b5yt3hx1d755d"]
 
 [ext_resource type="Texture2D" uid="uid://boj0vq237vcnb" path="res://assetss/door2.png" id="1_srxvs"]
 [ext_resource type="Texture2D" uid="uid://c4cokplul0fb7" path="res://assetss/door.png" id="2_a8xna"]
 [ext_resource type="Texture2D" uid="uid://4gf3stauoage" path="res://assetss/door1.png" id="2_d48tl"]
+[ext_resource type="AudioStream" uid="uid://bpvjvxksld4lo" path="res://assetss/doorunlock.mp3" id="4_w7khe"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_u1iui"]
 animations = [{
@@ -46,3 +47,6 @@ shape = SubResource("RectangleShape2D_d4lnw")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(424, 216)
+
+[node name="DoorUnlock" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_w7khe")

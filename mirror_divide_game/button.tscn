@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://bfnlmjsctt22s"]
+[gd_scene load_steps=8 format=3 uid="uid://bfnlmjsctt22s"]
 
 [ext_resource type="Texture2D" uid="uid://n1p0b2toisuu" path="res://assetss/button1.png" id="1_3hd2l"]
 [ext_resource type="Script" path="res://button.gd" id="1_4dyt0"]
 [ext_resource type="Texture2D" uid="uid://ukepqrd3pyrt" path="res://assetss/button0.png" id="2_wtbds"]
+[ext_resource type="AudioStream" uid="uid://blug5bnauooqh" path="res://assetss/buttonpress.mp3" id="4_mctj8"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_tmoew"]
 animations = [{
@@ -47,5 +48,8 @@ shape = SubResource("RectangleShape2D_e1p2r")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(3.375, 48.75)
 shape = SubResource("RectangleShape2D_xprfn")
+
+[node name="ButtonPress" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_mctj8")
 
 [connection signal="area_entered" from="detection area" to="." method="_on_detection_area_area_entered"]

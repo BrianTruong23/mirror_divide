@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://c5clromjmgu7k"]
+[gd_scene load_steps=7 format=3 uid="uid://c5clromjmgu7k"]
 
 [ext_resource type="Script" path="res://Player.gd" id="1_i21aj"]
 [ext_resource type="Texture2D" uid="uid://bu2l707dqe5ed" path="res://assetss/player_default crop.png" id="2_yqg6k"]
 [ext_resource type="PackedScene" uid="uid://c04dathkllkwg" path="res://gun.tscn" id="3_mpc6w"]
+[ext_resource type="AudioStream" uid="uid://c81dbu1ks2xb5" path="res://assetss/zapsplat_leisure_gel_blaster_toy_gun_short_burst_001_100290-[AudioTrimmer.com].mp3" id="4_8jl4b"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_3gd0w"]
 animations = [{
@@ -47,3 +48,8 @@ scale = Vector2(1.39714, 1.39714)
 
 [node name="Muzzle" type="Marker2D" parent="Gun"]
 position = Vector2(21, -2)
+
+[node name="GunSound2" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(0, 1.90735e-06)
+scale = Vector2(1, 1)
+stream = ExtResource("4_8jl4b")
