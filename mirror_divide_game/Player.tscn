@@ -51,5 +51,4 @@ position = Vector2(21, -2)
 
 [node name="GunSound2" type="AudioStreamPlayer2D" parent="."]
 position = Vector2(0, 1.90735e-06)
-scale = Vector2(1, 1)
 stream = ExtResource("4_8jl4b")

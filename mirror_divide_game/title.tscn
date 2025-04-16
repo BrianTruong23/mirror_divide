@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://b600h2pq6akfu"]
+[gd_scene load_steps=7 format=3 uid="uid://b600h2pq6akfu"]
 
 [ext_resource type="Texture2D" uid="uid://xudf6vm3oh4c" path="res://assetss/title_background.png" id="1_5jhhy"]
 [ext_resource type="Texture2D" uid="uid://da85gcx50kr01" path="res://assetss/start_button.png" id="2_qwvea"]
 [ext_resource type="Script" path="res://startButton.gd" id="3_r3nrl"]
 [ext_resource type="AudioStream" uid="uid://bvrhva62ujx4e" path="res://assetss/BOS_AA_85_Music_Loop_Reverie_Cm.wav" id="4_6sde8"]
 [ext_resource type="AudioStream" uid="uid://c6s48pwrmch7v" path="res://assetss/ESM_Retro_Positive_Game_SOund_Classic_8_Bit_80s_Arcade.wav" id="4_qes5e"]
+[ext_resource type="Script" path="res://audio_stream_player.gd" id="6_d4u1x"]
 
 [node name="title" type="Node2D"]
 
@@ -28,5 +29,6 @@ stream = ExtResource("4_qes5e")
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_6sde8")
 autoplay = true
+script = ExtResource("6_d4u1x")
 
 [connection signal="pressed" from="startButton" to="startButton" method="_on_pressed"]
