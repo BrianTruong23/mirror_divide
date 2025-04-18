@@ -1,8 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://e3xjoir8f4lx"]
+[gd_scene load_steps=8 format=3 uid="uid://e3xjoir8f4lx"]
 
 [ext_resource type="Texture2D" uid="uid://bt2g2lca4uuxu" path="res://assetss/player_blue crop.png" id="1_q7t3c"]
 [ext_resource type="PackedScene" uid="uid://dvmkr6u6s18m" path="res://gun_2.tscn" id="2_yf6tk"]
 [ext_resource type="Script" path="res://gun_2.gd" id="3_5a28l"]
+[ext_resource type="AudioStream" uid="uid://cotvesbsobfe3" path="res://assetss/grab.mp3" id="4_fbtux"]
+[ext_resource type="AudioStream" uid="uid://bokp1gah26x4a" path="res://assetss/drop.mp3" id="5_8fviw"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_b3qne"]
 animations = [{
@@ -40,14 +42,20 @@ position = Vector2(71, 61)
 scale = Vector2(4, 4)
 shape = SubResource("CapsuleShape2D_5cfot")
 
-[node name="Area2D" parent="." node_paths=PackedStringArray("player") instance=ExtResource("2_yf6tk")]
+[node name="Hand" parent="." node_paths=PackedStringArray("player") instance=ExtResource("2_yf6tk")]
 position = Vector2(52, 41)
 scale = Vector2(4, 4)
 script = ExtResource("3_5a28l")
 player = NodePath("..")
 
+[node name="Grab" type="AudioStreamPlayer2D" parent="Hand"]
+stream = ExtResource("4_fbtux")
+
+[node name="Drop" type="AudioStreamPlayer2D" parent="Hand"]
+stream = ExtResource("5_8fviw")
+
 [node name="HeartUI" type="Node2D" parent="."]
 position = Vector2(24, -7)
 
-[connection signal="area_entered" from="Area2D" to="Area2D" method="_on_area_entered"]
-[connection signal="area_exited" from="Area2D" to="Area2D" method="_on_area_exited"]
+[connection signal="area_entered" from="Hand" to="Hand" method="_on_area_entered"]
+[connection signal="area_exited" from="Hand" to="Hand" method="_on_area_exited"]

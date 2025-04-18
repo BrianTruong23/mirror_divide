@@ -4,6 +4,8 @@ var grabbed_object: RigidBody2D = null
 var is_grabbing: bool = false
 var grab_offset: Vector2 = Vector2.ZERO  # Offset to maintain relative position
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var grab_sound: AudioStreamPlayer2D = $Grab  # Reference to grab sound
+@onready var release_sound: AudioStreamPlayer2D = $Drop  # Reference to release sound
 
 @export var player: CharacterBody2D  # Reference to Player
 @export var max_distance: float = 300 # Max distance hand can move from Player
@@ -34,10 +36,12 @@ func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("grab"):
 		is_grabbing = true
 		animated_sprite.play('grab')
+		grab_sound.play()  # Play grab sound
 	elif event.is_action_released("grab"):
 		is_grabbing = false
 		release_grabbed_object(grabbed_object)
 		animated_sprite.play('release')
+		release_sound.play()  # Play release sound
 
 func release_grabbed_object(grabbed_object) -> void:
 	if grabbed_object:
