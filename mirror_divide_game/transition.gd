@@ -1,12 +1,12 @@
 extends CanvasLayer
 
-@onready var color_rect = $ColorRect  # Reference to the ColorRect
-var next_scene_path = ""  # Store the next scene path
+@onready var color_rect = $ColorRect
+var next_scene_path = ""
 
 func play_fade():
 	var heart_ui = get_tree().get_root().find_child("HeartUI", true, false)
 	if heart_ui:
-		heart_ui.visible = false  # Hide heart UI during transition
+		heart_ui.visible = false  # Always hide before fade
 
 	color_rect.visible = true
 	color_rect.modulate.a = 0.0
@@ -26,8 +26,15 @@ func play_fade():
 
 	color_rect.visible = false
 
-	if heart_ui:
-		heart_ui.visible = true  # Show again after fade
-	
+	if heart_ui and should_show_heart_ui(next_scene_path):
+		heart_ui.visible = true
+
 	GlobalHealth.reset_health()
 	GlobalHealth.update_hearts()
+
+func should_show_heart_ui(path: String) -> bool:
+	return path in [
+		"res://tutorial.tscn",
+		"res://level_1.tscn",
+		"res://final_level.tscn"
+	]

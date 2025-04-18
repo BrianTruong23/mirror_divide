@@ -25,7 +25,9 @@ func _physics_process(delta: float) -> void:
 func _on_detection_area_body_entered(body):
 	# Check if the colliding body is another CharacterBody2D
 	if body is CharacterBody2D and body != self and body.is_in_group("player"):
-		# Center the label text
-		#label_text.visible = true 
-		emit_signal("final_game_ended")
 		print("Game stopped - Collision detected with: ", body.name)
+		#emit_signal("final_game_ended")  # Optional, in case other systems use this
+
+		# Transition to final scene (after fade if needed)
+		TransitionManager.next_scene_path = "res://Scene/final.tscn"
+		await TransitionManager.play_fade()
