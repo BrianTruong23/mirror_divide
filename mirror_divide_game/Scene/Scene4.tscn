@@ -5,6 +5,6 @@
 [node name="Scene4" type="Node2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(573, 330)
-scale = Vector2(1.0918, 0.621094)
+position = Vector2(574.999, 324)
+scale = Vector2(1.16211, 0.691406)
 texture = ExtResource("1_ngykg")

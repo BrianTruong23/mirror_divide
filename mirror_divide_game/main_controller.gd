@@ -1,7 +1,7 @@
 extends Node
 
 var current_scene_index = 0
-var display_time = 2.0  # seconds per scene
+var display_time = 3.0  # seconds per scene
 
 var scenes = [
 	preload("res://Scene/Scene1.tscn"),
@@ -30,24 +30,33 @@ func _on_start_button_pressed():
 	start_game()
 
 func start_game():
-	show_next_scene()
+	current_scene_index = 0
 	TransitionManager.play_fade()
+	await get_tree().create_timer(1.0).timeout  # Wait 1 second before first scene
+	show_next_scene()
 
 func show_next_scene():
 	if current_scene_index < scenes.size():
-		print("Showing scene:", current_scene_index)
 		clear_container_children()
 		var next_scene = scenes[current_scene_index].instantiate()
 		container.add_child(next_scene)
+		print("Showing scene:", current_scene_index)
 		current_scene_index += 1
 		timer.start(display_time)
 	else:
 		goto_tutorial()
 
 func _on_timer_timeout():
-	show_next_scene()
+	if current_scene_index < scenes.size():
+		await get_tree().create_timer(1.0).timeout
+		show_next_scene()
+	else:
+		goto_tutorial()
+
 
 func goto_tutorial():
+	TransitionManager.play_fade()
+	await get_tree().create_timer(1.0).timeout  # Wait for fade to finish
 	get_tree().change_scene_to_file("res://tutorial.tscn")
 
 func clear_container_children():
