@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://if16jdpo4avd" path="res://assetss/heart_full.png" id="1_68fci"]
 
 [node name="CanvasLayer" type="CanvasLayer"]
+visible = false
 scale = Vector2(0.5, 0.5)
 transform = Transform2D(0.5, 0, 0, 0.5, 0, 0)
 
