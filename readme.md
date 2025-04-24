@@ -18,13 +18,13 @@ Now, it's up to you — as the agent — to **merge the split bodies**, **solve 
 
 ## 🕹️ Controls
 
-| Action                      | Key(s)                   |
+| Action                     | Key(s)                   |
 |----------------------------|--------------------------|
 | Move First Body            | `WASD`                   |
 | Move Second Body           | `Arrow Keys`             |
 | Swap Camera Views          | `V`                      |
 | Reset Stage (Hold)         | `R` (for 3 seconds)      |
-| Shoot (First Body)         | `Left Mouse Button (LMB)`|
+| Shoot (First Body Ability) | `Left Mouse Button (LMB)`|
 | Grab (Second Body Ability) | `Right Mouse Button (RMB)`|
 
 ---
