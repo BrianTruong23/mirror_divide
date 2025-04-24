@@ -1,36 +1,35 @@
 # Mirror-Divide
 
-Mirror Divide is a platformer puzzle game created by Team KONAM.
+**Mirror Divide** is a platformer puzzle game created by **Team KONAM**.
 
-The game introduction:
+---
 
-The Company, a secret organization that investigates global mysteries and unknown phenomena, has discovered a new realm: the Mirror Dimension.
+## 🎮 Game Introduction
 
-They sent researchers into this dimension, but when it became unstable, the Company decided to abandon them.
+The Company, a secret organization that investigates global mysteries and unknown phenomena, has discovered a new realm: the **Mirror Dimension**.
 
-Upon hearing this, a legendary retired agent set out to rescue his junior researcher.
+They dispatched researchers into this strange dimension. However, when the realm became unstable, the Company chose to abandon their team.
 
-However, due to the dimension's instability, the agent’s body was split into multiple entities upon entry.
+Upon hearing this, a legendary retired agent set out to rescue his junior researcher. But as he entered the unstable dimension, his body split into multiple entities.
 
-Your goal is to become the agent, merge the split bodies, and venture deeper into the dimension to find and save the researcher.
+Now, it's up to you — as the agent — to **merge the split bodies**, **solve puzzles**, **defeat enemies**, and **venture deeper** into the Mirror Dimension to save the researcher.
 
-Solve puzzles, defeat enemies spawned by the unstable realm, and complete your mission.
+---
 
-Controls:
+## 🕹️ Controls
 
-WASD: Move the first body
+| Action                      | Key(s)                   |
+|----------------------------|--------------------------|
+| Move First Body            | `WASD`                   |
+| Move Second Body           | `Arrow Keys`             |
+| Swap Camera Views          | `V`                      |
+| Reset Stage (Hold)         | `R` (for 3 seconds)      |
+| Shoot (First Body)         | `Left Mouse Button (LMB)`|
+| Grab (Second Body Ability) | `Right Mouse Button (RMB)`|
 
-Arrow Keys: Move the second body
+---
 
-V: Swap camera views
-
-Hold R (3 seconds): Reset the stage
-
-Left Mouse Button (LMB): Shoot with the first body
-
-Right Mouse Button (RMB): Use the grab ability of the second body
-
-Meet our team!
+## 👥 Meet Our Team
 
 <table>
   <tr>
@@ -65,6 +64,16 @@ Meet our team!
   </tr>
 </table>
 
-Link to our trailer: https://www.youtube.com/watch?v=FkGUP7Wk0uM
+---
 
-Link to our current version of the game: https://phamdoug22.itch.io
+## 📺 Watch the Trailer
+
+▶️ [YouTube Trailer](https://www.youtube.com/watch?v=FkGUP7Wk0uM)
+
+---
+
+## 🔗 Play the Game
+
+🎮 [Mirror-Divide on itch.io](https://phamdoug22.itch.io)
+
+---
