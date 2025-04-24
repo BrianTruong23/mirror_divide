@@ -1,16 +1,17 @@
-[gd_scene load_steps=18 format=3 uid="uid://cxonuqdk7sqs8"]
+[gd_scene load_steps=19 format=3 uid="uid://cxonuqdk7sqs8"]
 
 [ext_resource type="Script" path="res://final_level.gd" id="1_tdatf"]
 [ext_resource type="PackedScene" uid="uid://c5clromjmgu7k" path="res://Player.tscn" id="3_3810w"]
 [ext_resource type="Texture2D" uid="uid://cb307d8s8svew" path="res://assetss/platform_orange.png" id="4_58dn2"]
 [ext_resource type="Script" path="res://player.gd" id="4_t1cj6"]
+[ext_resource type="AudioStream" uid="uid://bxq2sb2om8ufj" path="res://assetss/bossmusic.wav" id="5_la2qf"]
+[ext_resource type="Script" path="res://audio_stream_player.gd" id="6_mw50m"]
 [ext_resource type="Texture2D" uid="uid://b6uljg1qe5gkd" path="res://assetss/b_orange_background_1.png" id="7_052yf"]
 [ext_resource type="PackedScene" uid="uid://ulkn81fayhxx" path="res://Researcher.tscn" id="7_w6uul"]
 [ext_resource type="Texture2D" uid="uid://crttpkl3sdcy5" path="res://assetss/b_orange_background_2.png" id="8_6rmd7"]
 [ext_resource type="Script" path="res://researcher.gd" id="8_fo760"]
 [ext_resource type="PackedScene" uid="uid://cau0seuevehqu" path="res://Final_boss.tscn" id="9_mdl0j"]
 [ext_resource type="Texture2D" uid="uid://cbgwdeyk7weew" path="res://assetss/b_orange_background_3.png" id="9_pavuo"]
-[ext_resource type="AudioStream" uid="uid://qab4yse0qpj" path="res://assetss/game music.mp3" id="12_rvkfs"]
 [ext_resource type="Texture2D" uid="uid://cgkefvl75fqut" path="res://assetss/b_orange_background.png" id="12_yubpi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_keant"]
@@ -99,8 +100,9 @@ position = Vector2(-4239.5, 929.5)
 shape = SubResource("RectangleShape2D_80cr0")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("12_rvkfs")
+stream = ExtResource("5_la2qf")
 autoplay = true
+script = ExtResource("6_mw50m")
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
