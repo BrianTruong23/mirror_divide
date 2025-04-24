@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://d3wglp2hfhnjx"]
+[gd_scene load_steps=34 format=3 uid="uid://d3wglp2hfhnjx"]
 
 [ext_resource type="Script" path="res://tutorial.gd" id="1_ovobt"]
 [ext_resource type="Texture2D" uid="uid://b1s0mvek3nqnp" path="res://assetss/platform_black.png" id="1_sfbse"]
@@ -27,6 +27,9 @@
 [ext_resource type="AudioStream" uid="uid://qab4yse0qpj" path="res://assetss/game music.mp3" id="25_pnhmr"]
 [ext_resource type="Texture2D" uid="uid://duwwx6quaa5w" path="res://assetss/instruction_r.png" id="26_gchdk"]
 [ext_resource type="PackedScene" uid="uid://dpf76q5xgm176" path="res://hint.tscn" id="27_5f5sa"]
+[ext_resource type="Texture2D" uid="uid://c3hdsrqxnjspw" path="res://assetss/b_blue_background_1.png" id="28_ok5qm"]
+[ext_resource type="Texture2D" uid="uid://qxmqqowpn534" path="res://assetss/b_blue_background_2.png" id="29_1nu6q"]
+[ext_resource type="Texture2D" uid="uid://tvx5ceiwloef" path="res://assetss/b_blue_background_3.png" id="30_r08dk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cr3bn"]
 size = Vector2(1190.75, 211.742)
@@ -101,17 +104,6 @@ texture = ExtResource("6_fflxg")
 position = Vector2(1284, 2)
 shape = SubResource("RectangleShape2D_a8gtm")
 
-[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
-
-[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_scale = Vector2(0, 0)
-
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer" groups=["grabbable"]]
-position = Vector2(0, -2)
-scale = Vector2(0.643415, 0.632812)
-texture = ExtResource("9_nkr0w")
-centered = false
-
 [node name="lever" parent="." instance=ExtResource("11_iljyf")]
 position = Vector2(558, -38)
 script = ExtResource("11_8fuil")
@@ -129,6 +121,7 @@ position = Vector2(8, -66)
 
 [node name="GrappleObject" parent="." groups=["grabbable", "rock"] instance=ExtResource("14_twgi5")]
 position = Vector2(1121, -119)
+gravity_scale = 0.3
 
 [node name="InstructionStone" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 1, 0.505882)
@@ -301,10 +294,7 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 40
 text = "This is a hint button.
-Hover over it, and you will get a hint.
-If you use it too much, you are so newb.
-
-asdf"
+Hover over it."
 horizontal_alignment = 1
 max_lines_visible = 4
 
@@ -333,6 +323,53 @@ with the 1st body.
 asdf"
 horizontal_alignment = 1
 max_lines_visible = 4
+
+[node name="ParallaxBackground2" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground2"]
+motion_scale = Vector2(0, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground2/ParallaxLayer" groups=["grabbable"]]
+position = Vector2(3, 2)
+scale = Vector2(0.643415, 0.632812)
+texture = ExtResource("9_nkr0w")
+centered = false
+
+[node name="ParallaxBackground3" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground3"]
+motion_scale = Vector2(0.2, 0)
+motion_mirroring = Vector2(1150, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground3/ParallaxLayer" groups=["grabbable"]]
+position = Vector2(3, 2)
+scale = Vector2(0.643415, 0.632812)
+texture = ExtResource("28_ok5qm")
+centered = false
+
+[node name="ParallaxBackground4" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground4"]
+motion_scale = Vector2(0.4, 0)
+motion_mirroring = Vector2(1150, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground4/ParallaxLayer" groups=["grabbable"]]
+position = Vector2(3, 2)
+scale = Vector2(0.643415, 0.632812)
+texture = ExtResource("29_1nu6q")
+centered = false
+
+[node name="ParallaxBackground5" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground5"]
+motion_scale = Vector2(0.6, 0)
+motion_mirroring = Vector2(1150, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground5/ParallaxLayer" groups=["grabbable"]]
+position = Vector2(3, 2)
+scale = Vector2(0.643415, 0.632812)
+texture = ExtResource("30_r08dk")
+centered = false
 
 [connection signal="platform_raised" from="lever" to="player_platform3" method="_on_lever_platform_raised"]
 [connection signal="lever_activated" from="lever2" to="Door" method="_on_lever_2_lever_activated"]
