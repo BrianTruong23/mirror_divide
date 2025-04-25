@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://cxonuqdk7sqs8"]
+[gd_scene load_steps=18 format=3 uid="uid://cxonuqdk7sqs8"]
 
 [ext_resource type="Script" path="res://final_level.gd" id="1_tdatf"]
 [ext_resource type="PackedScene" uid="uid://c5clromjmgu7k" path="res://Player.tscn" id="3_3810w"]
@@ -14,89 +14,74 @@
 [ext_resource type="Texture2D" uid="uid://cbgwdeyk7weew" path="res://assetss/b_orange_background_3.png" id="9_pavuo"]
 [ext_resource type="Texture2D" uid="uid://cgkefvl75fqut" path="res://assetss/b_orange_background.png" id="12_yubpi"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_keant"]
-size = Vector2(728, 199.217)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w4kmd"]
-size = Vector2(1415, 219)
+size = Vector2(2968, 219)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m3db5"]
-size = Vector2(443.375, 46)
+size = Vector2(196.344, 359)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8r1f1"]
-size = Vector2(193.5, 288)
+size = Vector2(163.75, 299)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_80cr0"]
-size = Vector2(241, 499)
+size = Vector2(241, 665.5)
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_tdatf")
 
 [node name="Player" parent="." instance=ExtResource("3_3810w")]
-position = Vector2(-2257, 665)
+position = Vector2(-3617, 557)
 script = ExtResource("4_t1cj6")
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(-103, 13)
 
-[node name="player_platform2" type="CharacterBody2D" parent="."]
-position = Vector2(1141, -68)
-
-[node name="aaaaa" type="Sprite2D" parent="player_platform2"]
-position = Vector2(-2353.5, 1058)
-scale = Vector2(0.566406, 0.165)
-texture = ExtResource("4_58dn2")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="player_platform2"]
-position = Vector2(-2339, 1059)
-shape = SubResource("RectangleShape2D_keant")
-
 [node name="player_platform5" type="CharacterBody2D" parent="."]
 position = Vector2(1141, -68)
 
 [node name="Sprite2D" type="Sprite2D" parent="player_platform5"]
-position = Vector2(-3424, 1068)
-scale = Vector2(1.10625, 0.173438)
+position = Vector2(-3454, 1068)
+scale = Vector2(2.39688, 0.173438)
 texture = ExtResource("4_58dn2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="player_platform5"]
-position = Vector2(-3414, 1069.5)
+position = Vector2(-3465, 1069.5)
 shape = SubResource("RectangleShape2D_w4kmd")
 
 [node name="player_platform3" type="CharacterBody2D" parent="."]
 position = Vector2(1141, -68)
 
 [node name="aaaaa" type="Sprite2D" parent="player_platform3"]
-position = Vector2(-1515, 831)
-scale = Vector2(0.353076, 0.0284375)
+position = Vector2(-1671.5, 993.4)
+scale = Vector2(0.152344, 0.282187)
 texture = ExtResource("4_58dn2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="player_platform3"]
-position = Vector2(-1506, 830)
+position = Vector2(-1672.17, 993)
 shape = SubResource("RectangleShape2D_m3db5")
 
 [node name="player_platform4" type="CharacterBody2D" parent="."]
 position = Vector2(1141, -68)
 
 [node name="aaaaa" type="Sprite2D" parent="player_platform4"]
-position = Vector2(-1888, 1027.15)
-scale = Vector2(0.158399, 0.233047)
+position = Vector2(-1931.69, 1031)
+scale = Vector2(0.132325, 0.235156)
 texture = ExtResource("4_58dn2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="player_platform4"]
-position = Vector2(-1885.75, 1022)
+position = Vector2(-1926.88, 1029)
 shape = SubResource("RectangleShape2D_8r1f1")
 
 [node name="player_platform6" type="CharacterBody2D" parent="."]
 position = Vector2(1141, -68)
 
 [node name="Sprite2D" type="Sprite2D" parent="player_platform6"]
-position = Vector2(-4238.5, 928.5)
-scale = Vector2(0.186719, 0.403906)
+position = Vector2(-5022, 1008.25)
+scale = Vector2(0.186719, 0.540234)
 texture = ExtResource("4_58dn2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="player_platform6"]
-position = Vector2(-4239.5, 929.5)
+position = Vector2(-5024, 1011.25)
 shape = SubResource("RectangleShape2D_80cr0")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
@@ -152,7 +137,7 @@ texture = ExtResource("9_pavuo")
 centered = false
 
 [node name="Researcher" parent="." instance=ExtResource("7_w6uul")]
-position = Vector2(-400, 524)
+position = Vector2(-246, 563)
 script = ExtResource("8_fo760")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -167,6 +152,18 @@ You saved the researcher!"
 horizontal_alignment = 1
 
 [node name="CharacterBody2D" parent="." groups=["enemies"] instance=ExtResource("9_mdl0j")]
-position = Vector2(-1395, 198)
+position = Vector2(-1346, 420)
+
+[node name="player_platform7" type="CharacterBody2D" parent="."]
+position = Vector2(1141, -68)
+
+[node name="aaaaa" type="Sprite2D" parent="player_platform7"]
+position = Vector2(-1413, 969.7)
+scale = Vector2(0.152344, 0.317656)
+texture = ExtResource("4_58dn2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="player_platform7"]
+position = Vector2(-1412, 946)
+shape = SubResource("RectangleShape2D_m3db5")
 
 [connection signal="final_game_ended" from="Researcher" to="." method="_on_researcher_final_game_ended"]

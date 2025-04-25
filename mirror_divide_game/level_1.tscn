@@ -515,21 +515,21 @@ offset_left = -2400.0
 offset_top = -230.0
 offset_right = -1120.0
 offset_bottom = 1050.0
-hint_text = "Body 1 should do something for you..."
+hint_text = "This sand looks breakable with bullets..."
 
 [node name="TextureButton3" parent="." instance=ExtResource("19_fmwdv")]
 offset_left = -1011.0
 offset_top = 29.0
 offset_right = 269.0
 offset_bottom = 1309.0
-hint_text = "You need something to make this jump"
+hint_text = "You need to bring something to make this jump"
 
 [node name="TextureButton4" parent="." instance=ExtResource("19_fmwdv")]
 offset_left = 1439.0
 offset_top = -151.0
 offset_right = 2719.0
 offset_bottom = 1129.0
-hint_text = "You can get the password from Body 1"
+hint_text = "Count mobs per size"
 
 [node name="TextureButton5" parent="." instance=ExtResource("19_fmwdv")]
 offset_left = -1403.0
