@@ -8,6 +8,7 @@ const GRAVITY = 1000.0
 const BULLET_SPEED = 500.0
 
 @onready var sprite = $AnimatedSprite2D  # Reference to player sprite
+@onready var hit_sound = $HitSound  # Add this at the top with your other @onready vars
 
 var can_transition = true  # Flag to prevent multiple transitions
 var has_key = false  # Tracks key possession
@@ -130,6 +131,8 @@ func take_damage(damage: int):
 		flash_orange()
 	else:
 		flash_blue()
+	if hit_sound:
+		$HitSound.play()
 
 	GlobalHealth.apply_damage(damage)
 

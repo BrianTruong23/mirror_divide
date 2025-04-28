@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://cxonuqdk7sqs8"]
+[gd_scene load_steps=19 format=3 uid="uid://cxonuqdk7sqs8"]
 
 [ext_resource type="Script" path="res://final_level.gd" id="1_tdatf"]
 [ext_resource type="PackedScene" uid="uid://c5clromjmgu7k" path="res://Player.tscn" id="3_3810w"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://cau0seuevehqu" path="res://Final_boss.tscn" id="9_mdl0j"]
 [ext_resource type="Texture2D" uid="uid://cbgwdeyk7weew" path="res://assetss/b_orange_background_3.png" id="9_pavuo"]
 [ext_resource type="Texture2D" uid="uid://cgkefvl75fqut" path="res://assetss/b_orange_background.png" id="12_yubpi"]
+[ext_resource type="AudioStream" uid="uid://bdhc4klobd8lu" path="res://assetss/victory.wav" id="13_cpkbe"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w4kmd"]
 size = Vector2(2968, 219)
@@ -84,7 +85,7 @@ texture = ExtResource("4_58dn2")
 position = Vector2(-5024, 1011.25)
 shape = SubResource("RectangleShape2D_80cr0")
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="BGM" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_la2qf")
 autoplay = true
 script = ExtResource("6_mw50m")
@@ -139,6 +140,10 @@ centered = false
 [node name="Researcher" parent="." instance=ExtResource("7_w6uul")]
 position = Vector2(-246, 563)
 script = ExtResource("8_fo760")
+
+[node name="GameWinSound" type="AudioStreamPlayer2D" parent="Researcher"]
+position = Vector2(246, -563)
+stream = ExtResource("13_cpkbe")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

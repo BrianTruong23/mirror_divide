@@ -7,6 +7,9 @@ const BULLET_SPEED = 500.0
 
 #@onready var label_text = $CanvasLayer/Label
 signal final_game_ended
+@onready var game_win_sound = $GameWinSound
+@onready var BGM = $BGM
+
 
 func _ready():
 	# Assuming you have an Area2D as a child node called "DetectionArea"
@@ -23,11 +26,17 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func _on_detection_area_body_entered(body):
+
 	# Check if the colliding body is another CharacterBody2D
 	if body is CharacterBody2D and body != self and body.is_in_group("player"):
+
 		print("Game stopped - Collision detected with: ", body.name)
 		#emit_signal("final_game_ended")  # Optional, in case other systems use this
 
 		# Transition to final scene (after fade if needed)
 		TransitionManager.next_scene_path = "res://Scene/final.tscn"
+		if BGM:
+			BGM.stop()
+		if game_win_sound:
+			game_win_sound.play()
 		await TransitionManager.play_fade()
