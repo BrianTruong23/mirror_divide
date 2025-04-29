@@ -12,6 +12,7 @@ func _on_area_entered(area):
 	if area is Area2D and not moved_boolean:
 		platform_raised.emit() 
 		anim.play("open")
+		$ButtonPress.play()
 		moved_boolean = true 
 
 		

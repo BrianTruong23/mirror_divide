@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://b5vgwybaq7m8y"]
+[gd_scene load_steps=7 format=3 uid="uid://b5vgwybaq7m8y"]
 
 [ext_resource type="Texture2D" uid="uid://c08u5igqi16km" path="res://assetss/lever0.png" id="1_uyiuu"]
 [ext_resource type="Texture2D" uid="uid://nx0jjj7asvnm" path="res://assetss/lever1.png" id="2_g03w1"]
+[ext_resource type="AudioStream" uid="uid://blug5bnauooqh" path="res://assetss/buttonpress.mp3" id="3_bwway"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_0thqr"]
 animations = [{
@@ -46,3 +47,6 @@ shape = SubResource("RectangleShape2D_f2c63")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1, -4)
 shape = SubResource("RectangleShape2D_040ps")
+
+[node name="ButtonPress" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_bwway")

@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://cau0seuevehqu"]
+[gd_scene load_steps=7 format=3 uid="uid://cau0seuevehqu"]
 
 [ext_resource type="Script" path="res://Final_boss.gd" id="1_g7vrn"]
 [ext_resource type="Texture2D" uid="uid://c6uecffxg6m0m" path="res://assetss/final_boss.png" id="2_n8x4k"]
+[ext_resource type="AudioStream" uid="uid://c2knsmv724k8" path="res://little_robot_sound_factory_Hero_Death_00-[AudioTrimmer.com].mp3" id="3_m7808"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_spgkx"]
 animations = [{
@@ -38,5 +39,8 @@ shape = SubResource("RectangleShape2D_aqc0b")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(30, 42)
 shape = SubResource("RectangleShape2D_ylpsi")
+
+[node name="MobDie" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_m7808")
 
 [connection signal="body_shape_entered" from="DamageArea" to="." method="_on_damage_area_body_shape_entered"]

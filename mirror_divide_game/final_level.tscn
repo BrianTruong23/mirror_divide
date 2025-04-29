@@ -144,6 +144,7 @@ script = ExtResource("8_fo760")
 [node name="GameWinSound" type="AudioStreamPlayer2D" parent="Researcher"]
 position = Vector2(246, -563)
 stream = ExtResource("13_cpkbe")
+volume_db = 6.439
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

@@ -175,6 +175,11 @@ func _on_direction_change_timer_timeout():
 	direction_change_timer.start()
 
 func die():
+	if $MobDie:
+		var sfx = $MobDie.duplicate()
+		sfx.global_position = global_position
+		get_tree().current_scene.add_child(sfx)
+		sfx.play()
 	queue_free()
 
 
